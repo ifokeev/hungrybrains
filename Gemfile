@@ -3,8 +3,29 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.1'
+
+#my gems
+gem 'by_star', :git => "git://github.com/radar/by_star"
+gem 'acts-as-taggable-on'
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'sprockets'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
+gem 'autoprefixer-rails'
+
+gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
+
+gem 'haml-rails'
+gem 'sorcery'
+gem 'role_model'
+
+gem 'will_paginate', '~> 3.0'
+
+########
+
+
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
+
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
 # Use Uglifier as compressor for JavaScript assets
