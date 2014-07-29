@@ -1,0 +1,38 @@
+.row.row-auth
+  .auth-header
+    .col-md-5.col-md-offset-1.auth.student
+      %p.text-center Студент
+    .col-md-5.auth.company
+      %p.text-center Компания
+  %div
+    .col-md-5.col-md-offset-1.auth-content.auth.student
+      .form-wrapper
+        %form{:role => "form"}
+          %div
+            %span.text-center.auth-text Войти с помощью:
+            %a{:href => "#"}
+              = image_tag 'vk-auth.png'
+            %a{:href => "#"}
+              = image_tag 'fb-auth.png'
+            %a{:href => "#"}
+              = image_tag 'tw-auth.png'
+          .form-group
+            %input#emailField.form-control{:placeholder => "Email", :type => "email"}
+          .form-group
+            %input#passwordField.form-control{:placeholder => "Пароль", :type => "password"}
+          .checkbox
+            %label
+              %input{:type => "checkbox"}
+                Я принимаю пользовательское соглашение
+          .text-center.margin-top30
+            %button.btn.btn-default.btn-lg.btn-student{:type => "submit"} Регистрация
+    .col-md-5.auth-promo.auth.student
+      .promo-items
+        %div
+          %p.text-center.auth-text Какой-то текст с картинками
+        %div
+          %p.text-center.auth-text Какой-то текст с картинками
+        %div
+          %p.text-center.auth-text Какой-то текст с картинками
+        %div
+          %p.text-center.auth-text Какой-то текст с картинками
