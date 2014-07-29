@@ -173,3 +173,95 @@ footer .social {
 	font-size: 1.2em;
 }
 
+/* auth */
+
+.row-auth {
+  margin-top: 20px;
+}
+
+.auth {
+  background-color: #f2f3f1;
+  padding: 10px;
+  font-size: 1.3em;
+}
+
+.auth-header {
+  font-size: 1.5em;
+}
+
+.auth-header .student {
+  color: #82bf90;
+  border-radius: 0.5em 0.5em 0 0;
+}
+
+.auth-header .company {
+  color: #6786c3;
+  border-radius: 0.5em 0.5em 0 0.5em;
+}
+
+.auth-content {
+  border-radius: 0 0 0 0.5em;
+}
+
+.auth-promo {
+  border-radius: 0 0 0.5em 0;
+}
+
+.row-auth .company {
+  background-color: #d9dde7;
+}
+
+/*
+.row-auth .student {
+  background-color: #d9dde7;
+}
+*/
+
+.auth-content .form-wrapper {
+  padding-left: 20px;
+  color: #858789;
+}
+
+.form-wrapper .form-control {
+  font-style: italic;
+  margin-top: 20px;
+}
+
+.auth-content, .auth-promo {
+  min-height: 300px;
+}
+
+.auth-promo {
+  display: table;
+}
+
+.promo-items {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.promo-items .auth-text {
+  font-size: 21px;
+}
+
+.auth .vk {
+  background: image_url('vk-auth.png') no-repeat;
+  width: 41px;
+  height: 46px;
+  margin-left: 10px;
+}
+.auth .facebook {
+  background: image_url('fb-auth.png') no-repeat;
+  width: 41px;
+  height: 48px;
+  margin-left: 10px;
+}
+.auth .twitter {
+  background: image_url('tw-auth.png') no-repeat;
+  width: 41px;
+  height: 41px;
+  margin-left: 10px;
+}
+
+
+
