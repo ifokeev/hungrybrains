@@ -1,15 +1,18 @@
 / row 4 footer
-%footer.row
-  .col-lg-10
+%footer.row.container-fluid
+  .col-md-8.col-md-offset-1
     %nav.navbar
       %ul.nav.navbar-nav
         %li
-          %a{href: "#"} О сайте
+          %a{:href => "#"} О сайте
         %li
-          %a{href: "#"} Контакты
+          %a{:href => "#"} Контакты
         %li
-          %a{href: "#"} Обратная связь
-  .col-lg-2.social
-    %a.vk{href: "#"}
-    %a.facebook{href: "#"}
-    %a.twitter{href: "#"}
+          %a{:href => "#"} Обратная связь
+  .col-md-3.social
+    %a{:href => "#"}
+      %img.vk/
+    %a{:href => "#"}
+      %img.facebook/
+    %a{:href => "#"}
+      %img.twitter/
