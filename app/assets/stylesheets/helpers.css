@@ -61,6 +61,14 @@
   {
   margin-top:20px !important;
 }
+.margin-top30
+{
+    margin-top:30px !important;
+}
+.margin-bottom5
+{
+    margin-bottom:5px !important;
+}
 .margin-bottom10
   {
   margin-bottom:10px !important;
@@ -68,6 +76,10 @@
 .margin-bottom20
   {
   margin-bottom:20px !important;
+}
+.margin-bottom30
+{
+    margin-bottom:30px !important;
 }
 .no-margin-top
   {

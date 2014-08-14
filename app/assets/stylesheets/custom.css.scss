@@ -1,10 +1,14 @@
+html, body {
+  height: 100%;
+}
+
 /* header */
 header {
 	margin-top: 1em;
 }
 
 header .nav {
-	font-size: 1.5em;
+	font-size: 1.4em;
 }
 
 header .nav > li > a {
@@ -14,7 +18,7 @@ header .nav > li > a {
 
 .breadcrumb {
 	background-color: #fff;
-	font-size: 1.6em;
+	font-size: 1.4em;
 }
 
 .breadcrumb > li + li:before {
@@ -36,19 +40,23 @@ footer {
 	height: 100%;
 }
 
-footer.row {
-	margin-top: 20px;
+//footer.footer {
+//	margin-top: 20px;
+//}
+
+.footer {
+	font-size: 1.1em;
 }
 
-footer .nav {
-	font-size: 1.2em;
-}
-
-footer .nav > li > a {
+footer ul > li > a {
   padding: 10px 30px;
   color: #fff;
 }
 
+footer ul > li > a:hover
+  {
+  color: #fff;
+}
 footer .social {
 	display: block;
 	float: right;
@@ -86,18 +94,29 @@ footer .social {
 	border-radius: 1em;
 	padding: 10px;
 	min-height: 300px;
-	font-size: 1.3em;	
+	font-size: 1.1em;
+    height:100%;
 }
 
 .promo-img {
-	height: 25%;
-	width: 25%;
+
 }
 
 .promo-text {
 	margin: 10px;
 }
 
+.promo-block {
+  width: 48%;
+  background-color: #f2f3f1;
+  position: relative;
+}
+
+.promo-button {
+  position: absolute;
+  left:31%;
+  bottom: 20px;
+}
 .btn-wrapper {	
 	position: absolute;
 	bottom: 20px;
@@ -106,13 +125,13 @@ footer .social {
 
 .btn-student {
   color: #82bf90;
-  background-color: #f2f3f1;
+  background: transparent;
   border-color: #82bf90;  
 }
 
 .btn-company {
   color: #6786c3;
-  background-color: #f2f3f1;
+  background: transparent;
   border-color: #6786c3;	
 }
 
@@ -127,6 +146,10 @@ footer .social {
     border-bottom: 1px solid #ccc;
 }
 
+.last-vacancy
+  {
+  border-bottom: none !important;
+}
 .vacancy .logo {
 	background: image_url('booking-logo.png') no-repeat;
 	width: 53px;
@@ -186,17 +209,17 @@ footer .social {
 }
 
 .auth-header {
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .auth-header .student {
   color: #82bf90;
-  border-radius: 0.5em 0.5em 0 0;
+  border-radius: 0.5em 0 0 0;
 }
 
 .auth-header .company {
   color: #6786c3;
-  border-radius: 0.5em 0.5em 0 0.5em;
+  border-radius: 0 0.5em 0 0;
 }
 
 .auth-content {
@@ -241,7 +264,7 @@ footer .social {
 }
 
 .promo-items .auth-text {
-  font-size: 21px;
+
 }
 
 .auth .vk {
@@ -261,6 +284,16 @@ footer .social {
   width: 41px;
   height: 41px;
   margin-left: 10px;
+}
+
+.wrapper {
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -51px; /* the bottom margin is the negative value of the footer's height */
+}
+.footer, .push {
+  height: 51px; /* .push must be the same height as .footer */
 }
 
 

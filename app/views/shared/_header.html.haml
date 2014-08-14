@@ -1,20 +1,20 @@
 / row 1 header
 %header.row
   .col-md-1
-    %a{href: "index.html"}
+    %a{href: root_path}
       %img.img-responsive.logo{alt: "logo", src: image_path("logo.png")}
   .col-md-5
     %nav.row
       %ul.nav.navbar-nav
         %li
-          %a{href: "#"} Стажировки
+          %a{href: jobs_path} Стажировки
         %li
-          %a{href: "#"} Компании
+          %a{href: companies_path} Компании
         %li
-          %a{href: "#"} Знания
-  .col-md-3.col-md-offset-3
+          %a{href: info_index_path} Знания
+  .col-md-3.col-md-offset-3.text-right
     %ol.breadcrumb
       %li
-        %a.signin{href: "#"} Вход
+        %a.signin{href: auth_login_path } Вход
       %li
-        %a.signup{href: "#"} Регистрация
+        %a.signup{href: auth_sign_up_path } Регистрация
