@@ -1,4 +1,3 @@
-/ row 2 promo
 .row.row-promo
   .promo-block.promo.pull-left
     %img.center-block.img-responsive.img-circle.promo-img{src: image_path("student-promo.png")}
@@ -6,15 +5,15 @@
       Вы студент? Hungry Brains поможет Вам найти стажировку прямо сейчас!
       Просто кликните бла бла бла бла бла. Опыт работа любимая жена связи.
     .text-center.promo-button
-      %button.btn.btn-default.btn-lg.btn-student{type: "button"}
-        Найти стажировку
+      = button_to "Найти стажировку", signup_path, method: "get", class: "btn btn-default btn-lg btn-student"      
+
   .promo-block.promo.pull-left{:style => "margin-left:30px"}
     %img.center-block.img-responsive.img-circle.promo-img{src: image_path("company-promo.png")}/
     %p.text-center.promo-text
       Вы компания? Hungry Brains поможет Вам найти стажировку прямо сейчас!
       Бла бла бла бла бла.
     .text-center.promo-button
-      %button.btn.btn-default.btn-lg.btn-company{type: "button"}
-        Добавить стажировку
+      = button_to "Добавить стажировку", signup_path, method: "get", class: "btn btn-default btn-lg btn-company"
+        
 
   .clearfix
