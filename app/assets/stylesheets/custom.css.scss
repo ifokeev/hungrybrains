@@ -213,8 +213,7 @@ footer .social {
 
 /* auth */
 
-.auth
-  {
+.auth {
   background-color: #f2f3f1;
   @include border-radius(0.5em);
 }
@@ -222,8 +221,7 @@ footer .social {
   padding: 10px;
 }
 
-.auth-tabs-active
-  {
+.auth-tabs-active {
   background-color: #f2f3f1 !important;
 }
 .auth-header {
@@ -284,6 +282,7 @@ footer .social {
   height: 100%;
   margin: 0 auto -51px; /* the bottom margin is the negative value of the footer's height */
 }
+
 .footer, .push {
   height: 51px; /* .push must be the same height as .footer */
 }

@@ -1,4 +1,4 @@
-class Auth::SessionsController < ApplicationController
+class SessionsController < ApplicationController
   before_action :set_user, only: [:create]
   before_action :require_login, only: [:destroy]
 
@@ -7,14 +7,15 @@ class Auth::SessionsController < ApplicationController
 
   def create
     if @user
-      redirect_to root_url , :notice => "Logged in!"
+      redirect_back_or_to root_url , :notice => "Logged in!"
     else
-      redirect_to auth_login_url, :alert => "Email or password was invalid."
+      redirect_to singin_url, :alert => "Email or password was invalid."
     end
   end
+
   def destroy
     logout
-    redirect_to auth_login_url, :notice => 'Logged out!'
+    redirect_to root_url, :notice => 'Logged out!'
   end
 
   private
