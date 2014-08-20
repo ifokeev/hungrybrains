@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140602132402) do
+ActiveRecord::Schema.define(version: 20140820104858) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 20140602132402) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "profiles", force: true do |t|
+    t.integer  "user_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"
 
   create_table "users", force: true do |t|
     t.string   "email",                                       null: false
@@ -50,5 +59,15 @@ ActiveRecord::Schema.define(version: 20140602132402) do
   add_index "users", ["last_logout_at", "last_activity_at"], name: "index_users_on_last_logout_at_and_last_activity_at"
   add_index "users", ["remember_me_token"], name: "index_users_on_remember_me_token"
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token"
+
+  create_table "vacancies", force: true do |t|
+    t.integer  "profile_id"
+    t.string   "title"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "vacancies", ["profile_id"], name: "index_vacancies_on_profile_id"
 
 end

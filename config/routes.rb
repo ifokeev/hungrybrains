@@ -12,5 +12,6 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
 
-  resources :companies, :info, :jobs
+  resources :companies, :info, :jobs, :vacancies
+  resources :users
 end

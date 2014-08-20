@@ -4,6 +4,7 @@ require 'role_model'
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   include RoleModel
+  has_one :profiles
 
   validates :password,                presence: true, length: { minimum: 3}, confirmation: false
   #validates :password_confirmation,   presence: true
