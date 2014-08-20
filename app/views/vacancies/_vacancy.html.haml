@@ -1,2 +1,11 @@
-%li
-  = link_to vacancy.title, vacancy
+.row.vacancy
+  .col-md-3.logo
+  .col-md-8
+    .row.title
+      %p= raw [link_to(vacancy.profile.name, vacancy), link_to(vacancy.title, vacancy)].join(" : ")
+    .row.description
+      %p= ["Описание", vacancy.brief_description].join(": ")
+  .col-md-1.worktype
+    .row
+      .col-md-6.paid.icon
+      .col-md-6.trainee.icon
