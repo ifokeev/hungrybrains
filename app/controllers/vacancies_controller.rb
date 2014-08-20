@@ -6,7 +6,6 @@ class VacanciesController < ApplicationController
 
 	def show
 		@vacancy = Vacancy.find(params[:id])
-		@profile = Profile.find_by_id(@vacancy.profile_id)
 	end
 
 end
