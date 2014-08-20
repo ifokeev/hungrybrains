@@ -11,30 +11,7 @@
       .row
         .col-md-12
           .col-md-6
-            .form-wrapper
-              = form_for @user do |f|
-                %form{:role => "form"}
-                  %div
-                    %span.text-center.auth-text Войти с помощью:
-                    %a{:href => "#"}
-                      = image_tag 'vk-auth.png'
-                    %a{:href => "#"}
-                      = image_tag 'fb-auth.png'
-                    %a{:href => "#"}
-                      = image_tag 'tw-auth.png'
-                  .form-group
-                    = f.text_field :email
-                    / %input#emailField.form-control{:placeholder => "Email", :type => "email"}
-                  .form-group
-                    = f.password_field :password
-                    / %input#passwordField.form-control{:placeholder => "Пароль", :type => "password"}
-                  .checkbox
-                    %label
-                      %input{:type => "checkbox"}
-                        Я принимаю пользовательское соглашение
-                  .text-center.margin-top30
-                    = f.submit "Регистрация"
-                    / %button.btn.btn-default.btn-lg.btn-student{:type => "submit"} Регистрация
+            = render 'form'
           .col-md-6
             .promo-items
               %div
@@ -47,30 +24,10 @@
                 %p.text-center.auth-text Какой-то текст с картинками
 
     .auth-content.company.hide
-      company
       .row
         .col-md-12
           .col-md-6
-            .form-wrapper
-              %form{:role => "form"}
-                %div
-                  %span.text-center.auth-text Войти с помощью:
-                  %a{:href => "#"}
-                    = image_tag 'vk-auth.png'
-                  %a{:href => "#"}
-                    = image_tag 'fb-auth.png'
-                  %a{:href => "#"}
-                    = image_tag 'tw-auth.png'
-                .form-group
-                  %input#emailField.form-control{:placeholder => "Email", :type => "email"}
-                .form-group
-                  %input#passwordField.form-control{:placeholder => "Пароль", :type => "password"}
-                .checkbox
-                  %label
-                    %input{:type => "checkbox"}
-                      Я принимаю пользовательское соглашение
-                .text-center.margin-top30
-                  %button.btn.btn-default.btn-lg.btn-student{:type => "submit"} Регистрация
+            = render 'form'
           .col-md-6
             .promo-items
               %div

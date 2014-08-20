@@ -1,0 +1,16 @@
+.form-wrapper
+  = form_tag sessions_path do 
+    %div
+      %span.text-center.auth-text Войти с помощью:
+      %a{:href => "#"}
+        = image_tag 'vk-auth.png'
+      %a{:href => "#"}
+        = image_tag 'fb-auth.png'
+      %a{:href => "#"}
+        = image_tag 'tw-auth.png'
+    .form-group
+      = email_field_tag :email, "Email", class: "emailField form-control"
+    .form-group                    
+      = password_field_tag :password, "Password", class: "passwordField form-control"
+    .text-center.margin-top30
+      = submit_tag "Вход", class: "btn btn-default btn-lg btn-student"
