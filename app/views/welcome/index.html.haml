@@ -2,50 +2,7 @@
 / row 3 vacancies
 .row.vacancies.margin-top20
   .col-md-9
-    .row.vacancy
-      .col-md-3.logo
-      .col-md-8
-        .row.title
-          %p Booking.com: разносчик кофе
-        .row.description
-          %p Описание: расторопность, улыбчивость, владение кофемашинкой кофемашинкой кофемашинкой
-      .col-md-1.worktype
-        .row
-          .col-md-6.paid.icon
-          .col-md-6.trainee.icon
-    .row.vacancy
-      .col-md-3.logo
-      .col-md-8
-        .row.title
-          %p Booking.com: разносчик кофе
-        .row.description
-          %p Описание: расторопность, улыбчивость, владение кофемашинкой кофемашинкой кофемашинкой
-      .col-md-1.worktype
-        .row
-          .col-md-6.paid.icon
-          .col-md-6.trainee.icon
-    .row.vacancy
-      .col-md-3.logo
-      .col-md-8
-        .row.title
-          %p Booking.com: разносчик кофе
-        .row.description
-          %p Описание: расторопность, улыбчивость, владение кофемашинкой кофемашинкой кофемашинкой
-      .col-md-1.worktype
-        .row
-          .col-md-6.non-paid.icon
-          .col-md-6.trainee.icon
-    .row.vacancy.last-vacancy
-      .col-md-3.logo
-      .col-md-8
-        .row.title
-          %p Booking.com: разносчик кофе
-        .row.description
-          %p Описание: расторопность, улыбчивость, владение кофемашинкой кофемашинкой кофемашинкой
-      .col-md-1.worktype
-        .row
-          .col-md-6.paid.icon
-          .col-md-6.trainee.icon
+    = render @vacancies.reverse_order.limit(5)
     .text-center.margin-top10
       %a.show-more{href: "#"}
         %ins Показать больше
