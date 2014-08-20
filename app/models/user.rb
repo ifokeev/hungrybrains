@@ -4,7 +4,7 @@ require 'role_model'
 class User < ActiveRecord::Base
   authenticates_with_sorcery!
   include RoleModel
-  has_one :profiles
+  has_one :profile
 
   validates :password,                presence: true, length: { minimum: 3}, confirmation: false
   #validates :password_confirmation,   presence: true
@@ -20,6 +20,7 @@ class User < ActiveRecord::Base
   def self.current
     Thread.current[:user]
   end
+
   def self.current=(user)
     Thread.current[:user] = user
   end
