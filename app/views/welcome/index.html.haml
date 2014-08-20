@@ -3,8 +3,8 @@
   .col-md-9
     = render @vacancies.reverse_order.limit(5)
     .text-center.margin-top10
-      %a.show-more{href: "#"}
-        %ins Показать больше
+      = link_to vacancies_path, class: "show-more" do
+        %ins Показать больше        
   .col-md-3.blank
 
 .margin-bottom20
