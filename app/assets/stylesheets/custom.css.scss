@@ -1,3 +1,10 @@
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius !important;
+  -moz-border-radius: $radius !important;
+  -ms-border-radius: $radius !important;
+  border-radius: $radius !important;
+}
+
 html, body {
   height: 100%;
 }
@@ -196,49 +203,44 @@ footer .social {
 	font-size: 1.2em;
 }
 
-/* auth */
 
-.row-auth {
-  margin-top: 20px;
+.auth
+  {
+  background-color: #f2f3f1;
+  @include border-radius(0.5em);
+}
+.auth-tabs {
+  padding: 10px;
 }
 
-.auth {
-  background-color: #f2f3f1;
-  padding: 10px;
+.auth-tabs-active
+  {
+  background-color: #f2f3f1 !important;
+}
+.auth-header {
   font-size: 1.3em;
 }
 
-.auth-header {
-  font-size: 1.2em;
-}
-
 .auth-header .student {
+  background-color: #d8e2dd;
   color: #82bf90;
   border-radius: 0.5em 0 0 0;
 }
 
 .auth-header .company {
+  background-color: #d9dde7;
   color: #6786c3;
   border-radius: 0 0.5em 0 0;
 }
 
 .auth-content {
-  border-radius: 0 0 0 0.5em;
+  padding-top:20px;
+  padding-bottom:20px;
 }
 
 .auth-promo {
-  border-radius: 0 0 0.5em 0;
-}
 
-.row-auth .company {
-  background-color: #d9dde7;
 }
-
-/*
-.row-auth .student {
-  background-color: #d9dde7;
-}
-*/
 
 .auth-content .form-wrapper {
   padding-left: 20px;
@@ -251,7 +253,7 @@ footer .social {
 }
 
 .auth-content, .auth-promo {
-  min-height: 300px;
+  //min-height: 300px;
 }
 
 .auth-promo {
@@ -265,25 +267,6 @@ footer .social {
 
 .promo-items .auth-text {
 
-}
-
-.auth .vk {
-  background: image_url('vk-auth.png') no-repeat;
-  width: 41px;
-  height: 46px;
-  margin-left: 10px;
-}
-.auth .facebook {
-  background: image_url('fb-auth.png') no-repeat;
-  width: 41px;
-  height: 48px;
-  margin-left: 10px;
-}
-.auth .twitter {
-  background: image_url('tw-auth.png') no-repeat;
-  width: 41px;
-  height: 41px;
-  margin-left: 10px;
 }
 
 .wrapper {
