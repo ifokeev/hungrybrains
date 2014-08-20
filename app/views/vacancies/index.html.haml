@@ -11,7 +11,7 @@
           %span.input-group-btn
             %button.btn.btn-default
               %span.glyphicon.glyphicon-search
-    = render @vacancies    
+    = render @vacancies.reverse_order
     / .text-center.margin-top10
     /   %a.show-more{href: "#"}
     /     %ins Показать больше
