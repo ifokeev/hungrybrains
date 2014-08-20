@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   def new
   end
 
-  def create
+  def create    
     if @user
-      redirect_back_or_to root_url , :notice => "Logged in!"
+      redirect_back_or_to root_url , :notice => "Logged in as " + @user.email
     else
       redirect_to singin_url, :alert => "Email or password was invalid."
     end
@@ -20,11 +20,6 @@ class SessionsController < ApplicationController
 
   private
   def set_user
-    @user = login(session_params.fetch(:email), session_params.fetch(:password), session_params.fetch(:remember_me))
+    @user = login(params[:email], params[:password], params[:remember_me])
   end
-
-  def session_params
-    params.require(:user).permit(:email, :password, :remember_me)
-  end
-
 end

@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   root 'welcome#index'
 
-  resources :users,    only: [:new, :create]
+  resources :users,    only: [:new, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   resources :companies, :vacancies, :info
   match '/signup',  to: 'users#new',            via: 'get'
