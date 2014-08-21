@@ -13,8 +13,13 @@ class ApplicationController < ActionController::Base
     request.format.js?
   end
 
+  private
   def not_found
     raise ActionController::RoutingError.new('Not Found')
+  end
+
+  def not_authenticated
+    redirect_to signin_path, alert: "Для просмотра это страницы необходимо авторизоваться"
   end
 
 end
