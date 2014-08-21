@@ -1,33 +1,32 @@
 namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
-    make_users
-    make_profiles
+    make_users_and_profiles
     make_vacancies
   end
 end
 
-def make_users
+def make_users_and_profiles
   100.times do |n|
     email = "qweqwe#{n+1}@gmail.com"
     password  = "qweqwe"
-    User.create!(email:    email,
-                 password: password)
+    name = Faker::Company.name
+
+    user = User.new
+    user.email = email
+    user.password = password
+
+
+    user.build_profile(name: name)
+
+    user.save
   end
 end
 
-def make_profiles
-  100.times do |n|
-    user_id = n;
-    name = Faker::Company.name
-    Profile.create!(user_id: user_id,
-                    name:    name)
-  end
-end
 
 def make_vacancies
   200.times do |n|
-    profile_id = rand(Profile.count) + 1;
+    profile_id = rand(Profile.count) + 1
     title = [Faker::Hacker.adjective, Faker::Hacker.abbreviation, Faker::Hacker.noun].join(" ")
     brief_description = Faker::Hacker.say_something_smart
     description = Faker::Lorem.paragraph(5)
