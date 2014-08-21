@@ -24,6 +24,11 @@ gem 'role_model'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
+group :development do
+  gem "better_errors"
+  gem "binding_of_caller"
+end
+
 # Internationalization
 gem 'rails-i18n', '~> 4.0.0' 
 gem 'russian', '~> 0.6.0'
