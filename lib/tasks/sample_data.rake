@@ -28,7 +28,7 @@ end
 def make_vacancies
   200.times do |n|
     profile_id = rand(Profile.count) + 1;
-    title = Faker::Company.name
+    title = [Faker::Hacker.adjective, Faker::Hacker.abbreviation, Faker::Hacker.noun].join(" ")
     brief_description = Faker::Hacker.say_something_smart
     description = Faker::Lorem.paragraph(5)
     salaryfrom = rand(10..30) * 1000
