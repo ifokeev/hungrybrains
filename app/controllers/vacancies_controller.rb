@@ -1,6 +1,6 @@
 class VacanciesController < ApplicationController
   before_action :require_login, only: [:new, :create, :destroy]
-  before_action :set_vacancy, only: [:show, :update, :destroy]
+  before_action :set_vacancy, only: [:show, :update, :edit, :destroy]
 
 	def index
 		@vacancies = Vacancy.paginate(page: params[:page], per_page: 10)
@@ -19,6 +19,17 @@ class VacanciesController < ApplicationController
       redirect_to @vacancy, notice: "Success!"
     else
       render :new
+    end
+  end
+
+  def edit    
+  end
+
+  def update
+    if @vacancy.update(vacancy_params)
+      redirect_to @vacancy, notice: "Success!"
+    else 
+      render :edit
     end
   end
 
