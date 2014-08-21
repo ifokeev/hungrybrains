@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140820130938) do
+ActiveRecord::Schema.define(version: 20140821112947) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -67,6 +67,13 @@ ActiveRecord::Schema.define(version: 20140820130938) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "brief_description"
+    t.datetime "duration"
+    t.string   "location",          default: "Москва"
+    t.integer  "worktype",          default: 0
+    t.integer  "salaryfrom"
+    t.integer  "salaryto"
+    t.integer  "status",            default: 1
+    t.datetime "deadline"
   end
 
   add_index "vacancies", ["profile_id"], name: "index_vacancies_on_profile_id"
