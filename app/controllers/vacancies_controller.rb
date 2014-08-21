@@ -1,6 +1,7 @@
 class VacanciesController < ApplicationController
   before_action :require_login, only: [:new, :create, :destroy]
   before_action :set_vacancy, only: [:show, :update, :edit, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
 	def index
 		@vacancies = Vacancy.paginate(page: params[:page], per_page: 10)
@@ -41,6 +42,11 @@ class VacanciesController < ApplicationController
 
   def vacancy_params
     params.require(:vacancy).permit(:title, :description, :brief_description)
+  end
+
+  def correct_user
+    @vacancy = current_user.profile.vacancies.find(params[:id])
+    redirect_to root_url if @vacancy.nil?
   end
 
 end
