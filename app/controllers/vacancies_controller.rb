@@ -36,17 +36,17 @@ class VacanciesController < ApplicationController
 
   private
 
-  def set_vacancy
-    @vacancy = Vacancy.find(params[:id])
-  end
+    def set_vacancy
+      @vacancy = Vacancy.find(params[:id])
+    end
 
-  def vacancy_params
-    params.require(:vacancy).permit(:title, :description, :brief_description)
-  end
+    def vacancy_params
+      params.require(:vacancy).permit(:title, :description, :brief_description)
+    end
 
-  def correct_user
-    @vacancy = current_user.profile.vacancies.find(params[:id])
-    redirect_to root_url if @vacancy.nil?
-  end
+    def correct_user
+      @vacancy = current_user.profile.vacancies.find(params[:id])
+      redirect_to root_url if @vacancy.nil?
+    end
 
 end

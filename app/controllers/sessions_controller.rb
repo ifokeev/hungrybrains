@@ -19,7 +19,8 @@ class SessionsController < ApplicationController
   end
 
   private
-  def set_user
-    @user = login(params[:email], params[:password], params[:remember_me])
-  end
+  
+    def set_user
+      @user = login(params[:email], params[:password], params[:remember_me])
+    end
 end
