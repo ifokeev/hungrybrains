@@ -13,6 +13,8 @@
     / .text-center.margin-top10
     /   %a.show-more{href: "#"}
     /     %ins Показать больше
-  .col-md-3.blank
+  .col-md-3
+    = button_to "Добавить стажировку", new_vacancy_path, method: "get", class: "btn btn-default btn-lg btn-company"
+    .blank
 
 = will_paginate renderer: BootstrapPagination::Rails
