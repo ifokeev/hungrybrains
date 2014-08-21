@@ -7,6 +7,15 @@ namespace :db do
 end
 
 def make_users_and_profiles
+
+  user = User.new
+  user.email = "admin@hungrybrains.ru"
+  user.password = "admin"
+  user.roles = [:admin]
+  user.build_profile(name: "Admin User")
+  user.save
+
+
   100.times do |n|
     email = "qweqwe#{n+1}@gmail.com"
     password  = "qweqwe"
@@ -15,7 +24,7 @@ def make_users_and_profiles
     user = User.new
     user.email = email
     user.password = password
-
+    user.roles = [:user]
 
     user.build_profile(name: name)
 
