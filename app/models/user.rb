@@ -6,11 +6,10 @@ class User < ActiveRecord::Base
   include RoleModel
   has_one :profile
 
-  validates :password,                presence: true, length: { minimum: 3}, confirmation: false
-  #validates :password_confirmation,   presence: true
-  validates :email,                   presence: true, email: true, uniqueness: true
+  validates :password, presence: true, length: { minimum: 6 }, confirmation: false
+  validates :email,    presence: true, email: true, uniqueness: true
 
-  roles :admin, :user
+  roles :admin, :user, :company
 
   def role
     role_symbols.join(',').gsub('_', ' ')

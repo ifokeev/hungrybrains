@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   match '/500', to: 'errors#internal_server_error', via: :all
 
 
-  resources :users,    only: [:new, :create, :destroy]
+  resources :users,    only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
   resources :vacancies, :profiles, :info
   match '/signup',  to: 'users#new',            via: 'get'
