@@ -20,6 +20,7 @@ gem 'sorcery'
 gem 'role_model'
 
 gem 'will_paginate', '~> 3.0'
+gem 'will_paginate-bootstrap'
 
 # Internationalization
 gem 'rails-i18n', '~> 4.0.0' 

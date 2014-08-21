@@ -1,7 +1,7 @@
 class VacanciesController < ApplicationController
 
 	def index
-		@vacancies = Vacancy.paginate(page: params[:page])
+		@vacancies = Vacancy.paginate(page: params[:page], per_page: 10)
 	end
 
 	def show
