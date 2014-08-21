@@ -13,6 +13,7 @@ gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'autoprefixer-rails'
 gem 'faker', '~> 1.4.3'
 gem 'email_validator'
+gem "paperclip", "~> 4.1"
 
 gem 'rails_admin', :git => 'git://github.com/sferik/rails_admin.git'
 
