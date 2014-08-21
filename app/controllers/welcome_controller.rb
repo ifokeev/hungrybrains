@@ -1,7 +1,7 @@
 class WelcomeController < ApplicationController
 
   def index
-    @vacancies = Vacancy.paginate(page: params[:page])
+    @vacancies = Vacancy.limit(5).order('id DESC')
   end
 
 end
