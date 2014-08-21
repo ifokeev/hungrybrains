@@ -5,7 +5,9 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
+    @user.build_profile
     if @user.save
+      auto_login(@user)
       redirect_to root_url, notice: "Success!"
     else
       render :new
