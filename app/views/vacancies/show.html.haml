@@ -1,9 +1,9 @@
 .row.margin-top20  
   .col-md-9
     .title
-      = [@vacancy.profile.user_id, @vacancy.profile.name, @vacancy.title].join(": ")
+      = [@vacancy.company.user_id, @vacancy.company.name, @vacancy.title].join(": ")
     = @vacancy.description  
   .col-md-3
-    - if current_user?(@vacancy.profile.user)
+    - if current_user?(@vacancy.company.user)
       = button_to "Редактировать вакансию", edit_vacancy_path, method: "get", class: "btn btn-default btn-lg btn-company"
     .blank

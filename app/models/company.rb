@@ -1,4 +1,4 @@
-class Profile < ActiveRecord::Base
+class Company < ActiveRecord::Base
   belongs_to :user
   has_many :vacancies
 

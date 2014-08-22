@@ -15,7 +15,7 @@ class VacanciesController < ApplicationController
   end
 
   def create    
-    @vacancy = current_user.profile.vacancies.build(vacancy_params)
+    @vacancy = current_user.company.vacancies.build(vacancy_params)
     if @vacancy.save
       redirect_to @vacancy, notice: "Success!"
     else
@@ -45,7 +45,7 @@ class VacanciesController < ApplicationController
     end
 
     def correct_user
-      @vacancy = current_user.profile.vacancies.find(params[:id])
+      @vacancy = current_user.company.vacancies.find(params[:id])
       redirect_to root_url if @vacancy.nil?
     end
 

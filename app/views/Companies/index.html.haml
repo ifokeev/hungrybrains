@@ -2,16 +2,16 @@
   .col-md-9
     .search.row
       .col-md-6
-        = [Russian::pluralize(@profiles.count, "Найдена", "Найдено", "Найдено"),              |
-           @profiles.count,                                                                   |
-           Russian::pluralize(@profiles.count, "компания", "компании", "компаний")].join(" ") |
+        = [Russian::pluralize(@companies.count, "Найдена", "Найдено", "Найдено"),              |
+           @companies.count,                                                                   |
+           Russian::pluralize(@companies.count, "компания", "компании", "компаний")].join(" ") |
       .col-md-6
         .input-group
           %input.form-control{placeholder: "Введите ключевое слово"}
           %span.input-group-btn
             %button.btn.btn-default
               %span.glyphicon.glyphicon-search
-    = render @profiles
+    = render @companies
     / .text-center.margin-top10
     /   %a.show-more{href: "#"}
     /     %ins Показать больше

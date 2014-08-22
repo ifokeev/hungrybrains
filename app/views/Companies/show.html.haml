@@ -6,28 +6,28 @@
     .row
       .col-md-9
         %h2
-          = [@profile.name, @profile.user.role].join(" : ")
+          = [@company.name, @company.user.role].join(" : ")
       .col-md-3.text-right
-        - if current_user?(@profile.user)
-          = button_to "Редактировать профиль", edit_profile_path, method: "get", class: "btn btn-default btn-sm btn-company"      
+        - if current_user?(@company.user)
+          = button_to "Редактировать профиль", edit_company_path, method: "get", class: "btn btn-default btn-sm btn-company"
     %ol.breadcrumb.profile
       %li
-        = @profile.location
+        = @company.location
       %li
-        = @profile.employees
+        = @company.employees
         Сотрудников
 .row.margin-top20  
   .col-md-3
     %strong.subtitle
       О компании    
     .description
-      = @profile.description
+      = @company.description
     %strong.subtitle
       Контактная информация
     .contact
-      = link_to @profile.site, @profile.site
+      = link_to @company.site, @company.site
   .col-md-9
-    - if @profile.vacancies.any? 
+    - if @company.vacancies.any?
       = render @vacancies
     - else
       На данный момент активных вакансий нет

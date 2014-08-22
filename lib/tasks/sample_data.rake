@@ -12,7 +12,7 @@ def make_users_and_profiles
   user.email = "admin@hungrybrains.ru"
   user.password = "admin"
   user.roles = [:admin]
-  user.build_profile(name: "Admin User")
+  user.build_company(name: "Admin User")
   user.save
 
 
@@ -29,7 +29,7 @@ def make_users_and_profiles
     user.password = password
     user.roles = [:company]
 
-    user.build_profile(name: name,
+    user.build_company(name: name,
                        description: description,
                        site: site,
                        employees: employees)
@@ -41,13 +41,13 @@ end
 
 def make_vacancies
   200.times do |n|
-    profile_id = rand(Profile.count) + 1
+    company_id = rand(Company.count) + 1
     title = [Faker::Hacker.adjective, Faker::Hacker.abbreviation, Faker::Hacker.noun].join(" ")
     brief_description = Faker::Hacker.say_something_smart
     description = Faker::Lorem.paragraph(5)
     salaryfrom = rand(10..30) * 1000
     salaryto = salaryfrom
-    Vacancy.create!(profile_id:        profile_id,
+    Vacancy.create!(company_id:        company_id,
                     title:             title,
                     brief_description: brief_description,
                     description:       description,
