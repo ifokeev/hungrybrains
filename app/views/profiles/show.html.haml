@@ -25,7 +25,7 @@
     %strong.subtitle
       Контактная информация
     .contact
-      = link_to @profile.site
+      = link_to @profile.site, @profile.site
   .col-md-9
     - if @profile.vacancies.any? 
       = render @vacancies
