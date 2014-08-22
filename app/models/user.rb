@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
   authenticates_with_sorcery!
   include RoleModel
   has_one :company
+  has_one :student
 
   validates :password, presence: true, length: { minimum: 5 }, confirmation: false
   validates :email,    presence: true, email: true, uniqueness: true

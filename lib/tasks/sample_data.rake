@@ -12,7 +12,7 @@ def make_users_and_profiles
   user.email = "admin@hungrybrains.ru"
   user.password = "admin"
   user.roles = [:admin]
-  user.build_company(name: "Admin User")
+  user.build_student(name: "Admin User")
   user.save
 
 
@@ -36,6 +36,22 @@ def make_users_and_profiles
 
     user.save
   end
+
+  100.times do |n|
+    email = "qweqwe0#{n+1}@gmail.com"
+    password  = "qweqwe"
+    name = Faker::Name.name
+
+    user = User.new
+    user.email = email
+    user.password = password
+    user.roles = [:student]
+
+    user.build_student(name: name)
+
+    user.save
+  end
+
 end
 
 
