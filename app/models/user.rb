@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   validates :password, presence: true, length: { minimum: 5 }, confirmation: false
   validates :email,    presence: true, email: true, uniqueness: true
 
-  roles :admin, :user, :company
+  roles :admin, :student, :company
 
   def role
     role_symbols.join(',').gsub('_', ' ')
