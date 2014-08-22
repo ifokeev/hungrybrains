@@ -15,7 +15,10 @@
     - if current_user 
       %ol.breadcrumb
         %li
-          = link_to current_user.company.name, current_user.company
+          - if current_user.has_role? :company
+            = link_to current_user.company.name, current_user.company
+          - else
+            = link_to current_user.student.name, current_user.student          
         %li
           = link_to "Выход", signout_path, method: "delete", class: "signin"
     - else
