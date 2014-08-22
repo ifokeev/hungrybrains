@@ -2,7 +2,9 @@
   .col-md-9
     .search.row
       .col-md-6
-        = ["Найдено", @profiles.count, Russian::pluralize(@profiles.count, "компания", "компании", "компаний")].join(" ")
+        = [Russian::pluralize(@profiles.count, "Найдена", "Найдено", "Найдено"),              |
+           @profiles.count,                                                                   |
+           Russian::pluralize(@profiles.count, "компания", "компании", "компаний")].join(" ") |
       .col-md-6
         .input-group
           %input.form-control{placeholder: "Введите ключевое слово"}
