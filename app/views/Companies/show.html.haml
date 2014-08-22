@@ -28,6 +28,6 @@
       = link_to @company.site, @company.site
   .col-md-9
     - if @company.vacancies.any?
-      = render @vacancies
+      = render @company.vacancies
     - else
       На данный момент активных вакансий нет

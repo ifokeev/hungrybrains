@@ -8,7 +8,6 @@ class CompaniesController < ApplicationController
   end
 
   def show    
-    @vacancies = @company.vacancies
   end
 
   def edit    
