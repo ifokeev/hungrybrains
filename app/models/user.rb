@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   include RoleModel
   has_one :profile
 
-  validates :password, presence: true, length: { minimum: 6 }, confirmation: false
+  validates :password, presence: true, length: { minimum: 5 }, confirmation: false
   validates :email,    presence: true, email: true, uniqueness: true
 
   roles :admin, :user, :company

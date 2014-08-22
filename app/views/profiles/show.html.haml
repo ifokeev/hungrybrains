@@ -6,7 +6,7 @@
     .row
       .col-md-9
         %h2
-          = @profile.name
+          = [@profile.name, @profile.user.role].join(" : ")
       .col-md-3.text-right
         - if current_user?(@profile.user)
           = button_to "Редактировать профиль", edit_profile_path, method: "get", class: "btn btn-default btn-sm btn-company"      

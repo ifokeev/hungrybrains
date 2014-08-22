@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140822100339) do
+ActiveRecord::Schema.define(version: 20140822141308) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 20140822100339) do
     t.string   "location",            default: "Москва"
     t.text     "description"
     t.integer  "employees"
+    t.integer  "vacancies_count"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"

@@ -1,1 +1,19 @@
-companies
+.row.vacancies.margin-top20  
+  .col-md-9
+    .search.row
+      .col-md-6
+        = ["Найдено", @profiles.count, Russian::pluralize(@profiles.count, "компания", "компании", "компаний")].join(" ")
+      .col-md-6
+        .input-group
+          %input.form-control{placeholder: "Введите ключевое слово"}
+          %span.input-group-btn
+            %button.btn.btn-default
+              %span.glyphicon.glyphicon-search
+    = render @profiles
+    / .text-center.margin-top10
+    /   %a.show-more{href: "#"}
+    /     %ins Показать больше
+  .col-md-3
+    .blank
+
+= will_paginate renderer: BootstrapPagination::Rails

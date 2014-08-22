@@ -4,6 +4,8 @@ class ProfilesController < ApplicationController
   before_action :correct_user, only: [:edit, :update, :destroy]
 
   def index    
+    @profiles = Profile.order('vacancies_count DESC').paginate(page: params[:page], per_page: 10)
+    @vacancies = Vacancy.all
   end
 
   def show    
