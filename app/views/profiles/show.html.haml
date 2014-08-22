@@ -1,0 +1,28 @@
+.row.margin-top20  
+  .col-md-3
+    %center
+      = image_tag "company-promo.png"
+  .col-md-9
+    %h1
+      = @profile.name
+    %ol.breadcrumb.profile
+      %li
+        = @profile.location
+      %li
+        = @profile.employees
+        Сотрудников
+.row.margin-top20  
+  .col-md-3
+    %strong.subtitle
+      О компании    
+    .description
+      = @profile.description
+    %strong.subtitle
+      Контактная информация
+    .contact
+      = link_to @profile.site
+  .col-md-9
+    - if @profile.vacancies.any? 
+      = render @vacancies
+    - else
+      На данный момент активных вакансий нет

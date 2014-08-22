@@ -288,4 +288,10 @@ footer .social {
 }
 
 
+/* tmp */
+
+.breadcrumb.profile > li + li:before {
+  content: "\2022\00a0";
+}
+
 
