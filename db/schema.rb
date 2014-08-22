@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140821174744) do
+ActiveRecord::Schema.define(version: 20140822100339) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -30,6 +30,10 @@ ActiveRecord::Schema.define(version: 20140821174744) do
     t.string   "avatar_content_type"
     t.integer  "avatar_file_size"
     t.datetime "avatar_updated_at"
+    t.string   "site"
+    t.string   "location",            default: "Москва"
+    t.text     "description"
+    t.integer  "employees"
   end
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id"

@@ -20,13 +20,19 @@ def make_users_and_profiles
     email = "qweqwe#{n+1}@gmail.com"
     password  = "qweqwe"
     name = Faker::Company.name
+    description = Faker::Lorem.paragraph(5)
+    site = Faker::Internet.url
+    employees = rand(1..100) * 10
 
     user = User.new
     user.email = email
     user.password = password
-    user.roles = [:user]
+    user.roles = [:company]
 
-    user.build_profile(name: name)
+    user.build_profile(name: name,
+                       description: description,
+                       site: site,
+                       employees: employees)
 
     user.save
   end
