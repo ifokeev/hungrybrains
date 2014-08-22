@@ -15,7 +15,7 @@
     - if current_user 
       %ol.breadcrumb
         %li
-          = current_user.email
+          = link_to current_user.profile.name, current_user.profile
         %li
           = link_to "Выход", signout_path, method: "delete", class: "signin"
     - else

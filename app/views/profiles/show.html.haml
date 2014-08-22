@@ -3,8 +3,13 @@
     %center
       = image_tag "company-promo.png"
   .col-md-9
-    %h1
-      = @profile.name
+    .row
+      .col-md-9
+        %h2
+          = @profile.name
+      .col-md-3.text-right
+        - if current_user?(@profile.user)
+          = button_to "Редактировать профиль", edit_profile_path, method: "get", class: "btn btn-default btn-sm btn-company"      
     %ol.breadcrumb.profile
       %li
         = @profile.location

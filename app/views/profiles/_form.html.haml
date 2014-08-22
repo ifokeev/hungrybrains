@@ -1,0 +1,10 @@
+.form-wrapper
+  = form_for @profile do |f|
+    .form-group
+      = f.text_field :name, class: "form-control", placeholder: "Название"
+    .form-group                    
+      = f.text_field :site, class: "form-control", placeholder: "Сайт"
+    .form-group                    
+      = f.text_area :description, class: "form-control", placeholder: "О компании"
+    .text-center.margin-top30
+      = f.submit "Сохранить", class: "btn btn-default btn-lg btn-company"
