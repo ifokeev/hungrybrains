@@ -1,0 +1,6 @@
+.form-wrapper
+  = form_for @student do |f|
+    .form-group
+      = f.text_field :name, class: "form-control", placeholder: "Имя"
+    .text-center.margin-top30
+      = f.submit "Сохранить", class: "btn btn-default btn-lg btn-student"
