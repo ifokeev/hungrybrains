@@ -3,6 +3,9 @@ class StudentsController < ApplicationController
   before_action :set_student, only: [:show, :edit, :update]
   before_action :correct_user, only: [:show, :edit, :update, :destroy]
 
+  has_many :responses
+  has_many :vacancies, through: :responses
+
   def show
   end
 
