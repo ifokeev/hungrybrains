@@ -8,7 +8,12 @@ Rails.application.routes.draw do
 
   resources :users,    only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :vacancies, :companies, :students, :info
+  resources :vacancies, :companies, :info
+  resources :students do
+    member do
+      get :responses
+    end
+  end
   match '/signup',  to: 'users#new',            via: 'get'
   match '/signin',  to: 'sessions#new',         via: 'get'
   match '/signout', to: 'sessions#destroy',     via: 'delete'

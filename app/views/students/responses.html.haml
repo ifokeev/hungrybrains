@@ -1,0 +1,20 @@
+.row.vacancies.margin-top20  
+  .col-md-9
+    - @vacancies.each do |vacancy|
+      .row.vacancy
+        .col-md-3.logo
+        .col-md-8
+          .row.title
+            %p= raw [link_to(vacancy.company.name, vacancy.company), link_to(vacancy.title, vacancy)].join(" : ")
+          .row.description
+            %p= ["Описание", vacancy.brief_description].join(": ")
+        .col-md-1.worktype
+          .row
+            = vacancy.responses.where(student_id: @student.id).last.status
+            .col-md-6.paid.icon
+            .col-md-6.trainee.icon
+    / .text-center.margin-top10
+    /   %a.show-more{href: "#"}
+    /     %ins Показать больше
+  .col-md-3
+    .blank

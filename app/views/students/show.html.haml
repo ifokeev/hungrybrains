@@ -4,12 +4,16 @@
       = image_tag "student-promo.png"
   .col-md-9
     .row
-      .col-md-9
+      .col-md-8
         %h2
           = [@student.name, @student.user.role].join(" : ")
-      .col-md-3.text-right
+      .col-md-4.text-right
         - if current_user?(@student.user)
-          = button_to "Редактировать профиль", edit_student_path, method: "get", class: "btn btn-default btn-sm btn-student"
+          .row
+            .col-md-6
+              = button_to "Редактировать профиль", edit_student_path, method: "get", class: "btn btn-default btn-sm btn-student"
+            .col-md-6
+              = button_to "Мои отклики", responses_student_path, method: "get", class: "btn btn-default btn-sm btn-company"
     %ol.breadcrumb.profile
       %li
         Москва
@@ -26,4 +30,5 @@
     .contact
       = link_to "VK", "http://vk.com/durov"
   .col-md-9
-    = render @student.vacancies
+    - if @student.vacancies.any?
+      = render @student.vacancies
