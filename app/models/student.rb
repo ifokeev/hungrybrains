@@ -1,4 +1,6 @@
 class Student < ActiveRecord::Base
   belongs_to :user
+  has_many :responses
+  has_many :vacancies, through: :responses
 
 end
