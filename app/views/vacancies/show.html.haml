@@ -2,6 +2,9 @@
   .col-md-9
     .title
       = [@vacancy.company.user_id, @vacancy.company.name, @vacancy.title].join(": ")
+    
+    = ["Откликов: ", @vacancy.responses.count].join
+    %br
     = @vacancy.description  
   .col-md-3
     - if current_user?(@vacancy.company.user)

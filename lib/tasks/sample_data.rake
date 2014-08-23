@@ -3,6 +3,7 @@ namespace :db do
   task populate: :environment do
     make_users_and_profiles
     make_vacancies
+    make_responses
   end
 end
 
@@ -16,7 +17,7 @@ def make_users_and_profiles
   user.save
 
 
-  100.times do |n|
+  20.times do |n|
     email = "qweqwe#{n+1}@gmail.com"
     password  = "qweqwe"
     name = Faker::Company.name
@@ -37,7 +38,7 @@ def make_users_and_profiles
     user.save
   end
 
-  100.times do |n|
+  40.times do |n|
     email = "qweqwe0#{n+1}@gmail.com"
     password  = "qweqwe"
     name = Faker::Name.name
@@ -56,7 +57,7 @@ end
 
 
 def make_vacancies
-  200.times do |n|
+  40.times do |n|
     company_id = rand(Company.count) + 1
     title = [Faker::Hacker.adjective, Faker::Hacker.abbreviation, Faker::Hacker.noun].join(" ")
     brief_description = Faker::Hacker.say_something_smart
@@ -70,5 +71,17 @@ def make_vacancies
                     salaryfrom:        salaryfrom,
                     salaryto:          salaryto)
   end
+end
+
+def make_responses
+  200.times do |n|
+    vacancy_id = rand(Vacancy.count) + 1
+    student_id = rand(Student.count) + 1
+    status = rand(3)
+
+    Response.create(vacancy_id: vacancy_id,
+                    student_id: student_id,
+                    status: status)
+  end  
 end
 
