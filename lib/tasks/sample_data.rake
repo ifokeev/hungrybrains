@@ -4,6 +4,7 @@ namespace :db do
     make_users_and_profiles
     make_vacancies
     make_responses
+    make_relationships
   end
 end
 
@@ -55,7 +56,6 @@ def make_users_and_profiles
 
 end
 
-
 def make_vacancies
   40.times do |n|
     company_id = rand(Company.count) + 1
@@ -85,3 +85,12 @@ def make_responses
   end  
 end
 
+def make_relationships
+  40.times do |n|
+    company_id = rand(Company.count) + 1
+    student_id = rand(Student.count) + 1
+    company = Company.find_by(id: company_id)
+    student = Student.find_by(id: student_id)
+    company.follow(student)
+  end
+end
