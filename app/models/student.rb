@@ -16,5 +16,18 @@ class Student < ActiveRecord::Base
   def revoke(vacancy)
     responses.find_by(vacancy: vacancy.id).destroy
   end  
+  
+
+  def following?(company)
+    relationships.find_by(company_id: company.id)
+  end
+
+  def follow(company)
+    relationships.create(company_id: company.id)
+  end  
+
+  def unfollow!(company)
+    relationships.find_by(company: company.id).destroy
+  end  
 
 end
