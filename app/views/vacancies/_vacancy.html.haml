@@ -7,5 +7,9 @@
       %p= ["Описание", vacancy.brief_description].join(": ")
   .col-md-1.worktype
     .row
+      - if @user.present? and @user.has_role? :student
+        = vacancy.responses.where(student_id: @student.id).last.status
+      - if @user.present? and @user.has_role? :company
+        = link_to([vacancy.students.count, "откликов"].join(" "), responses_vacancy_path)
       .col-md-6.paid.icon
       .col-md-6.trainee.icon

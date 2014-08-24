@@ -2,7 +2,8 @@ class StudentsController < ApplicationController
   before_action :require_login, only: [:edit, :update, :responses]
   before_action :set_student, only: [:show, :edit, :update, :responses]
   before_action :correct_user, only: [:show, :edit, :update, :destroy, :responses]
-
+  before_action :set_user, only: [:responses]
+  
   def show
   end
 
@@ -26,6 +27,10 @@ class StudentsController < ApplicationController
     def set_student
       @student = Student.find(params[:id])
     end
+
+    def set_user
+      @user = @student.user
+    end    
 
     def student_params
       params.require(:student).permit(:name)
