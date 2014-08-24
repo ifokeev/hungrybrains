@@ -1,0 +1,29 @@
+%header.row
+  .col-md-1
+    %a{href: root_path}
+      %img.img-responsive.logo{alt: "logo", src: image_path("logo.png")}
+  .col-md-5
+    %nav.row
+      %ul.nav.navbar-nav
+        %li
+          %a{href: vacancies_path} Стажировки
+        %li
+          %a{href: companies_path} Компании
+        %li
+          %a{href: info_index_path} Знания
+  .col-md-4.col-md-offset-2.text-right
+    - if current_user 
+      %ol.breadcrumb
+        %li
+          - if current_user.has_role? :company
+            = link_to current_user.company.name, current_user.company
+          - else
+            = link_to current_user.student.name, current_user.student          
+        %li
+          = link_to "Выход", signout_path, method: "delete", class: "signin"
+    - else
+      %ol.breadcrumb
+        %li
+          %a.signin{href: signin_path } Вход
+        %li
+          %a.signup{href: signup_path } Регистрация

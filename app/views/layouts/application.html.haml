@@ -10,10 +10,10 @@
 
     .wrapper
       .container
-        = render 'shared/header'
+        = render 'layouts/header'
         = render 'shared/flash_message'
         = yield
         = debug(params) if Rails.env.development?
       .push
       
-    = render 'shared/footer'
+    = render 'layouts/footer'
