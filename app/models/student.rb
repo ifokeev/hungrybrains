@@ -1,9 +1,9 @@
 class Student < ActiveRecord::Base
   belongs_to :user
   has_many   :responses
-  has_many   :vacancies, through: :responses, :dependent => :destroy
+  has_many   :vacancies, through: :responses, dependent: :destroy
   has_many   :relationships
-  has_many   :companies, through: :relationships, :dependent => :destroy
+  has_many   :companies, through: :relationships, dependent: :destroy
 
   def responded?(vacancy)
     responses.find_by(vacancy_id: vacancy.id)

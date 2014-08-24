@@ -65,11 +65,11 @@ def make_vacancies
     salaryfrom = rand(10..30) * 1000
     salaryto = salaryfrom
     Vacancy.create(company_id:        company_id,
-                    title:             title,
-                    brief_description: brief_description,
-                    description:       description,
-                    salaryfrom:        salaryfrom,
-                    salaryto:          salaryto)
+                   title:             title,
+                   brief_description: brief_description,
+                   description:       description,
+                   salaryfrom:        salaryfrom,
+                   salaryto:          salaryto)
   end
 end
 
