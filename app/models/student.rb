@@ -26,7 +26,7 @@ class Student < ActiveRecord::Base
     relationships.create(company_id: company.id)
   end  
 
-  def unfollow!(company)
+  def unfollow(company)
     relationships.find_by(company: company.id).destroy
   end  
 

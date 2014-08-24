@@ -91,6 +91,6 @@ def make_relationships
     student_id = rand(Student.count) + 1
     company = Company.find_by(id: company_id)
     student = Student.find_by(id: student_id)
-    company.follow(student)
+    student.follow(company)
   end
 end
