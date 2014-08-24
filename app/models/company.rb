@@ -8,4 +8,17 @@ class Company < ActiveRecord::Base
                                        thumb:  "100x100>" }, 
                              default_url: "/images/:style/missing.png"
   validates_attachment_content_type :avatar, :content_type => /\Aimage\/.*\Z/
+   
+  def following?(student)
+    relationships.find_by(student_id: student.id)
+  end
+
+  def follow(student)
+    relationships.create(student_id: student.id)
+  end  
+
+  def unfollow!(student)
+    relationships.find_by(student: student.id).destroy
+  end  
+ 
 end
