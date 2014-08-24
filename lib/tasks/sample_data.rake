@@ -64,7 +64,7 @@ def make_vacancies
     description = Faker::Lorem.paragraph(5)
     salaryfrom = rand(10..30) * 1000
     salaryto = salaryfrom
-    Vacancy.create!(company_id:        company_id,
+    Vacancy.create(company_id:        company_id,
                     title:             title,
                     brief_description: brief_description,
                     description:       description,

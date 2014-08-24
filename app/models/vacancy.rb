@@ -5,7 +5,7 @@ class Vacancy < ActiveRecord::Base
 
   belongs_to :company, counter_cache: true
   has_many   :responses
-  has_many   :students, through: :responses
+  has_many   :students, through: :responses, :dependent => :destroy
 
   validates :title, :brief_description, :description, presence: true
   validates :description, length: { minimum: 50, maximum: 2000 }
