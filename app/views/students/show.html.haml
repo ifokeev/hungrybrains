@@ -5,7 +5,7 @@
   .col-md-9
     .row
       .col-md-8
-        %h2
+        %h3
           = [@student.name, @student.user.role].join(" : ")
       .col-md-4.text-right
         - if current_user?(@student.user)

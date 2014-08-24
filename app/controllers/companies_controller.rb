@@ -1,8 +1,9 @@
 class CompaniesController < ApplicationController
-  before_action :require_login, only: [:edit, :update]
-  before_action :set_company, only: [:show, :edit, :update]
-  before_action :correct_user, only: [:edit, :update, :destroy]
-
+  before_action :require_login, only: [:edit, :update, :responses]
+  before_action :set_company, only: [:show, :edit, :update, :responses]
+  before_action :correct_user, only: [:edit, :update, :destroy, :responses]
+  before_action :set_user, only: [:show, :responses]
+  
   def index    
     @companies = Company.order('vacancies_count DESC').paginate(page: params[:page], per_page: 10)
   end
@@ -21,11 +22,19 @@ class CompaniesController < ApplicationController
     end    
   end
 
+  def responses
+    @vacancies = @company.vacancies
+  end
+
   private
 
     def set_company
       @company = Company.find(params[:id])
     end
+
+    def set_user
+      @user = @company.user
+    end    
 
     def company_params
       params.require(:company).permit(:name, :description, :site)

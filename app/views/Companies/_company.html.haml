@@ -3,6 +3,8 @@
   .col-md-8
     .row.title
       %p= raw link_to(company.name, company)
+    .row.description
+      = company.location
   .col-md-1.text-right
     %div
       = company.vacancies.count

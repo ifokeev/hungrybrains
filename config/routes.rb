@@ -8,8 +8,8 @@ Rails.application.routes.draw do
 
   resources :users,    only: [:new, :create]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :vacancies, :companies, :info
-  resources :students do
+  resources :info
+  resources :students, :companies, :vacancies do
     member do
       get :responses
     end
