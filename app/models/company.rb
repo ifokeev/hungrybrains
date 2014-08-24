@@ -1,6 +1,7 @@
 class Company < ActiveRecord::Base
   belongs_to :user
-  has_many :vacancies
+  has_many   :vacancies
+  has_many   :students, through: :relationships
 
   has_attached_file :avatar, styles: { medium: "300x300>", 
                                        thumb:  "100x100>" }, 
