@@ -1,0 +1,2 @@
+$("#respond_form").html("<%= escape_javascript(render('vacancies/respond')) %>")
+$("#responses").html('<%= @vacancy.responses.count %>')

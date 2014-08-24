@@ -2,8 +2,9 @@
   .col-md-9
     .title
       = [@vacancy.company.user_id, @vacancy.company.name, @vacancy.title].join(": ")
-    
-    = ["Откликов: ", @vacancy.responses.count].join
+    Откликов: 
+    %strong#responses
+      = @vacancy.responses.count
     %br
     = @vacancy.description  
   .col-md-3
