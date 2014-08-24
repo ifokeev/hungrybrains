@@ -1,0 +1,5 @@
+- if current_user.has_role? :student
+  - if current_user.student.responded?(@vacancy)
+    = render 'revoke'
+  - else 
+    = render 'respond'

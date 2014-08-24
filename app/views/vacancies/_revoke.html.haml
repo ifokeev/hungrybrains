@@ -1,0 +1,3 @@
+= form_for(current_user.student.responses.find_by(vacancy_id: @vacancy.id), |
+           html: { method: :delete }) do |f|                           |
+  = f.submit "Отменить", class: "btn btn-danger btn-lg btn-company"
