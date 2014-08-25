@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825162431) do
+ActiveRecord::Schema.define(version: 20140825213140) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -65,19 +65,23 @@ ActiveRecord::Schema.define(version: 20140825162431) do
   add_index "responses", ["vacancy_id"], name: "index_responses_on_vacancy_id"
 
   create_table "students", force: true do |t|
-    t.integer "user_id"
-    t.string  "name"
-    t.string  "surname"
-    t.string  "alias"
-    t.string  "location",          default: "Москва"
-    t.string  "university"
-    t.integer "grade"
-    t.integer "graduation"
-    t.integer "experience",        default: 0
-    t.string  "work"
-    t.integer "language",          default: 0
-    t.text    "description"
-    t.string  "brief_description"
+    t.integer  "user_id"
+    t.string   "name"
+    t.string   "surname"
+    t.string   "alias"
+    t.string   "location",            default: "Москва"
+    t.string   "university"
+    t.integer  "grade"
+    t.integer  "graduation"
+    t.integer  "experience",          default: 0
+    t.string   "work"
+    t.integer  "language",            default: 0
+    t.text     "description"
+    t.string   "brief_description"
+    t.string   "avatar_file_name"
+    t.string   "avatar_content_type"
+    t.integer  "avatar_file_size"
+    t.datetime "avatar_updated_at"
   end
 
   add_index "students", ["user_id"], name: "index_students_on_user_id"
