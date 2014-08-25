@@ -1,6 +1,6 @@
 class VacanciesController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy, :responses]
-  before_action :set_vacancy, only: [:show, :update, :edit, :destroy, :responses]
+  before_action :set_vacancy, only: [:show]
   before_action :correct_user, only: [:edit, :update, :destroy, :responses]
 
 	def index
@@ -57,7 +57,7 @@ class VacanciesController < ApplicationController
     end
 
     def correct_user_company
-      @vacancy = current_user.company.vacancies.find(params[:id])
+      @vacancy = current_user.company.vacancies.find_by_id(params[:id])
       redirect_to root_url if @vacancy.nil?      
     end
 
