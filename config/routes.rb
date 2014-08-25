@@ -20,4 +20,10 @@ Rails.application.routes.draw do
   match '/about',    to: 'static_pages#about',    via: 'get'
   match '/contact',  to: 'static_pages#contact',  via: 'get'
   match '/feedback', to: 'static_pages#feedback', via: 'get'
+
+
+  get '/auth/vk/company', to: 'omniauth_callbacks#vkontakte_company'
+  get '/auth/vk/student', to: 'omniauth_callbacks#vkontakte_student'
+  get '/auth/tw/company', to: 'omniauth_callbacks#twitter_company'
+  get '/auth/tw/student', to: 'omniauth_callbacks#twitter_student'
 end

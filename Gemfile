@@ -24,6 +24,11 @@ gem 'role_model'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 
+gem 'omniauth'
+gem 'omniauth-twitter', :github => 'arunagw/omniauth-twitter'
+gem 'omniauth-facebook'
+gem 'omniauth-vkontakte'
+
 group :development do
   gem "better_errors"
   gem "binding_of_caller"
