@@ -25,16 +25,20 @@ def make_users_and_profiles
     description = Faker::Lorem.paragraph(5)
     site = Faker::Internet.url
     employees = rand(1..100) * 10
+    agency = [true, false].sample
+    phone = Faker::PhoneNumber.cell_phone
 
     user = User.new
     user.email = email
     user.password = password
     user.roles = [:company]
 
-    user.build_company(name: name,
+    user.build_company(name:        name,
                        description: description,
-                       site: site,
-                       employees: employees)
+                       site:        site,
+                       employees:   employees,
+                       agency:      agency,
+                       phone:       phone)
 
     user.save
   end

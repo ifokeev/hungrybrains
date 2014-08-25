@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825154720) do
+ActiveRecord::Schema.define(version: 20140825162431) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -35,6 +35,8 @@ ActiveRecord::Schema.define(version: 20140825154720) do
     t.text     "description"
     t.integer  "employees"
     t.integer  "vacancies_count"
+    t.boolean  "agency"
+    t.string   "phone"
   end
 
   add_index "companies", ["user_id"], name: "index_companies_on_user_id"

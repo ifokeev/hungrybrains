@@ -7,7 +7,7 @@
     .row
       .col-md-8
         %h3
-          = [@company.name, @company.user.role].join(" : ")
+          = @company.name
       .col-md-4.text-right
         - if current_user?(@company.user)
           .row
@@ -29,13 +29,23 @@
 .row.margin-top20  
   .col-md-3
     %strong.subtitle
+      Тип компании
+    .agency
+      - if @company.agency
+        Кадровое агентство
+      - else
+        Прямой работодатель
+    %strong.subtitle
       О компании    
     .description
       = @company.description
     %strong.subtitle
       Контактная информация
     .contact
-      = link_to @company.site, @company.site
+      %div
+        = @company.phone
+      %div  
+        = link_to @company.site, @company.site      
   .col-md-9
     - if @company.vacancies.any?
       = render @company.vacancies
