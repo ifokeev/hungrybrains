@@ -7,8 +7,11 @@
       = f.label      :surname, "Фамилия"
       = f.text_field :surname, class: "form-control", placeholder: "Фамилия"
     .form-group
-      = f.label      :description, "Обо мне"
+      = f.label     :description, "Обо мне"
       = f.text_area :description, class: "form-control", placeholder: "Обо мне"
+    .form-group
+      = f.label     :brief_description, "Краткое описание"
+      = f.text_area :brief_description, class: "form-control", placeholder: "Краткое описание"
     .form-group
       = f.label      :location, "Город"
       = f.text_field :location, class: "form-control", placeholder: "Город"
