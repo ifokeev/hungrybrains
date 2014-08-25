@@ -52,22 +52,24 @@ def make_users_and_profiles
     work = Faker::Name.title
     language = rand(0..3)
     description = Faker::Lorem.paragraph(5)
+    brief_description = Faker::Hacker.say_something_smart
 
     user = User.new
     user.email = email
     user.password = password
     user.roles = [:student]
 
-    user.build_student(name:        name,
-                       surname:     surname,
-                       location:    location,
-                       university:  university,
-                       grade:       grade,
-                       graduation:  graduation,
-                       experience:  experience,
-                       work:        work,
-                       language:    language,
-                       description: description)
+    user.build_student(name:              name,
+                       surname:           surname,
+                       location:          location,
+                       university:        university,
+                       grade:             grade,
+                       graduation:        graduation,
+                       experience:        experience,
+                       work:              work,
+                       language:          language,
+                       description:       description,
+                       brief_description: brief_description)
 
     user.save
   end

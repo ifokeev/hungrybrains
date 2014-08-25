@@ -1,8 +1,12 @@
 .row.vacancy
   .col-md-3.logo
-  .col-md-7
+  .col-md-6
     .row.title
-      %p= link_to(student.name, student)
+      %p= full_name(student)
     .row.description
-      / = student.location
-      Москва
+      = student.brief_description
+  .col-md-3.text-right
+    .location
+      = student.location
+    .university
+      = full_university(student)

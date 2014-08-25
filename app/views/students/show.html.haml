@@ -6,7 +6,7 @@
     .row
       .col-md-8
         %h3
-          = [@student.name, @student.user.role].join(" : ")
+          = [@student.name, @student.surname].join(" ")
       .col-md-4.text-right
         - if current_user?(@student.user)
           .row
@@ -16,15 +16,25 @@
               = button_to "Мои отклики", responses_student_path, method: "get", class: "btn btn-default btn-sm btn-company"
     %ol.breadcrumb.profile
       %li
-        Москва
+        = @student.location
       %li
-        МГТУ им. Н.Э. Баумана
+        = [@student.grade, "курс"].join(" ")
+      %li
+        = [@student.university, @student.graduation % 100].join(" '")
 .row.margin-top20  
   .col-md-3
     %strong.subtitle
       Обо мне
     .description
-      Текст
+      = @student.description
+    %strong.subtitle
+      Опыт работы
+    .experience
+      = [@student.work, @student.experience, "years"].join(" ")
+    %strong.subtitle
+      Иностранные языки
+    .language
+      = ["Английский", @student.language].join(": ")
     %strong.subtitle
       Контактная информация
     .contact
