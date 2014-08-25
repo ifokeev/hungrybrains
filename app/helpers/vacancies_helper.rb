@@ -19,11 +19,11 @@ module VacanciesHelper
 
   def vacancies_search_count(collection)
   [
-    Russian::pluralize(@vacancies.count, "Найдена", 
+    Russian::pluralize(collection.count, "Найдена", 
                                          "Найдено", 
                                          "Найдено"), 
-                      @vacancies.count, 
-                      Russian::pluralize(@vacancies.count, "вакансия", 
+                      collection.count, 
+                      Russian::pluralize(collection.count, "вакансия", 
                                                            "вакансии", 
                                                            "вакансий")
   ].join(" ") 
