@@ -12,4 +12,15 @@ module StudentsHelper
     end
   end
 
+  def student_responses_count(collection)
+  [
+    "Вы откликнулись на",
+    @vacancies.count, 
+    Russian::pluralize(@vacancies.count, "вакансию", 
+                                         "вакансии", 
+                                         "вакансий")
+  ].join(" ") 
+    
+  end
+
 end
