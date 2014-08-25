@@ -1,5 +1,9 @@
 .form-wrapper
-  = form_for @student do |f|
+  = form_for @student, html: { multipart: true } do |f|
+    = image_tag @student.avatar.url(:medium)  
+    .form-group
+      = f.label      :avatar, "Аватар"
+      = f.file_field :avatar
     .form-group
       = f.label      :name, "Имя"
       = f.text_field :name, class: "form-control", placeholder: "Имя"
