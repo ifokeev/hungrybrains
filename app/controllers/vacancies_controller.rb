@@ -1,7 +1,7 @@
 class VacanciesController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy, :responses]
-  before_action :correct_user, only: [:edit, :update, :destroy]
-  before_action :set_vacancy, only: [:show, :update, :edit, :destroy, :responses]
+  before_action :correct_user, only: [:edit, :update, :destroy, :responses]
+  before_action :set_vacancy, only: [:show]
 
 	def index
 		@vacancies = Vacancy.paginate(page: params[:page], per_page: 10)
@@ -49,7 +49,7 @@ class VacanciesController < ApplicationController
     end
 
     def correct_user
-      @vacancy = current_user.company.vacancies.find(params[:id])
+      @vacancy = current_user.company.vacancies.find_by_id(params[:id])
       redirect_to root_url if @vacancy.nil?
     end
 
