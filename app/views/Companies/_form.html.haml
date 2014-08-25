@@ -1,10 +1,29 @@
 .form-wrapper
   = form_for @company do |f|
     .form-group
+      = f.label      :name, "Название"
       = f.text_field :name, class: "form-control", placeholder: "Название"
-    .form-group                    
-      = f.text_field :site, class: "form-control", placeholder: "Сайт"
-    .form-group                    
-      = f.text_area :description, class: "form-control", placeholder: "О компании"
+    .form-group
+      = f.label        :agency, "Тип компании"
+      = f.radio_button :agency, true
+      = f.label        :agency, "Кадровое агенство"
+      = f.radio_button :agency, false      
+      = f.label        :agency, "Прямой работодатель"
+    .form-group
+      = f.label      :site, "Сайт компании"
+      = f.text_field :site, class: "form-control", placeholder: "Сайт компании"
+    .form-group
+      = f.label      :location, "Месторасположение"
+      = f.text_field :location, class: "form-control", placeholder: "Месторасположение"
+    .form-group
+      = f.label      :employees, "Количество сотрудников"
+      = f.text_field :employees, class: "form-control", placeholder: "Количество сотрудников"
+    .form-group
+      = f.label      :description, "О компании"
+      = f.text_area  :description, class: "form-control", placeholder: "О компании"
+    .form-group
+      = f.label      :phone, "Номер телефона"
+      = f.text_field :phone, class: "form-control", placeholder: "Номер телефона"
+
     .text-center.margin-top30
       = f.submit "Сохранить", class: "btn btn-default btn-lg btn-company"

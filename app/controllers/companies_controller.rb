@@ -37,7 +37,8 @@ class CompaniesController < ApplicationController
     end    
 
     def company_params
-      params.require(:company).permit(:name, :avatar, :description, :site)
+      params.require(:company).permit(:name, :avatar, :description, :site,
+                                      :location, :employees, :agency, :phone)
     end
 
     def correct_user      
