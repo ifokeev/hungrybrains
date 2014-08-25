@@ -33,7 +33,10 @@ class StudentsController < ApplicationController
     end    
 
     def student_params
-      params.require(:student).permit(:name)
+      params.require(:student).permit(:name, :surname, :avatar, :location, 
+                                      :university, :grade, :graduation, 
+                                      :experience, :work, :language, 
+                                      :description, :brief_description)
     end
 
     def correct_user      

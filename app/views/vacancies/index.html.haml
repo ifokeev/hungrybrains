@@ -2,9 +2,7 @@
   .col-md-9
     .search.row
       .col-md-6
-        = [Russian::pluralize(@vacancies.count, "Найдена", "Найдено", "Найдено"),              |
-           @vacancies.count,                                                                   |
-           Russian::pluralize(@vacancies.count, "вакансия", "вакансии", "вакансий")].join(" ") |
+        = vacancies_search_count(@vacancies)
       .col-md-6
         .input-group
           %input.form-control{placeholder: "Введите ключевое слово"}

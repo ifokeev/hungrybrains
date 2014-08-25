@@ -1,6 +1,39 @@
 .form-wrapper
   = form_for @student do |f|
     .form-group
+      = f.label      :name, "Имя"
       = f.text_field :name, class: "form-control", placeholder: "Имя"
+    .form-group
+      = f.label      :surname, "Фамилия"
+      = f.text_field :surname, class: "form-control", placeholder: "Фамилия"
+    .form-group
+      = f.label     :description, "Обо мне"
+      = f.text_area :description, class: "form-control", placeholder: "Обо мне"
+    .form-group
+      = f.label     :brief_description, "Краткое описание"
+      = f.text_area :brief_description, class: "form-control", placeholder: "Краткое описание"
+    .form-group
+      = f.label      :location, "Город"
+      = f.text_field :location, class: "form-control", placeholder: "Город"
+    .form-group
+      = f.label      :university, "Университет"
+      = f.text_field :university, class: "form-control", placeholder: "Университет"
+    .form-group
+      = f.label      :graduation, "Год выпуска"
+      = f.text_field :graduation, class: "form-control", placeholder: "Год выпуска"
+    .form-group
+      = f.label      :grade, "Курс"
+      = f.text_field :grade, class: "form-control", placeholder: "Курс"
+    .form-group
+      = label_tag    :work, "Место работы"
+      = f.text_field :work, class: "form-control", placeholder: "Место работы"
+    .form-group
+      = label_tag :experience, "Опыт работы"
+      = f.select  :experience, [['Менее 1 года', 1], ['1-2 года', 2], ['Более 3 лет', 3]]
+    .form-group
+      = label_tag :experience, "Язык"
+      = f.select  :experience, [['Базовый', 0], ['Технический', 1], ['Разговорный', 2], ['Свободно владею', 3]]
+
+
     .text-center.margin-top30
       = f.submit "Сохранить", class: "btn btn-default btn-lg btn-student"

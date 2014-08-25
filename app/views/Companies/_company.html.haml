@@ -1,5 +1,6 @@
 .row.vacancy
-  .col-md-3.logo
+  .col-md-2.logo
+    = image_tag company.avatar.url(:thumb)  
   .col-md-8
     .row.title
       %p= raw link_to(company.name, company)

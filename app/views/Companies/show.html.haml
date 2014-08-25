@@ -1,12 +1,13 @@
 .row.margin-top20  
   .col-md-3
     %center
-      = image_tag "company-promo.png"
+      = image_tag @company.avatar.url(:medium)  
   .col-md-9
+    = render 'follow_form' if logged_in?
     .row
       .col-md-8
         %h3
-          = [@company.name, @company.user.role].join(" : ")
+          = @company.name
       .col-md-4.text-right
         - if current_user?(@company.user)
           .row
@@ -21,8 +22,19 @@
       %li
         = @company.employees
         Сотрудников
+      %li
+        %strong#followers
+          = @company.students.count
+        Подписчиков
 .row.margin-top20  
   .col-md-3
+    %strong.subtitle
+      Тип компании
+    .agency
+      - if @company.agency
+        Кадровое агентство
+      - else
+        Прямой работодатель
     %strong.subtitle
       О компании    
     .description
@@ -30,7 +42,10 @@
     %strong.subtitle
       Контактная информация
     .contact
-      = link_to @company.site, @company.site
+      %div
+        = @company.phone
+      %div  
+        = link_to @company.site, @company.site      
   .col-md-9
     - if @company.vacancies.any?
       = render @company.vacancies

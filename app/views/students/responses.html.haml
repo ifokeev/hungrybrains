@@ -1,5 +1,7 @@
 .row.vacancies.margin-top20  
   .col-md-9
+    .search.row
+      = student_responses_count(@vacancies)
     = render @vacancies
     / .text-center.margin-top10
     /   %a.show-more{href: "#"}

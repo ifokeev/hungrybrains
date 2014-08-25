@@ -60,10 +60,10 @@ footer ul > li > a {
   color: #fff;
 }
 
-footer ul > li > a:hover
-  {
+footer ul > li > a:hover {
   color: #fff;
 }
+
 footer .social {
 	display: block;
 	float: right;
@@ -124,6 +124,7 @@ footer .social {
   left:31%;
   bottom: 20px;
 }
+
 .btn-wrapper {	
 	position: absolute;
 	bottom: 20px;
@@ -154,14 +155,11 @@ footer .social {
   border-bottom: 1px solid #ccc;
 }
 
-.last-vacancy
-  {
+.last-vacancy {
   border-bottom: none !important;
 }
+
 .vacancy .logo {
-	background: image_url('booking-logo.png') no-repeat;
-	width: 53px;
-	height: 53px;
 	margin: 10px;
 	overflow: hidden;
 }
@@ -217,6 +215,7 @@ footer .social {
   background-color: #f2f3f1;
   @include border-radius(0.5em);
 }
+
 .auth-tabs {
   padding: 10px;
 }
@@ -224,6 +223,7 @@ footer .social {
 .auth-tabs-active {
   background-color: #f2f3f1 !important;
 }
+
 .auth-header {
   font-size: 1.3em;
 }
