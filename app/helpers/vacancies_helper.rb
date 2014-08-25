@@ -16,4 +16,16 @@ module VacanciesHelper
   def vacancy_description(collection)
     ["Описание", collection.brief_description].join(": ")
   end
+
+  def vacancies_search_count(collection)
+  [
+    Russian::pluralize(@vacancies.count, "Найдена", 
+                                         "Найдено", 
+                                         "Найдено"), 
+                      @vacancies.count, 
+                      Russian::pluralize(@vacancies.count, "вакансия", 
+                                                           "вакансии", 
+                                                           "вакансий")
+  ].join(" ") 
+  end
 end
