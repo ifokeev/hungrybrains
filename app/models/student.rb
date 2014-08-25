@@ -1,4 +1,8 @@
 class Student < ActiveRecord::Base
+
+  enum language:   [:basic, :intermediate, :advanced, :fluent]
+  enum experiense: [:no, :oneless, :onetotwo, :twomore]
+
   belongs_to :user
   has_many   :responses
   has_many   :vacancies, through: :responses, dependent: :destroy

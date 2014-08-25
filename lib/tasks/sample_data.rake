@@ -42,14 +42,32 @@ def make_users_and_profiles
   40.times do |n|
     email = "qweqwe0#{n+1}@gmail.com"
     password  = "qweqwe"
-    name = Faker::Name.name
+    name = Faker::Name.first_name
+    surname = Faker::Name.last_name
+    location = Faker::Address.city
+    university = Faker::Hacker.abbreviation
+    grade = rand(1..6)
+    graduation = rand(2010..2020)
+    experience = rand(0..3)
+    work = Faker::Name.title
+    language = rand(0..3)
+    description = Faker::Lorem.paragraph(5)
 
     user = User.new
     user.email = email
     user.password = password
     user.roles = [:student]
 
-    user.build_student(name: name)
+    user.build_student(name:        name,
+                       surname:     surname,
+                       location:    location,
+                       university:  university,
+                       grade:       grade,
+                       graduation:  graduation,
+                       experience:  experience,
+                       work:        work,
+                       language:    language,
+                       description: description)
 
     user.save
   end

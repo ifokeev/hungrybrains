@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140825123909) do
+ActiveRecord::Schema.define(version: 20140825142614) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -70,8 +70,8 @@ ActiveRecord::Schema.define(version: 20140825123909) do
     t.string  "location",    default: "Москва"
     t.string  "university"
     t.integer "grade"
-    t.date    "graduation"
-    t.integer "experience"
+    t.integer "graduation"
+    t.integer "experience",  default: 0
     t.string  "work"
     t.integer "language",    default: 0
     t.text    "description"
