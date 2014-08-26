@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
   end
 
   def companies
-    @following = @student.companies
+    @companies = @student.companies
   end
 
   private
