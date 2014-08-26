@@ -6,7 +6,7 @@ class StaticPagesController < ApplicationController
     elsif logged_in? and current_user.has_role? :company
       redirect_to company_path(id: current_user.company.id)
     else 
-       @vacancies = Vacancy.limit(5).order('id DESC')
+       @vacancies = Vacancy.limit(5).latest
     end
   end
 

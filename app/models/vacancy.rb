@@ -11,6 +11,8 @@ class Vacancy < ActiveRecord::Base
   validates :description, length: { minimum: 50, maximum: 2000 }
   validates :brief_description, length: { maximum: 140 }
 
+  scope :latest, -> { order('id DESC') }
+
   def self.from_company_followed_by(student)
     followed_company_ids = "SELECT company_id FROM relationships
                             WHERE student_id = :student_id"
