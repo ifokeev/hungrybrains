@@ -1,8 +1,8 @@
 %header.row
-  .col-md-1
+  .pull-left
     %a{href: root_path}
-      %img.img-responsive.logo{alt: "logo", src: image_path("logo.png")}
-  .col-md-5
+      %img.logo{alt: "logo", width:120, src: image_path("logo-hb-3.png")}
+  .pull-left{style: 'margin-left:15px'}
     %nav.row
       %ul.nav.navbar-nav
         %li
@@ -10,8 +10,10 @@
         %li
           %a{href: companies_path} Компании
         %li
-          %a{href: info_index_path} Знания
-  .col-md-4.col-md-offset-2.text-right
+          %a{href: info_index_path} События
+        %li
+          %a{href: info_index_path} Посты
+  .pull-right.text-right
     - if current_user 
       %ol.breadcrumb
         %li
@@ -27,3 +29,4 @@
           %a.signin{href: signin_path } Вход
         %li
           %a.signup{href: signup_path } Регистрация
+  .clearfix

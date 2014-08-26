@@ -21,7 +21,7 @@
       %li
         = [@student.grade, "курс"].join(" ")
       %li
-        = [@student.university, @student.graduation % 100].join(" '")
+        = @student.university_with_graduation
 .row.margin-top20  
   .col-md-3
     %strong.subtitle

@@ -1,2 +1,2 @@
-$("#follow_form").html("<%= escape_javascript(render('shared/unfollow')) %>")
-$("#followers").html('<%= @company.students.count %>')
+$("#follow_form").html("<%= escape_javascript(render('shared/unfollow', :company => @company)) %>");
+$("#followers").html('<%= @company.students.count %>');

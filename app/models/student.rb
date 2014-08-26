@@ -45,6 +45,20 @@ class Student < ActiveRecord::Base
 
   def unfollow(company)
     relationships.find_by(company: company.id).destroy
-  end  
+  end
+
+  def university_with_graduation
+    result = ""
+
+    if self.university
+      result += self.university + " "
+    end
+
+    if self.graduation
+      result += (self.graduation % 100)
+    end
+
+    result
+  end
 
 end
