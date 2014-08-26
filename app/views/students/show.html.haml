@@ -40,5 +40,5 @@
     .contact
       = link_to "VK", "http://vk.com/durov"
   .col-md-9
-    - if @student.vacancies.any?
-      = render @student.vacancies
+    %h4.text-center Лента вакансий
+    = render 'feed'

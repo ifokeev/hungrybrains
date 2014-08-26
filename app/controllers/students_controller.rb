@@ -5,6 +5,7 @@ class StudentsController < ApplicationController
   before_action :set_user, only: [:responses]
   
   def show
+    @feed_items = current_user.student.feed.paginate(page: params[:page])    
   end
 
   def edit
