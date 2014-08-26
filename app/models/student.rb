@@ -18,6 +18,9 @@ class Student < ActiveRecord::Base
     self.avatar = URI.parse(url)
   end
 
+  def feed
+    Vacancy.from_company_followed_by(self)
+  end
 
   def responded?(vacancy)
     responses.find_by(vacancy_id: vacancy.id)
