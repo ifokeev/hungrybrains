@@ -9,7 +9,12 @@ Rails.application.routes.draw do
   resources :responses,     only: [:create, :destroy]
   resources :relationships, only: [:create, :destroy]  
   resources :info
-  resources :students, :companies, :vacancies do
+  resources :students do
+    member do
+      get :responses, :companies
+    end
+  end
+  resources :companies, :vacancies do
     member do
       get :responses
     end

@@ -1,6 +1,6 @@
 class StudentsController < ApplicationController
   before_action :require_login, only: [:edit, :update, :responses]
-  before_action :set_student, only: [:show, :edit, :update, :responses]
+  before_action :set_student, only: [:show, :edit, :update, :responses, :companies]
   before_action :correct_user, only: [:show, :edit, :update, :destroy, :responses]
   before_action :set_user, only: [:responses]
   
@@ -21,6 +21,10 @@ class StudentsController < ApplicationController
 
   def responses
     @vacancies = @student.vacancies
+  end
+
+  def companies
+    @companies = @student.companies
   end
 
   private

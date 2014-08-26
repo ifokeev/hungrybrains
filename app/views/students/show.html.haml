@@ -10,10 +10,11 @@
       .col-md-4.text-right
         - if current_user?(@student.user)
           .row
-            .col-md-6
-              = button_to "Редактировать профиль", edit_student_path, method: "get", class: "btn btn-default btn-sm btn-student"
-            .col-md-6
-              = button_to "Мои отклики", responses_student_path, method: "get", class: "btn btn-default btn-sm btn-company"
+            = button_to "Редактировать профиль", edit_student_path, method: "get", class: "btn btn-default btn-sm btn-student"
+          .row
+            = button_to "Мои отклики", responses_student_path, method: "get", class: "btn btn-default btn-sm btn-company"
+          .row
+            = button_to "Мои подписки", companies_student_path(@student), method: "get", class: "btn btn-default btn-sm btn-default"
     %ol.breadcrumb.profile
       %li
         = @student.location

@@ -19,8 +19,17 @@ module StudentsHelper
     Russian::pluralize(@vacancies.count, "вакансию", 
                                          "вакансии", 
                                          "вакансий")
-  ].join(" ") 
-    
+  ].join(" ")     
+  end
+
+  def student_companies_count(collection)
+  [
+    "Вы подписаны на",
+    @companies.count, 
+    Russian::pluralize(@companies.count, "компанию", 
+                                         "компании", 
+                                         "компаний")
+  ].join(" ")     
   end
 
 end
