@@ -3,7 +3,7 @@
     %center
       = image_tag @company.avatar.url(:medium)  
   .col-md-9
-    = render 'follow_form' if logged_in?
+    = render 'shared/follow_form' if logged_in?
     .row
       .col-md-8
         %h3
@@ -15,7 +15,6 @@
               = button_to "Редактировать профиль", edit_company_path, method: "get", class: "btn btn-default btn-sm btn-student"
             .col-md-6
               = button_to "Управление", responses_company_path, method: "get", class: "btn btn-default btn-sm btn-company"
-
     %ol.breadcrumb.profile
       %li
         = @company.location
@@ -23,9 +22,9 @@
         = @company.employees
         Сотрудников
       %li
+        Подписчиков: 
         %strong#followers
           = @company.students.count
-        Подписчиков
 .row.margin-top20  
   .col-md-3
     %strong.subtitle

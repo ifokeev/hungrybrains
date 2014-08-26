@@ -1,13 +1,20 @@
+- @company = company
 .row.vacancy
   .col-md-2.logo
     = image_tag company.avatar.url(:thumb)  
-  .col-md-8
+  .col-md-6
     .row.title
       %p= raw link_to(company.name, company)
-    .row.description
-      = company.location
-  .col-md-1.text-right
-    %div
-      = company.vacancies.count
-    %div
-      = Russian::pluralize(company.vacancies.count, "вакансия", "вакансии", "вакансий")
+    .row  
+      Подписчиков: 
+      %strong#followers
+        = @company.students.count
+  .col-md-3
+    .row
+      .col-md-6.text-center
+        %div
+          = company.vacancies.count
+        %div
+          = Russian::pluralize(company.vacancies.count, "вакансия", "вакансии", "вакансий")
+      .col-md-6
+        = render 'shared/follow_form' if logged_in?
