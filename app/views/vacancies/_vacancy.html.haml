@@ -1,4 +1,4 @@
-.row.vacancy
+.row.vacancy-row{class: (vacancy == @vacancies.last) && 'last-vacancy-row'}
   .col-md-2.logo
     = image_tag vacancy.company.avatar.url(:thumb)
   .col-md-8
@@ -9,7 +9,7 @@
   .col-md-1.worktype
     .row
       - if @user.present? and @user.has_role? :student
-        = vacancy.responses.where(student_id: @student.id).last.status
+        = vacancy.responses.where(student_id: @student.id).take.status
       - if @user.present? and @user.has_role? :company
         = link_to([vacancy.students.count, "откликов"].join(" "), responses_vacancy_path(vacancy.id))
       .col-md-6.paid.icon
