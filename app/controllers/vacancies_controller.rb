@@ -61,9 +61,9 @@ class VacanciesController < ApplicationController
       redirect_to root_url if @vacancy.nil?      
     end
 
-    def correct_user_company
-      @vacancy = current_user.company.vacancies.find_by_id(params[:id])
-      redirect_to root_url if @vacancy.nil?
+
+    def correct_user_student
+      redirect_to root_url
     end
 
 end

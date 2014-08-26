@@ -3,7 +3,7 @@
     %center
       = image_tag @company.avatar.url(:medium)  
   .col-md-9
-    = render 'shared/follow_form' if logged_in?
+    = render 'shared/follow_form', :company => @company if logged_in?
     .row
       .col-md-8
         %h3
