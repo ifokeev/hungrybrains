@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users,         only: [:new, :create]
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :responses,     only: [:create, :destroy]
+  resources :responses,     only: [:create, :destroy, :update]
   resources :relationships, only: [:create, :destroy]  
   resources :info
   resources :students do

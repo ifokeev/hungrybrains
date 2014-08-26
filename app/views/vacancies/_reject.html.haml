@@ -1,0 +1,6 @@
+= form_for(@vacancy.responses.find_by(student_id: @student.id), |
+            html: { method: 'put' }) do |f|                    |
+  = f.hidden_field :student_id
+  = f.hidden_field :vacancy_id
+  = f.hidden_field :status, value: :rejected
+  = f.submit "Отклонить", class: "btn btn-danger btn-xs btn-company"
