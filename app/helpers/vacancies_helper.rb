@@ -28,4 +28,37 @@ module VacanciesHelper
                                                            "вакансий")
   ].join(" ") 
   end
+
+  def all_responses_link(collection)
+    link_to([ "Все отклики (", 
+              collection.responses.count,
+              ")"
+            ].join(""),
+            responses_vacancy_path(collection))
+  end
+
+  def unreviewed_responses_link(collection)
+    link_to([ "Непросмотренные (", 
+              collection.responses.count,
+              ")"
+            ].join(""),
+            "/vacancies/#{collection.id}/responses/unreviewed")
+  end
+
+  def accepted_responses_link(collection)
+    link_to([ "Принятые (", 
+              collection.responses.count,
+              ")"
+            ].join(""),
+            "/vacancies/#{collection.id}/responses/accepted")
+  end
+
+  def rejected_responses_link(collection)
+    link_to([ "Отклоненные (", 
+              collection.responses.count,
+              ")"
+            ].join(""),
+            "/vacancies/#{collection.id}/responses/rejected")
+  end
+
 end
