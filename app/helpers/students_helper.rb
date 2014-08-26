@@ -15,18 +15,18 @@ module StudentsHelper
   def student_responses_count(collection)
   [
     "Вы откликнулись на",
-    @vacancies.count, 
-    Russian::pluralize(@vacancies.count, "вакансию", 
+    collection.count, 
+    Russian::pluralize(collection.count, "вакансию", 
                                          "вакансии", 
                                          "вакансий")
   ].join(" ")     
   end
 
-  def student_companies_count(collection)
+  def student_following_count(collection)
   [
     "Вы подписаны на",
-    @companies.count, 
-    Russian::pluralize(@companies.count, "компанию", 
+    collection.count, 
+    Russian::pluralize(collection.count, "компанию", 
                                          "компании", 
                                          "компаний")
   ].join(" ")     

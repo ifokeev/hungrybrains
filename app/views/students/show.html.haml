@@ -14,7 +14,7 @@
           .row
             = button_to "Мои отклики", responses_student_path, method: "get", class: "btn btn-default btn-sm btn-company"
           .row
-            = button_to "Мои подписки", companies_student_path(@student), method: "get", class: "btn btn-default btn-sm btn-default"
+            = button_to "Мои подписки", following_student_path(@student), method: "get", class: "btn btn-default btn-sm btn-default"
     %ol.breadcrumb.profile
       %li
         = @student.location

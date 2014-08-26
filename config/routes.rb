@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :students do
     member do
       get :responses, :companies
+      match '/following', to: 'students#companies', via: 'get'
     end
   end
   resources :companies, :vacancies do
