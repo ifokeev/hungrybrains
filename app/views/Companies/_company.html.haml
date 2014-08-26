@@ -1,5 +1,4 @@
-- @company = company
-.row.vacancy
+.row.company-row{class: (company == @companies.last) && 'last-company-row'}
   .col-md-2.logo
     = image_tag company.avatar.url(:thumb)  
   .col-md-6
@@ -8,7 +7,7 @@
     .row  
       Подписчиков: 
       %strong#followers
-        = @company.students.count
+        = company.students.count
   .col-md-3
     .row
       .col-md-6.text-center
@@ -17,4 +16,4 @@
         %div
           = Russian::pluralize(company.vacancies.count, "вакансия", "вакансии", "вакансий")
       .col-md-6
-        = render 'shared/follow_form' if logged_in?
+        = render 'shared/follow_form', :company => company if logged_in?

@@ -4,7 +4,7 @@ class VacanciesController < ApplicationController
   before_action :correct_user, except: [:index, :show]
 
 	def index
-		@vacancies = Vacancy.paginate(page: params[:page], per_page: 10)
+		@vacancies = Vacancy.paginate(page: params[:page], per_page: 10).latest
 	end
 
 	def show
@@ -75,6 +75,7 @@ class VacanciesController < ApplicationController
       @vacancy = current_user.company.vacancies.find_by_id(params[:id])
       redirect_to root_url if @vacancy.nil?      
     end
+
 
     def correct_user_student
       redirect_to root_url
