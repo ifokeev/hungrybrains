@@ -23,7 +23,7 @@ class ResponsesController < ApplicationController
     @vacancy = Response.find(params[:id]).vacancy    
     Response.find(params[:id]).update(response_params)
     respond_to do |format|
-      format.html { redirect_to responses_vacancy_path(@vacancy.id) }
+      format.html { redirect_to :back }
       format.js
     end
   end
