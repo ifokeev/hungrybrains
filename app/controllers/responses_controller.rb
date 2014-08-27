@@ -20,7 +20,6 @@ class ResponsesController < ApplicationController
   end
 
   def update
-
     @vacancy = Response.find(params[:id]).vacancy    
     Response.find(params[:id]).update(response_params)
     respond_to do |format|

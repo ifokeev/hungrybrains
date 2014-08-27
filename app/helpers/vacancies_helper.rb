@@ -29,33 +29,33 @@ module VacanciesHelper
   ].join(" ") 
   end
 
-  def all_responses_link(collection)
+  def all_responses_link(collection, responses)
     link_to([ "Все отклики (", 
-              collection.responses.count,
+              responses.count,
               ")"
             ].join(""),
             responses_vacancy_path(collection))
   end
 
-  def unreviewed_responses_link(collection)
+  def unreviewed_responses_link(collection, responses)
     link_to([ "Непросмотренные (", 
-              collection.responses.count,
+              responses.count,
               ")"
             ].join(""),
             "/vacancies/#{collection.id}/responses/unreviewed")
   end
 
-  def accepted_responses_link(collection)
+  def accepted_responses_link(collection, responses)
     link_to([ "Принятые (", 
-              collection.responses.count,
+              responses.count,
               ")"
             ].join(""),
             "/vacancies/#{collection.id}/responses/accepted")
   end
 
-  def rejected_responses_link(collection)
+  def rejected_responses_link(collection, responses)
     link_to([ "Отклоненные (", 
-              collection.responses.count,
+              responses.count,
               ")"
             ].join(""),
             "/vacancies/#{collection.id}/responses/rejected")

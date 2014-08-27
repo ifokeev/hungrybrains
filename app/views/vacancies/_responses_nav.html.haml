@@ -1,9 +1,9 @@
 .search.row
   .col-md-3
-    = all_responses_link(@vacancy)
+    = all_responses_link(@vacancy, @responses)
   .col-md-3
-    = unreviewed_responses_link(@vacancy)
+    = unreviewed_responses_link(@vacancy, @unreviewed)
   .col-md-3
-    = accepted_responses_link(@vacancy)
+    = accepted_responses_link(@vacancy, @accepted)
   .col-md-3
-    = rejected_responses_link(@vacancy)
+    = rejected_responses_link(@vacancy, @rejected)
