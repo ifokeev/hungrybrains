@@ -1,7 +1,7 @@
 class VacanciesController < ApplicationController
   before_action :require_login, except: [:index, :show]
   before_action :set_vacancy, only: [:show]
-  before_action :correct_user, except: [:index, :show]
+  before_action :correct_user, except: [:index, :new, :show]
   before_action :set_resopnses, only: [:responses, :unreviewed, 
                                        :accepted, :rejected]
 
