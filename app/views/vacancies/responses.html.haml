@@ -1,2 +1,6 @@
 = render 'responses_nav'
-= render @students
+- if @responses.any?
+  = render @students
+- else
+  %strong
+    Откликов на эту вакансию нет

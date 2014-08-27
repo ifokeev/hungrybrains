@@ -1,2 +1,6 @@
 = render 'responses_nav'
-= render @students
+- if @accepted.any?
+  = render @students
+- else
+  %strong
+    Принятых откликов нет

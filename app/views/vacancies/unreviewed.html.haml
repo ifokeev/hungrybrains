@@ -1,2 +1,6 @@
 = render 'responses_nav'
-= render @students
+- if @unreviewed.any?
+  = render @students
+- else
+  %strong
+    Необработанных откликов нет
