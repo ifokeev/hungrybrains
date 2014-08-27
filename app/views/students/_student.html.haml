@@ -1,4 +1,8 @@
+- @student = student
 .row.vacancy
+  .col-md-1
+    = render 'accept'
+    = render 'reject'
   .col-md-2.logo
     = image_tag student.avatar.url(:thumb)
   .col-md-6
@@ -6,7 +10,7 @@
       %p= full_name(student)
     .row.description
       = student.brief_description
-  .col-md-3.text-right
+  .col-md-2.text-right
     .location
       = student.location
     .university

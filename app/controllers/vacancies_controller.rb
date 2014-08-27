@@ -1,7 +1,7 @@
 class VacanciesController < ApplicationController
-  before_action :require_login, only: [:new, :create, :edit, :update, :destroy, :responses]
+  before_action :require_login, except: [:index, :show]
   before_action :set_vacancy, only: [:show]
-  before_action :correct_user, only: [:edit, :update, :destroy, :responses]
+  before_action :correct_user, except: [:index, :show]
 
 	def index
 		@vacancies = Vacancy.paginate(page: params[:page], per_page: 10).latest
@@ -36,6 +36,21 @@ class VacanciesController < ApplicationController
 
   def responses
     @students = @vacancy.students
+  end
+
+  def unreviewed
+    @responses = @vacancy.responses.where(status: 0)
+    @students  = @responses.collect(&:student)
+  end
+
+  def accepted
+    @responses = @vacancy.responses.where(status: 1)
+    @students  = @responses.collect(&:student)
+  end
+
+  def rejected
+    @responses = @vacancy.responses.where(status: 2)
+    @students  = @responses.collect(&:student)
   end
 
   private

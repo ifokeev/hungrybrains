@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :users,         only: [:new, :create]
   resources :sessions,      only: [:new, :create, :destroy]
-  resources :responses,     only: [:create, :destroy]
+  resources :responses,     only: [:create, :destroy, :update]
   resources :relationships, only: [:create, :destroy]  
   resources :info
   resources :students do
@@ -28,6 +28,9 @@ Rails.application.routes.draw do
   match '/contact',  to: 'static_pages#contact',  via: 'get'
   match '/feedback', to: 'static_pages#feedback', via: 'get'
 
+  match '/vacancies/:id/responses/unreviewed', to: 'vacancies#unreviewed', via: 'get'
+  match '/vacancies/:id/responses/accepted',   to: 'vacancies#accepted',   via: 'get'
+  match '/vacancies/:id/responses/rejected',   to: 'vacancies#rejected',   via: 'get'
 
   get '/auth/vk/company', to: 'omniauth_callbacks#vkontakte_company'
   get '/auth/vk/student', to: 'omniauth_callbacks#vkontakte_student'

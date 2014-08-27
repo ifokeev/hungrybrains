@@ -51,11 +51,11 @@ class Student < ActiveRecord::Base
     result = ""
 
     if self.university
-      result += self.university + " "
+      result += self.university + " '"
     end
 
     if self.graduation
-      result += (self.graduation % 100)
+      result += (self.graduation % 100).to_s
     end
 
     result

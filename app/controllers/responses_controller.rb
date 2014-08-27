@@ -18,4 +18,21 @@ class ResponsesController < ApplicationController
       format.js
     end
   end
+
+  def update
+
+    @vacancy = Response.find(params[:id]).vacancy    
+    Response.find(params[:id]).update(response_params)
+    respond_to do |format|
+      format.html { redirect_to responses_vacancy_path(@vacancy.id) }
+      format.js
+    end
+  end
+
+  private
+  
+    def response_params
+      params.require(:response).permit(:status)
+    end
+
 end

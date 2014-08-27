@@ -1,7 +1,7 @@
 class StudentsController < ApplicationController
   before_action :require_login, only: [:edit, :update, :responses]
-  before_action :set_student, only: [:show, :edit, :update, :responses, :companies]
-  before_action :correct_user, only: [:show, :edit, :update, :destroy, :responses]
+  before_action :set_student, except: [:index, :new, :create]
+  before_action :correct_user, except: [:index, :new, :create]
   before_action :set_user, only: [:responses]
   
   def show
