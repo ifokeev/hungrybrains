@@ -1,8 +1,9 @@
 - @student = student
-.row.vacancy
+.row.vacancy-row
   .col-md-1
     = render 'accept'
     = render 'reject'
+    = render 'unreview'
   .col-md-2.logo
     = image_tag student.avatar.url(:thumb)
   .col-md-6
