@@ -14,7 +14,7 @@
     /   %a.show-more{href: "#"}
     /     %ins Показать больше
   .col-md-3
-    - if current_user.has_role? :company
+    - if logged_in? and current_user.has_role? :company
       = button_to "Добавить стажировку", new_vacancy_path, method: "get", class: "btn btn-default btn-lg btn-company"
     .blank
 
