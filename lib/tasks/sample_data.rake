@@ -2,6 +2,7 @@ namespace :db do
   desc "Fill database with sample data"
   task populate: :environment do
     make_users_and_profiles
+    
     make_vacancies
     make_responses
     make_relationships
@@ -35,6 +36,7 @@ def make_users_and_profiles
     company.agency = [true, false].sample
     company.phone = Faker::PhoneNumber.cell_phone
     company.avatar_from_url(Faker::Company.logo)
+    company.categories << Category.new(name: "IT")
 
     company.save
     user.company = company
@@ -63,6 +65,7 @@ def make_users_and_profiles
     student.description = Faker::Lorem.paragraph(5)
     student.brief_description = Faker::Hacker.say_something_smart
     student.avatar_from_url(Faker::Company.logo)
+    student.categories << Category.new(name: "IT")
 
     student.save
     user.student = student
@@ -73,18 +76,16 @@ end
 
 def make_vacancies
   20.times do |n|
-    company_id = rand(Company.count) + 1
-    title = [Faker::Hacker.adjective, Faker::Hacker.abbreviation, Faker::Hacker.noun].join(" ")
-    brief_description = Faker::Hacker.say_something_smart
-    description = Faker::Lorem.paragraph(5)
-    salaryfrom = rand(10..30) * 1000
-    salaryto = salaryfrom
-    Vacancy.create(company_id:        company_id,
-                   title:             title,
-                   brief_description: brief_description,
-                   description:       description,
-                   salaryfrom:        salaryfrom,
-                   salaryto:          salaryto)
+    vacancy = Vacancy.new
+    vacancy.company_id = rand(Company.count) + 1
+    vacancy.title = [Faker::Hacker.adjective, Faker::Hacker.abbreviation, Faker::Hacker.noun].join(" ")
+    vacancy.brief_description = Faker::Hacker.say_something_smart
+    vacancy.description = Faker::Lorem.paragraph(5)
+    vacancy.salaryfrom = rand(10..30) * 1000
+    vacancy.salaryto = vacancy.salaryfrom
+    vacancy.categories << Category.new(name: "IT")
+
+    vacancy.save
   end
 end
 
