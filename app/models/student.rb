@@ -8,7 +8,8 @@ class Student < ActiveRecord::Base
   has_many   :vacancies, through: :responses, dependent: :destroy
   has_many   :relationships
   has_many   :companies, through: :relationships, dependent: :destroy
-
+  has_many   :categories, as: :owner
+  
   has_attached_file :avatar, styles: { medium: "200x200>", 
                                        thumb:  "75x75>" }, 
                              default_url: "/images/:style/missing.png"

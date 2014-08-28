@@ -3,6 +3,7 @@ class Company < ActiveRecord::Base
   has_many   :vacancies, dependent: :destroy
   has_many   :relationships
   has_many   :students, through: :relationships, dependent: :destroy
+  has_many   :categories, as: :owner
 
   has_attached_file :avatar, styles: { medium: "200x200>", 
                                        thumb:  "75x75>" }, 
