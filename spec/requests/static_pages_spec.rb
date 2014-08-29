@@ -1,10 +1,27 @@
 require 'rails_helper'
 
-RSpec.describe "StaticPages", :type => :request do
-  describe "GET /static_pages" do
-    it "works! (now write some real specs)" do
-      get root_path
-      expect(response.status).to be(200)
-    end
+describe "Static pages" do
+
+  subject { page }
+
+  describe "Home page" do
+    before { visit root_path }
+    it { should have_content('Вы студент?') }
   end
+
+  describe "About page" do
+    before { visit about_path }
+    it { should have_content('about') }
+  end
+
+  describe "Contact page" do
+    before { visit contact_path }
+    it { should have_content('contact') }
+  end
+
+  describe "Feedback page" do
+    before { visit feedback_path }
+    it { should have_content('feedback') }
+  end
+
 end
