@@ -34,15 +34,25 @@ group :development do
   gem "binding_of_caller"
 end
 
+group :development, :test do
+  gem 'sqlite3'
+  gem 'rspec-rails', '~> 3.0.0'
+  gem 'guard-rspec'
+  gem 'spork', '~> 1.0rc'
+  gem 'guard-spork'
+  gem 'spork-rails'
+  gem 'capybara'
+  gem 'factory_girl_rails'
+  gem 'database_cleaner', '0.7.0'
+  gem 'childprocess', '0.3.6'  
+end
+
 # Internationalization
 gem 'rails-i18n', '~> 4.0.0' 
 gem 'russian', '~> 0.6.0'
 
 ########
 
-
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.3'
