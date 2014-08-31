@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AddDetailsToVacancies < ActiveRecord::Migration
   def change
     add_column :vacancies, :duration, :datetime

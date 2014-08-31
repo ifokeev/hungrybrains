@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AddDetailsToStudents < ActiveRecord::Migration
   def change
     change_table :students do |t|

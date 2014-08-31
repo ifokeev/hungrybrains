@@ -1,3 +1,4 @@
+#encoding: utf-8
 module CompaniesHelper
   def company_count_russian(count)
     [

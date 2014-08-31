@@ -1,3 +1,4 @@
+#encoding: utf-8
 class StudentsController < ApplicationController
   before_action :require_login, only: [:edit, :update, :responses]
   before_action :set_student, except: [:new, :create]

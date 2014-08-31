@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ErrorsController < ApplicationController
   def file_not_found
   end

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class OmniauthCallbacksController < ApplicationController
   def self.provides_callback_for(provider)
     class_eval %Q{

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class CompaniesController < ApplicationController
   before_action :require_login, only: [:edit, :update, :responses]
   before_action :set_company, except: [:index, :new, :create]

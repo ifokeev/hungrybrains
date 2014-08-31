@@ -1,3 +1,4 @@
+#encoding: utf-8
 class VacanciesController < ApplicationController
   before_action :require_login, except: [:index, :show]
   before_action :set_vacancy, only: [:show]

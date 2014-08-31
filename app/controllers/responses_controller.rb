@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ResponsesController < ApplicationController
   before_action :require_login
 

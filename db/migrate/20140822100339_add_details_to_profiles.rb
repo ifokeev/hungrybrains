@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AddDetailsToProfiles < ActiveRecord::Migration
   def change
     change_table :profiles do |t|

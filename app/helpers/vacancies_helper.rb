@@ -1,3 +1,4 @@
+#encoding: utf-8
 module VacanciesHelper
 
   def vacancy_title(collection)
