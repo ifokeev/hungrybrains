@@ -7,27 +7,87 @@
 
 html, body {
   height: 100%;
+  overflow-x: hidden;
 }
 
 /* header */
 header {
-	margin-top: 1em;
+  position: relative;
+  background: #616a6a;
 }
+
+header:before, header:after {
+  content: "";
+  position: absolute;
+  background: #616a6a; 
+  top: 0;
+  bottom: 0;
+  width: 9999px;
+  height: 86px;
+}
+
+header:before {
+  right: 100%;
+}
+
+header:after {
+  left: 100%;
+}
+
 
 header .nav {
 	font-size: 1.4em;
-    margin-top:15px;
+  margin: 23px 0px;
 }
 
 header .nav > li > a {
   padding: 10px 30px;
-  color: #47423b;
+  color: #ffffff;
+}
+header .nav > li > a:hover {
+  background-color: #616a6a;
+  color: #dbe2e3;
 }
 
 .breadcrumb {
 	background-color: #fff;
 	font-size: 1.4em;
-    margin-top:15px;
+  margin-top:15px;
+}
+
+.header__rightblock {
+  margin: 25px 15px 24px 0px;
+}
+.btn:focus {
+  color: #DBE2E3;
+  outline: none;
+}
+.btn-signedin {
+  font-size: 16px;
+}
+.btn-signin {
+  color: #fff;
+  background-color: #616a6a;
+  border-color: transparent;
+}
+.btn-signin:hover {
+  background-color: #616a6a;
+  border-color: transparent;
+  color: #dbe2e3;
+}
+.btn-name {
+  font-size: 16px
+}
+.btn-signin:active {
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.btn-registration {
+  background-color: #5fb989;
+}
+.btn-registration:hover {
+  background-color: #5fb989;
 }
 
 .breadcrumb > li + li:before {
@@ -45,7 +105,7 @@ header .nav > li > a {
 /* footer */
 
 footer {
-	background-color: #27AE60;
+	background-color: #5fb989;
 	height: 100%;
 }
 
