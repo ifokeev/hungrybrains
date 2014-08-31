@@ -1,32 +1,33 @@
 %header.row
-  .pull-left
-    %a{href: root_path}
-      %img.logo{alt: "logo", width:120, src: image_path("logo-hb-3.png")}
-  .pull-left{style: 'margin-left:15px'}
-    %nav.row
-      %ul.nav.navbar-nav
-        %li
-          %a{href: vacancies_path} Стажировки
-        %li
-          %a{href: companies_path} Компании
-        %li
-          %a{href: info_index_path} События
-        %li
-          %a{href: info_index_path} Посты
-  .pull-right.text-right
-    - if current_user 
-      %ol.breadcrumb
-        %li
-          - if current_user.has_role? :company
-            = link_to current_user.company.name, current_user.company
-          - else
-            = link_to current_user.student.name, current_user.student          
-        %li
-          = link_to "Выход", signout_path, method: "delete", class: "signin"
-    - else
-      %ol.breadcrumb
-        %li
-          %a.signin{href: signin_path } Вход
-        %li
-          %a.signup{href: signup_path } Регистрация
-  .clearfix
+  .col-md-12
+    .pull-left
+      %a{href: root_path}
+        %img.logo{alt: "logo", width:120, src: image_path("logo-hb-3.png")}
+    .pull-left{style: 'margin-left:15px'}
+      %nav.row
+        %ul.nav.navbar-nav
+          %li
+            %a{href: vacancies_path} Стажировки
+          %li
+            %a{href: companies_path} Компании
+          %li
+            %a{href: info_index_path} События
+          %li
+            %a{href: info_index_path} Посты
+    .pull-right.text-right
+      - if current_user
+        %ol.breadcrumb
+          %li
+            - if current_user.has_role? :company
+              = link_to current_user.company.name, current_user.company
+            - else
+              = link_to current_user.student.name, current_user.student
+          %li
+            = link_to "Выход", signout_path, method: "delete", class: "signin"
+      - else
+        %ol.breadcrumb
+          %li
+            %a.signin{href: signin_path } Вход
+          %li
+            %a.signup{href: signup_path } Регистрация
+    .clearfix

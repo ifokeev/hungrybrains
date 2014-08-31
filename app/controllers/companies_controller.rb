@@ -5,7 +5,7 @@ class CompaniesController < ApplicationController
   before_action :set_user, only: [:show, :responses]
   
   def index    
-    @companies = Company.order('vacancies_count DESC').paginate(page: params[:page], per_page: 10)
+    @companies = Company.search(params[:search]).paginate(page: params[:page], per_page: 10).order('vacancies_count DESC')
   end
 
   def show    

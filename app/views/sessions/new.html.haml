@@ -1,26 +1,8 @@
 .col-md-10.col-md-offset-1.margin-top20
-  .auth
-    .auth-header
-      .row
-        .col-md-12
-          .student.col-md-6.text-center.auth-tabs.auth-tabs-active
-            Студент
-          .company.col-md-6.text-center.auth-tabs
-            Компания
+  .auth.center-block
     .auth-content.student
       .row
-        .col-md-12
-          .col-md-6
-            = render 'form'
-          .col-md-6
-            = render 'shared/promo_student'
-
-    .auth-content.company.hide
-      .row
-        .col-md-12
-          .col-md-6
-            = render 'form'
-          .col-md-6
-            = render 'shared/promo_company'
+        .col-md-6.col-md-offset-3
+          = render 'form'
 
 .clearfix
