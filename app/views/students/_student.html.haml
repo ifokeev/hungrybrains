@@ -2,10 +2,10 @@
   .col-md-1
     = get_student_response(@responses, student).status
     - if get_student_response(@responses, student).unreviewed?
-      = render 'vacancies/accept', :student => @student
-      = render 'vacancies/reject', :student => @student
+      = render 'vacancies/accept', :student => student
+      = render 'vacancies/reject', :student => student
     - else
-      = render 'vacancies/unreview', :student => @student
+      = render 'vacancies/unreview', :student => student
   .col-md-2.logo
     = image_tag student.avatar.url(:thumb)
   .col-md-6
