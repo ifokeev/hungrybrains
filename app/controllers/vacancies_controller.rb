@@ -71,7 +71,10 @@ class VacanciesController < ApplicationController
     end
 
     def vacancy_params
-      params.require(:vacancy).permit(:title, :description, :brief_description)
+      params.require(:vacancy).permit(:title, :description, :brief_description,
+                                      :duration, :location, :worktype, 
+                                      :salaryfrom, :salaryto, :paid, :status,
+                                      :deadline, :min_grade, :instruction)
     end
 
     def correct_user

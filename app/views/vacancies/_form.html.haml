@@ -1,10 +1,55 @@
 .form-wrapper
   = form_for @vacancy do |f|
     .form-group
+      = f.label      :title, "Наименование"    
       = f.text_field :title, class: "form-control", placeholder: "Наименование"
+    .form-group
+      = f.label        :worktype, "Тип занятости"
+      = f.radio_button :worktype, :internship
+      = f.label        :worktype, "Стажировка"
+      = f.radio_button :worktype, :fulltime      
+      = f.label        :worktype, "Полная занятость"
+      = f.radio_button :worktype, :parttime      
+      = f.label        :worktype, "Частичная занятость"      
+    / add ajax here. show this field only if user marks worktype as internhip
+    - if @vacancy.internship?
+      .form-group
+        = f.label        :duration, "Продолжительность"
+        = f.number_field :duration, class: "form-control", placeholder: "Продолжительность"      
     .form-group                    
+      = f.label      :brief_description, "Краткое описание"    
       = f.text_field :brief_description, class: "form-control", placeholder: "Краткое описание"
     .form-group                    
-      = f.text_area :description, class: "form-control", placeholder: "Описание вакансии"
+      = f.label      :description, "Описание вакансии"    
+      = f.text_area  :description, class: "form-control", placeholder: "Описание вакансии"
+    .form-group
+      = f.label     :instruction, "Инструкции"
+      = f.text_area :instruction, class: "form-control", placeholder: "Инструкции"
+    .form-group
+      = f.label      :location, "Месторасположение"    
+      = f.text_field :location, class: "form-control", placeholder: current_user.company.location
+    .form-group
+      = f.check_box :paid, value: true
+      = f.label     :paid, "Оплачиваемая"
+    / add ajax here. show this field only if user marks paid as true      
+    - if @vacancy.paid?
+      .form-group
+        = f.label        "Зарплата"    
+        = f.label        :salaryfrom, "От"    
+        = f.number_field :salaryfrom, class: "form-control", placeholder: "От"
+        = f.label        :salaryto, "До"    
+        = f.number_field :salaryto, class: "form-control", placeholder: "До"      
+    .form-group
+      = f.label        :min_grade, "Курс"
+      = f.label        :min_grade, "От"
+      = f.number_field :min_grade, class: "form-control", placeholder: "От"
+    .form-group
+      = f.label      :deadline, "Дедлайн вакансии"
+      = f.date_field :deadline, class: "form-control", placeholder: "Дедлайн вакансии"
+
     .text-center.margin-top30
-      = f.submit "Добавить вакансию", class: "btn btn-default btn-lg btn-company"
+      - if @vacancy.company.present?
+        = f.submit "Сохранить вакансию", class: "btn btn-default btn-lg btn-company"
+      - else    
+        = f.submit "Добавить вакансию", class: "btn btn-default btn-lg btn-company"
+
