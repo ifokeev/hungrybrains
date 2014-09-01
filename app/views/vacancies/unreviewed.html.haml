@@ -1,6 +1,6 @@
 = render 'responses_nav'
 - if @unreviewed.any?
-  = render @students
+  = render partial: 'response', collection: @unreviewed
 - else
   %strong
     Необработанных откликов нет
