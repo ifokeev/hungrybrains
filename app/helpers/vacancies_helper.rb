@@ -62,4 +62,36 @@ module VacanciesHelper
             "/vacancies/#{collection.id}/responses/rejected")
   end
 
+
+  def duration_in_months(duration)
+    [ duration,
+      Russian::pluralize(duration, "месяц", 
+                                   "месяца", 
+                                   "месяцев")
+    ].join(" ")
+  end
+
+  def deadline_from_date(date)
+    date0 = Date.today
+    result = (date - date0).to_i
+    if result < 7
+      [ result,
+        Russian::pluralize(result, "день", 
+                                   "дня", 
+                                   "дней")
+      ].join(" ")
+    else
+      result /= 7
+      [ result,
+        Russian::pluralize(result, "неделя", 
+                                   "недели", 
+                                   "недель")
+      ].join(" ")    
+    end
+  end
+
+  def from_grade(min_grade)
+    [ "от", min_grade, "курса" ].join(" ")
+  end
+
 end

@@ -16,10 +16,10 @@
           - if @vacancy.paid?
             Оплачиваемая
           - else
-            Не оплачиваемая
+            Неоплачиваемая
       .col-md-4
         %p.iconbeforep.locationbeforep
-          = @vacancy.company.location
+          = @vacancy.location
       %br
     .col-md-12.margin-top10
       %h3
@@ -34,20 +34,17 @@
       .col-md-4.gray18px.font18px
         Образование
       .col-md-8.font18px
-        = @vacancy.min_grade
-        курс
+        = from_grade(@vacancy.min_grade)
     .row.margin-bottom10
       .col-md-4.gray18px.font18px
         Срок
       .col-md-8.font18px
-        = @vacancy.duration || 0
-        = Russian::pluralize(@vacancy.duration || 0, "месяц", "месяца", "месяцев")
+        = duration_in_months(@vacancy.duration)
     .row.margin-bottom10
       .col-md-4.gray18px.font18px
         Дедлайн
       .col-md-8.font18px
-        = @vacancy.deadline || 0
-        дней
+        = deadline_from_date(@vacancy.deadline)
     .row.margin-bottom10
       .col-md-4.font18px.gray18px
         Инструкции
