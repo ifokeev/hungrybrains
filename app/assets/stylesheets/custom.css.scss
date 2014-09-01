@@ -240,11 +240,40 @@ footer .social {
 	margin-top: -0.8em;
 }
 
+.font18px {
+  font-size: 17px;
+}
+
+.gray18px {
+  color: #8d8e8d;
+}
+
 .worktype {
   position: absolute;
   right: 20px;
 }
+.iconbeforep {
+  margin: 20px 0px;
+}
+.iconbeforep:before {
+  content: "";
+  display: block;
+  width: 24px;
+  height: 24px;
+  float: left;
+  margin: 0 6px 0 0;
+}
 
+.traineebeforep:before {
+  background: image_url('trainee.png') no-repeat;
+}
+
+.paidbeforep:before {
+  background: image_url('paid.png') no-repeat;
+}
+.locationbeforep:before {
+  background: image_url('location.png') no-repeat;
+}
 .worktype .trainee {
 	background: image_url('trainee.png') no-repeat;
 	width: 24px;
