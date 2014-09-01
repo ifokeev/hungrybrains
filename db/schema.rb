@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140901164409) do
+ActiveRecord::Schema.define(version: 20140901204852) do
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
@@ -147,7 +147,7 @@ ActiveRecord::Schema.define(version: 20140901164409) do
     t.integer  "salaryfrom"
     t.integer  "salaryto"
     t.integer  "status",            default: 1
-    t.datetime "deadline"
+    t.date     "deadline"
     t.boolean  "paid"
     t.integer  "min_grade"
     t.text     "instruction"

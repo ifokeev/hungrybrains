@@ -35,6 +35,7 @@ def make_users_and_profiles
     company.agency = [true, false].sample
     company.phone = Faker::PhoneNumber.cell_phone
     company.avatar_from_url(Faker::Company.logo)
+    company.location = Faker::Address.city    
     company.categories << Category.new(name: "IT")
 
     company.save
@@ -85,6 +86,10 @@ def make_vacancies
     vacancy.paid = [true, false].sample
     vacancy.min_grade = rand(2..5)
     vacancy.instruction = Faker::Lorem.paragraph(2)
+    vacancy.deadline = rand(2..12).weeks.from_now.to_date
+    vacancy.duration = rand(1..12)
+    vacancy.worktype = rand(0..2)
+    vacancy.location = Faker::Address.city
     vacancy.categories << Category.new(name: "IT")
 
     vacancy.save
