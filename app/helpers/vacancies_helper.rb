@@ -62,8 +62,4 @@ module VacanciesHelper
             "/vacancies/#{collection.id}/responses/rejected")
   end
 
-  def get_student_response(collection, student)
-    collection.find_by(student_id: student.id)
-  end
-
 end

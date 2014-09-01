@@ -10,11 +10,11 @@
       .col-md-4.text-right
         - if current_user?(@student.user)
           .row
-            = button_to "Редактировать профиль", edit_student_path, method: "get", class: "btn btn-default btn-sm btn-student"
+            %a.btn.btn-defauls.btn-sm.btn-student{ href: edit_student_path(@student) } Редактировать профиль
           .row
-            = button_to "Мои отклики", responses_student_path, method: "get", class: "btn btn-default btn-sm btn-company"
+            %a.btn.btn-defauls.btn-sm.btn-company{ href: responses_student_path(@student) } Мои отклики
           .row
-            = button_to "Мои подписки", following_student_path(@student), method: "get", class: "btn btn-default btn-sm btn-default"
+            %a.btn.btn-defauls.btn-sm.btn-default{ href: following_student_path(@student) } Мои подписки
     %ol.breadcrumb.profile
       %li
         = @student.location
@@ -41,5 +41,6 @@
     .contact
       = link_to "VK", "http://vk.com/durov"
   .col-md-9
-    %h4.text-center Лента вакансий
-    = render 'feed'
+    - if current_user.has_role? :student
+      %h4.text-center Лента вакансий
+      = render 'feed'

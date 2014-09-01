@@ -2,9 +2,6 @@
   .col-md-9
     .search.row
       = student_following_count(@companies)
-    = render @companies
-    / .text-center.margin-top10
-    /   %a.show-more{href: "#"}
-    /     %ins Показать больше
+    = render partial: 'companies/company', collection: @companies
   .col-md-3
     .blank

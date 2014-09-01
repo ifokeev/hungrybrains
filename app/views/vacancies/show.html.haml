@@ -55,7 +55,7 @@
         = @vacancy.instruction
     %br
     - if current_user?(@vacancy.company.user)
-      = button_to "Редактировать вакансию", edit_vacancy_path, method: "get", class: "btn btn-default btn-lg btn-company"
+      %a.btn.btn-defauls.btn-lg.btn-company{ href: edit_vacancy_path(@vacancy) } Редактировать вакансию
     = render 'respond_form' if logged_in?
 
     

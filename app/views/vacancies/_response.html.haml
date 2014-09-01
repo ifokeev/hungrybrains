@@ -1,0 +1,20 @@
+.row.vacancy-row
+  .col-md-1
+    = response.status
+    - if response.unreviewed?
+      = render 'vacancies/accept', :student => response.student
+      = render 'vacancies/reject', :student => response.student
+    - else
+      = render 'vacancies/unreview', :student => response.student
+  .col-md-2.logo
+    = image_tag response.student.avatar.url(:thumb)
+  .col-md-6
+    .row.title
+      %p= full_name(response.student)
+    .row.description
+      = response.student.brief_description
+  .col-md-2.text-right
+    .location
+      = response.student.location
+    .university
+      = response.student.university_with_graduation

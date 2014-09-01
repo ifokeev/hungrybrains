@@ -1,6 +1,6 @@
 = render 'responses_nav'
 - if @rejected.any?
-  = render @students
+  = render partial: 'response', collection: @rejected
 - else
   %strong
     Отклоненных откликов нет

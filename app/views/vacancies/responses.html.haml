@@ -1,6 +1,6 @@
 = render 'responses_nav'
 - if @responses.any?
-  = render @students
+  = render partial: 'response', collection: @responses
 - else
   %strong
     Откликов на эту вакансию нет

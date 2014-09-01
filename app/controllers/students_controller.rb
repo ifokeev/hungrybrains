@@ -2,11 +2,14 @@
 class StudentsController < ApplicationController
   before_action :require_login, only: [:edit, :update, :responses]
   before_action :set_student, except: [:new, :create]
-  before_action :correct_user, except: [:new, :create]
+  before_action :correct_user, except: [:new, :show, :create]
   before_action :set_user, only: [:responses]
   
   def show
-    @feed_items = current_user.student.feed.paginate(page: params[:page])    
+    if current_user.has_role? :student
+      correct_user
+      @feed_items = current_user.student.feed.paginate(page: params[:page])
+    end
   end
 
   def edit
