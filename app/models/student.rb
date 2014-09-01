@@ -59,4 +59,10 @@ class Student < ActiveRecord::Base
     result
   end
 
+  def response_to_vacancy(vacancy)
+    self.responses.each do |response|
+      response if response.vacancy == vacancy
+    end
+  end
+
 end
