@@ -7,6 +7,7 @@ class StudentsController < ApplicationController
   
   def show
     if current_user.has_role? :student
+      correct_user
       @feed_items = current_user.student.feed.paginate(page: params[:page])
     end
   end
