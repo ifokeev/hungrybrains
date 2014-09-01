@@ -1,6 +1,7 @@
 = render 'responses_nav'
 - if @responses.any?
-  = render @students
+  - @responses.each do |response|
+    = render 'students/student', student: response.student, response: response
 - else
   %strong
     Откликов на эту вакансию нет

@@ -1,7 +1,7 @@
 .row.vacancy-row
   .col-md-1
-    = student.response_to_vacancy(@vacancy).last.status
-    - if student.response_to_vacancy(@vacancy).last.unreviewed?
+    = response.status
+    - if response.unreviewed?
       = render 'vacancies/accept', :student => student
       = render 'vacancies/reject', :student => student
     - else
