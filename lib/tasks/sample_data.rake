@@ -82,6 +82,7 @@ def make_vacancies
     vacancy.description = Faker::Lorem.paragraph(5)
     vacancy.salaryfrom = rand(10..30) * 1000
     vacancy.salaryto = vacancy.salaryfrom
+    vacancy.paid = [true, false].sample
     vacancy.categories << Category.new(name: "IT")
 
     vacancy.save
