@@ -1,0 +1,11 @@
+.row.vacancy-row
+  .col-md-2.logo
+    = image_tag response.vacancy.company.avatar.url(:thumb)
+  .col-md-8
+    .row.title
+      %p= vacancy_title(response.vacancy)
+    .row.description
+      %p= vacancy_description(response.vacancy)
+  .col-md-1.worktype
+    .row
+      = response.status

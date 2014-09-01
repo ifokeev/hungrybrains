@@ -30,6 +30,19 @@ module VacanciesHelper
   ].join(" ") 
   end
 
+  def vacancy_responses_count(collection)
+    [ collection.count, 
+      Russian::pluralize(collection.count, "отклик", 
+                                           "отклика", 
+                                           "откликов")
+    ].join(" ")
+  end
+
+  def vacancy_responses(collection)
+    link_to(vacancy_responses_count(collection.students), 
+            responses_vacancy_path(collection))
+  end
+
   def all_responses_link(collection, responses)
     link_to([ "Все отклики (", 
               responses.count,

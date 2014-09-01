@@ -1,7 +1,11 @@
 .row.vacancies.margin-top20  
   .col-md-9
     .search.row
-      = student_responses_count(@vacancies)
-    = render partial: 'vacancies/vacancy', collection: @vacancies
+      - if @responses.any?
+        = student_responses_count(@responses)
+      - else
+        %strong
+          Вы не откликнулись ни на одну вакансию
+    = render partial: 'response', collection: @responses
   .col-md-3
     .blank

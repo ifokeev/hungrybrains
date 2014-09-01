@@ -24,7 +24,7 @@ class StudentsController < ApplicationController
   end
 
   def responses
-    @vacancies = @student.vacancies
+    @responses = @student.responses
   end
 
   def companies

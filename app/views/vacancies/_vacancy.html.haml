@@ -8,9 +8,8 @@
       %p= vacancy_description(vacancy)
   .col-md-1.worktype
     .row
-      - if @user.present? and @user.has_role? :student
-        = vacancy.responses.where(student_id: @student.id).take.status
       - if @user.present? and @user.has_role? :company
-        = link_to([vacancy.students.count, "откликов"].join(" "), responses_vacancy_path(vacancy.id))
-      .col-md-6.paid.icon
-      .col-md-6.trainee.icon
+        = vacancy_responses(vacancy)
+      - else
+        .col-md-6.paid.icon
+        .col-md-6.trainee.icon
