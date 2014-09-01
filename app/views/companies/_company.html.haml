@@ -14,6 +14,6 @@
         %div
           = company.vacancies.count
         %div
-          = Russian::pluralize(company.vacancies.count, "вакансия", "вакансии", "вакансий")
+          = vacancies_count_russian(company.vacancies.count)
       .col-md-6
         = render 'shared/follow_form', :company => company if logged_in?

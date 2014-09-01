@@ -7,4 +7,10 @@ module CompaniesHelper
         Russian::pluralize(count, "компания", "компании", "компаний")
     ].join(" ")
   end
+
+  def vacancies_count_russian(count)
+    Russian::pluralize(count, "вакансия", 
+                              "вакансии", 
+                              "вакансий")
+  end
 end
