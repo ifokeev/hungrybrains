@@ -17,7 +17,11 @@ class UsersController < ApplicationController
 
     if @user.save
       auto_login(@user)
-      redirect_to root_url, notice: "Success!"
+      if @user.has_role? :company
+        redirect_to edit_company_path(@user.company), notice: "Success!"
+      else
+        redirect_to edit_student_path(@user.student), notice: "Success!"
+      end
     else
       render :new
     end

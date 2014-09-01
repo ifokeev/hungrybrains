@@ -11,10 +11,9 @@
       .col-md-4.text-right
         - if current_user?(@company.user)
           .row
-            .col-md-6
-              = button_to "Редактировать профиль", edit_company_path, method: "get", class: "btn btn-default btn-sm btn-student"
-            .col-md-6
-              = button_to "Управление", responses_company_path, method: "get", class: "btn btn-default btn-sm btn-company"
+            %a.btn.btn-defauls.btn-sm.btn-student{ href: edit_company_path(@company) } Редактировать профиль
+          .row
+            %a.btn.btn-defauls.btn-sm.btn-company{ href: responses_company_path(@company) } Управление откликами
     %ol.breadcrumb.profile
       %li
         = @company.location
