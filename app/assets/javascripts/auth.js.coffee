@@ -1,9 +1,26 @@
-$(document).on 'click', '.auth-header .student, .auth-header .company', () ->
-  $('.auth-content').removeClass('hide').addClass('hide')
+ready = ->
+  updateMenu = (state) ->
+    $('.auth-content').removeClass('hide').addClass('hide')
 
-  type = ($(@).hasClass('student') && 'student') || 'company'
+    $('.auth-tabs').removeClass('auth-tabs-active')
 
-  $('.auth-tabs').removeClass('auth-tabs-active')
-  $(@).addClass('auth-tabs-active')
+    $(".auth-tabs.#{state}").addClass('auth-tabs-active')
+    $(".auth-content.#{state}").removeClass('hide')
 
-  $(".auth-content.#{type}").removeClass('hide')
+  checkState = () ->
+    params = $.url().param()
+
+    if params['company'] == ""
+      updateMenu('company')
+    else
+      updateMenu('student')
+
+  checkState()
+
+  $( '.auth-header .student, .auth-header .company').on 'click', () ->
+    type = ($(@).hasClass('student') && 'student') || 'company'
+    updateMenu(type)
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
+

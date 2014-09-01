@@ -2,19 +2,17 @@
   .col-md-9
     .search.row
       .col-md-6
-        = [Russian::pluralize(@companies.count, "Найдена", "Найдено", "Найдено"),              |
-           @companies.count,                                                                   |
-           Russian::pluralize(@companies.count, "компания", "компании", "компаний")].join(" ") |
+        = company_count_russian(@companies.count)
       .col-md-6
-        .input-group
-          %input.form-control{placeholder: "Введите ключевое слово"}
-          %span.input-group-btn
-            %button.btn.btn-default
-              %span.glyphicon.glyphicon-search
-    = render @companies
-    / .text-center.margin-top10
-    /   %a.show-more{href: "#"}
-    /     %ins Показать больше
+        - form_tag(companies_path, method: "get")
+        %form{action: companies_path, method: 'get'}
+          .input-group
+            = text_field_tag(:search, params[:search], {class: "form-control", placeholder: "Введите ключевое слово"})
+            %span.input-group-btn
+              %button.btn.btn-default{type: "submit"}
+                %span.glyphicon.glyphicon-search
+    #companies
+      = render 'companies'
   .col-md-3
     .blank
 

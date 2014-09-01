@@ -1,3 +1,4 @@
+#encoding: utf-8
 module ApplicationHelper
 
   def javascript(*files)
@@ -16,6 +17,16 @@ module ApplicationHelper
       when "alert" then "alert alert-warning"
       else "alert #{level}"
     end
+  end
+
+  def pagination_links(collection, options = {})
+    options[:renderer] ||= "BootstrapPagination::Rails"
+    options[:class] ||= 'pagination pagination-centered'
+    options[:inner_window] ||= 2
+    options[:outer_window] ||= 1
+    options[:next_label] ||= "Следующая"
+    options[:previous_label] ||= "Предыдущая"
+    will_paginate(collection, options)
   end
 
 end

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class UsersController < ApplicationController
   def new
     @user = User.new
@@ -5,7 +6,15 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-    @user.build_company
+
+    if params[:type] == "company"
+      @user.build_company(name: params[:name])
+      @user.roles = [:company]
+    else
+      @user.build_student
+      @user.roles = [:student]
+    end
+
     if @user.save
       auto_login(@user)
       redirect_to root_url, notice: "Success!"

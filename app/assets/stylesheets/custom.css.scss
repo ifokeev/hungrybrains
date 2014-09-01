@@ -217,6 +217,10 @@ footer .social {
   border-bottom: 1px solid #ccc;
 }
 
+.last-row{
+  border-bottom: none !important;
+}
+
 .last-vacancy-row, .last-company-row {
   border-bottom: none !important;
 }
@@ -280,6 +284,7 @@ footer .social {
 
 .auth-tabs {
   padding: 10px;
+  cursor: pointer;
 }
 
 .auth-tabs-active {

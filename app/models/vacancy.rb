@@ -1,5 +1,8 @@
 class Vacancy < ActiveRecord::Base
-  
+  include Search
+
+  scoped_search :on => [:title, :description, :brief_description, :location]
+
   enum status: [:draft, :open, :closed]
   enum worktype: [:internship, :fulltime, :parttime]
 
@@ -19,5 +22,4 @@ class Vacancy < ActiveRecord::Base
                             WHERE student_id = :student_id"
     where("company_id IN (#{followed_company_ids})", student_id: student.id)    
   end
-
 end

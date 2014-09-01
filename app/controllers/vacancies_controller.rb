@@ -1,3 +1,4 @@
+#encoding: utf-8
 class VacanciesController < ApplicationController
   before_action :require_login, except: [:index, :show]
   before_action :set_vacancy, only: [:show]
@@ -6,7 +7,11 @@ class VacanciesController < ApplicationController
                                        :accepted, :rejected]
 
 	def index
-		@vacancies = Vacancy.paginate(page: params[:page], per_page: 10).latest
+		@vacancies = Vacancy.search(params[:search]).paginate(page: params[:page], per_page: 10).latest
+    respond_to do |format|
+      format.html
+      format.js
+    end
 	end
 
 	def show

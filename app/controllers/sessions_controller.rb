@@ -1,3 +1,4 @@
+#encoding: utf-8
 class SessionsController < ApplicationController
   before_action :set_user, only: [:create]
   before_action :require_login, only: [:destroy]

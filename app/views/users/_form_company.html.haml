@@ -1,5 +1,6 @@
 .form-wrapper
   = form_for @user do |f|
+    = hidden_field_tag :type, "company"
     %div
       %span.text-center.auth-text Войти с помощью:
       %a{:href => "#"}
@@ -8,6 +9,8 @@
         = image_tag 'fb-auth.png'
       %a{:href => "#"}
         = image_tag 'tw-auth.png'
+    .form-group
+      = text_field_tag :name, params[:name], class: "nameField form-control", placeholder: "Название компании"
     .form-group
       = f.email_field :email, class: "emailField form-control", placeholder: "Email"
     .form-group                    
