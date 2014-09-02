@@ -50,15 +50,12 @@ ActiveRecord::Schema.define(version: 20140902140632) do
   add_index "companies", ["user_id"], name: "index_companies_on_user_id"
 
   create_table "feedbacks", force: true do |t|
-    t.integer  "user_id"
     t.string   "title"
     t.string   "email"
     t.text     "body"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
-
-  add_index "feedbacks", ["user_id"], name: "index_feedbacks_on_user_id"
 
   create_table "identities", force: true do |t|
     t.integer  "user_id"
