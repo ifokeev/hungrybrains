@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :sessions,      only: [:new, :create, :destroy]
   resources :responses,     only: [:create, :destroy, :update]
   resources :relationships, only: [:create, :destroy]  
+  resources :feedbacks,     only: [:new, :create]
   resources :info
   resources :students do
     member do
@@ -26,7 +27,7 @@ Rails.application.routes.draw do
   match '/signout',  to: 'sessions#destroy',      via: [:get, :delete]
   match '/about',    to: 'static_pages#about',    via: 'get'
   match '/contact',  to: 'static_pages#contact',  via: 'get'
-  match '/feedback', to: 'static_pages#feedback', via: 'get'
+  match '/feedback', to: 'feedbacks#new',         via: 'get'
 
   match '/vacancies/:id/responses/unreviewed', to: 'vacancies#unreviewed', via: 'get'
   match '/vacancies/:id/responses/accepted',   to: 'vacancies#accepted',   via: 'get'

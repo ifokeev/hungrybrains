@@ -1,0 +1,16 @@
+.form-wrapper
+  = form_for @feedback do |f|
+    .form-group
+      = f.label      :title, "Тема"
+      = f.text_field :title, class: "form-control", placeholder: "Тема"
+    .form-group
+      = f.label       :email, "Email"
+      - if logged_in?
+        = f.email_field :email, class: "form-control", value: current_user.email
+      - else
+        = f.email_field :email, class: "form-control", placeholder: "Email"
+    .form-group
+      = f.label     :body, "Текст сообщения"
+      = f.text_area :body, class: "form-control", placeholder: "Текст сообщения"
+    .text-center.margin-top30
+      = f.submit "Отправить", class: "btn btn-default btn-lg btn-student"

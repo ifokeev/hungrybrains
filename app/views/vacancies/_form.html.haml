@@ -27,7 +27,7 @@
       = f.text_area :instruction, class: "form-control", placeholder: "Инструкции"
     .form-group
       = f.label      :location, "Месторасположение"    
-      = f.text_field :location, class: "form-control", placeholder: current_user.company.location
+      = f.text_field :location, class: "form-control", value: current_user.company.location
     .form-group
       = f.check_box :paid, value: true
       = f.label     :paid, "Оплачиваемая"
