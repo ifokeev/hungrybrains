@@ -15,7 +15,7 @@ module VacanciesHelper
   end
 
   def vacancy_description(collection)
-    ["Описание", collection.brief_description].join(": ")
+    collection.brief_description
   end
 
   def vacancies_search_count(collection)

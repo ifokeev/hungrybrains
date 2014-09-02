@@ -1,0 +1,13 @@
+%ul.nav.nav-pills.nav-stacked.nav-stacked-custom
+  %li{class: action?('index') && 'active'}
+    %a{href: profile_path()}
+      Лента вакансий
+  %li{class: action?('edit') && 'active'}
+    %a{href: profile_edit_path()}
+      Мой профиль
+  %li{class: action?('responses') && 'active'}
+    %a{href: profile_responses_path()}
+      Мои отклики
+  %li{class: action?('subs') && 'active'}
+    %a{href: profile_subs_path()}
+      Мои подписки

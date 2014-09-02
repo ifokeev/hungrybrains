@@ -1,12 +1,14 @@
 .row.vacancy-row
   .col-md-2.logo
     = image_tag vacancy.company.avatar.url(:thumb)
-  .col-md-8
+  .col-md-9
     .row.title
-      %p= vacancy_title(vacancy)
+      .col-md-12
+        = vacancy_title(vacancy)
     .row.description
-      %p= vacancy_description(vacancy)
-  .col-md-1.worktype
+      .col-md-12
+        = vacancy_description(vacancy)
+  .col-md-1.text-right.worktype
     .row
       - if logged_in? and current_user.has_role? :company and current_user?(vacancy.company.user)
         = vacancy_responses(vacancy)

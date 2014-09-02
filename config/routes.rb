@@ -21,6 +21,28 @@ Rails.application.routes.draw do
       get :responses
     end
   end
+
+
+  # профиль если компания
+  constraints(RouteConstraints::CompanyRequiredConstraint.new) do
+    scope module: "profile" do
+      get '/profile', to: 'company#index'
+      get '/profile/edit', to: 'company#edit'
+    end
+  end
+
+  # профиль если студент
+  constraints(RouteConstraints::StudentRequiredConstraint.new) do
+    #resources :student, module: "profile", path: "/profile" // пример в случае чего
+    scope module: "profile" do
+      get '/profile', to: 'student#index'
+      get '/profile/edit', to: 'student#edit'
+      get '/profile/responses', to: 'student#responses'
+      get '/profile/subs', to: 'student#subs'
+    end
+  end
+
+
   root 'static_pages#index'
   match '/signup',   to: 'users#new',             via: 'get'
   match '/signin',   to: 'sessions#new',          via: 'get'
