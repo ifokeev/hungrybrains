@@ -10,14 +10,6 @@ end
 
 def make_users_and_profiles
 
-  user = User.new
-  user.email = "admin@hungrybrains.ru"
-  user.password = "admin"
-  user.roles = [:admin]
-  user.build_student(name: "Admin User")
-  user.save
-
-
   10.times do |n|
     email = "qweqwe#{n+1}@gmail.com"
     password  = "qweqwe"
