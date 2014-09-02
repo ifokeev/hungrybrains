@@ -3,7 +3,6 @@ class CompaniesController < ApplicationController
   before_action :require_login, only: [:edit, :update, :responses]
   before_action :set_company, except: [:index, :new, :create]
   before_action :correct_user, except: [:index, :show]
-  before_action :set_user, only: [:show, :responses]
   
   def index    
     @companies = Company.search(params[:search]).paginate(page: params[:page], per_page: 10).order('vacancies_count DESC')
@@ -32,10 +31,6 @@ class CompaniesController < ApplicationController
     def set_company
       @company = Company.find(params[:id])
     end
-
-    def set_user
-      @user = @company.user
-    end    
 
     def company_params
       params.require(:company).permit(:name, :avatar, :description, :site,
