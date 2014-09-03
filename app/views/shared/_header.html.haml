@@ -32,7 +32,7 @@
             %li.divider{:role => "presentation"}
             %li{:role => "presentation"}
               = link_to "Выход", signout_path, method: "delete", role: "menuitem", tabindex: "-1"              
-        - else
+        - elsif current_user.has_role? :student
           = link_to "#", class: "btn btn-signin btn-signedin", :data => {:toggle => "dropdown"}, role: "button" do
             %i.fa.fa-user
             &nbsp
