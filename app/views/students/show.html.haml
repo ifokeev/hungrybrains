@@ -1,13 +1,13 @@
 .row.margin-top20  
-  .col-md-3
+  .col-xs-3
     %center
       = image_tag @student.avatar.url(:medium)
-  .col-md-9
+  .col-xs-9
     .row
-      .col-md-8
+      .col-xs-8
         %h3
           = [@student.name, @student.surname].join(" ")
-      .col-md-4.text-right
+      .col-xs-4.text-right
         - if current_user?(@student.user)
           .row
             %a.btn.btn-defauls.btn-sm.btn-student{ href: edit_student_path(@student) } Редактировать профиль
@@ -23,7 +23,7 @@
       %li
         = @student.university_with_graduation
 .row.margin-top20  
-  .col-md-3
+  .col-xs-3
     %strong.subtitle
       Обо мне
     .description
@@ -40,7 +40,7 @@
       Контактная информация
     .contact
       = link_to "VK", "http://vk.com/durov"
-  .col-md-9
+  .col-xs-9
     - if current_user.has_role? :student
       %h4.text-center Лента вакансий
       = render 'feed'

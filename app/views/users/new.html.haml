@@ -1,26 +1,26 @@
-.col-md-10.col-md-offset-1.margin-top20
+.col-xs-10.col-xs-offset-1.margin-top20
   .auth
     .auth-header
       .row
-        .col-md-12
-          .student.col-md-6.text-center.auth-tabs.auth-tabs-active
+        .col-xs-12
+          .student.col-xs-6.text-center.auth-tabs.auth-tabs-active
             Студент
-          .company.col-md-6.text-center.auth-tabs
+          .company.col-xs-6.text-center.auth-tabs
             Компания
     .auth-content.student
       .row
-        .col-md-12
-          .col-md-6
+        .col-xs-12
+          .col-xs-6
             = render 'form_student'
-          .col-md-6
+          .col-xs-6
             = render 'shared/promo_student'
 
     .auth-content.company.hide
       .row
-        .col-md-12
-          .col-md-6
+        .col-xs-12
+          .col-xs-6
             = render 'form_company'
-          .col-md-6
+          .col-xs-6
             = render 'shared/promo_company'
 
 .clearfix

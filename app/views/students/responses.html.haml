@@ -1,5 +1,5 @@
 .row.vacancies.margin-top20  
-  .col-md-9
+  .col-xs-9
     .search.row
       - if @responses.any?
         = student_responses_count(@responses)
@@ -7,5 +7,5 @@
         %strong
           Вы не откликнулись ни на одну вакансию
     = render partial: 'response', collection: @responses
-  .col-md-3
+  .col-xs-3
     .blank

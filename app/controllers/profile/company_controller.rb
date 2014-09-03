@@ -3,7 +3,7 @@ class Profile::CompanyController < ApplicationController
   before_action :require_login
   before_action :set_user
 
-  def index
+  def responses
 
   end
 

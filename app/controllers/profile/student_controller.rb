@@ -12,12 +12,13 @@ class Profile::StudentController < ApplicationController
   end
 
   def responses
-
+    @responses = @student.responses
   end
 
   def subs
-
+    @companies = @student.companies
   end
+
   private
     def set_user
       @student = current_user.student

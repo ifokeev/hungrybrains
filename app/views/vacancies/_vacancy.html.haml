@@ -1,19 +1,19 @@
 .row.vacancy-row
   .inner
-    .col-md-2.logo
+    .col-xs-2.logo
       = image_tag vacancy.company.avatar.url(:thumb), :class => 'img-rounded'
-    .col-md-8
+    .col-xs-8
       .row.title
-        .col-md-12
+        .col-xs-12
           = vacancy_title(vacancy)
       .row.description
-        .col-md-12
+        .col-xs-12
           = vacancy_description(vacancy)
-    .col-md-2.text-right.worktype
+    .col-xs-2.text-right.worktype
       .row
         - if logged_in? and current_user.has_role? :company and current_user?(vacancy.company.user)
           = vacancy_responses(vacancy)
         - else
-          .col-md-12
+          .col-xs-12
             %i.paid.icon
             %i.trainee.icon

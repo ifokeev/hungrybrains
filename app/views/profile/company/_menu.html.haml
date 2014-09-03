@@ -1,0 +1,7 @@
+%ul.nav.nav-pills.nav-stacked.nav-stacked-custom
+  %li{class: action?('responses') && 'active'}
+    %a{href: profile_path()}
+      Мои отклики
+  %li{class: action?('edit') && 'active'}
+    %a{href: profile_edit_path()}
+      Мой профиль

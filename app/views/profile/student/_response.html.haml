@@ -1,0 +1,15 @@
+.row.vacancy-row
+  .inner
+    .col-xs-2.logo
+      = image_tag response.vacancy.company.avatar.url(:thumb), :class => 'img-rounded'
+    .col-xs-8
+      .row.title
+        .col-xs-12
+          = vacancy_title(response.vacancy)
+      .row.description
+        .col-xs-12
+          = vacancy_description(response.vacancy)
+    .col-xs-2.text-right.worktype
+      .row
+        .col-xs-12
+          = response.status

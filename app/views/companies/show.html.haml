@@ -1,14 +1,14 @@
 .row.margin-top20  
-  .col-md-3
+  .col-xs-3
     %center
       = image_tag @company.avatar.url(:medium)  
-  .col-md-9
+  .col-xs-9
     = render 'shared/follow_form', :company => @company if logged_in?
     .row
-      .col-md-8
+      .col-xs-8
         %h3
           = @company.name
-      .col-md-4.text-right
+      .col-xs-4.text-right
         - if current_user?(@company.user)
           .row
             %a.btn.btn-defauls.btn-sm.btn-student{ href: edit_company_path(@company) } Редактировать профиль
@@ -25,7 +25,7 @@
         %strong#followers
           = @company.students.count
 .row.margin-top20  
-  .col-md-3
+  .col-xs-3
     %strong.subtitle
       Тип компании
     .agency
@@ -44,7 +44,7 @@
         = @company.phone
       %div  
         = link_to @company.site, @company.site      
-  .col-md-9
+  .col-xs-9
     - if @company.vacancies.any?
       = render partial: 'vacancies/vacancy', collection: @company.vacancies
     - else

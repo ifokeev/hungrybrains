@@ -1,6 +1,6 @@
 = render 'promo'
 .row.vacancies.margin-top20
-  .col-md-9
+  .col-xs-9
     %p.event-header
       ГОРЯЧИЕ ВАКАНСИИ
     = render partial: 'vacancies/vacancy', collection: @vacancies
@@ -8,7 +8,7 @@
       .text-center.margin-top10
         = link_to vacancies_path, class: "show-more" do
           %ins Показать больше
-  .col-md-3
+  .col-xs-3
     %p.event-header{:style => "text-align: center;"}
       ПРЕДСТОЯЩИЕ СОБЫТИЯ
     .event
