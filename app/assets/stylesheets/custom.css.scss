@@ -223,10 +223,9 @@ footer .social {
 /* vacancies */ 
 
 .vacancies, .vacancy-profile, .white-inner {
-  padding: 20px 0;
+  padding: 20px;
   background: #fff;
   @include border-radius(0.5em);
-  margin-bottom:20px;
 }
 
 .white-inner
@@ -320,6 +319,14 @@ footer .social {
   margin: 20px 0px 50px 0px;
 }
 
+.events {
+  position: absolute;
+  right: 0;
+  height: 100%;
+  padding: 20px;
+  background: #fff;
+  @include border-radius(0.5em);
+}
 .event-header {
   margin-bottom: 20px;
   border-bottom: 1px solid #ddd;
@@ -328,7 +335,7 @@ footer .social {
 }
 
 .event-pic {
-  max-width: 260px;
+  max-width: 252px;
   display: block;
   margin: 0 auto;
 }
@@ -398,7 +405,7 @@ footer .social {
 /* auth */
 
 .auth {
-  background-color: #f2f3f1;
+  background-color: #ffffff;
   @include border-radius(0.5em);
 }
 
@@ -443,7 +450,34 @@ footer .social {
 
 .form-wrapper .form-control {
   font-style: italic;
-  margin-top: 20px;
+  margin-top: 30px;
+}
+.form__content {
+  display: table;
+  width: 100%;
+  margin: 20px 0px;
+}
+
+.form__row {
+  display: table-row;
+}
+
+.form__content-right__input {
+  width: 300px;
+  padding: 5px;
+  margin: 5px;        
+}
+
+.form__content-left {
+  display: table-cell;      
+  left: 0px;        
+  width: 100%       
+}
+
+.errorClass {   
+border-color: red !important;
+box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset, 0 0 8px red !important;
+outline: 0 none !important;
 }
 
 .auth-content, .auth-promo {
