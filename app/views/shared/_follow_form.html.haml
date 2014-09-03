@@ -1,6 +1,6 @@
 - if current_user.has_role? :student
-  #follow_form
+  %div{id: "follow_form_company#{company.id}"}
     - if current_user.student.following?(company)
       = render 'shared/unfollow', :company => company
-    - else 
+    - else
       = render 'shared/follow', :company => company

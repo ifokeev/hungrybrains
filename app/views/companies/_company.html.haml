@@ -9,7 +9,7 @@
       .row
         .col-md-12
           Подписчиков:
-          %strong#followers
+          %strong{id: "followers_company#{company.id}"}
             = company.students.count
     .col-md-4.text-right
       .row
