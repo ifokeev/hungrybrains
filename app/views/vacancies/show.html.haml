@@ -1,59 +1,59 @@
 .vacancy-profile.margin-top20
   .row
-    .col-md-8
-      .col-md-4
+    .col-xs-8
+      .col-xs-4
         = image_tag @vacancy.company.avatar.url(:medium), :class => 'img-rounded'
-      .col-md-8
+      .col-xs-8
         %h2
           = @vacancy.title
         .title
           = link_to @vacancy.company.name, @vacancy.company
-        .col-md-4{:style => "padding-left: 0px"}
+        .col-xs-4{:style => "padding-left: 0px"}
           %p.iconbeforep.traineebeforep
             Гибкий график
-        .col-md-4{:style => "padding-left: 0px"}
+        .col-xs-4{:style => "padding-left: 0px; padding-right: 0px"}
           %p.iconbeforep.paidbeforep
             - if @vacancy.paid?
               Оплачиваемая
             - else
               Неоплачиваемая
-        .col-md-4
+        .col-xs-4
           %p.iconbeforep.locationbeforep
             = @vacancy.location
         %br
-      .col-md-12.margin-top10
+      .col-xs-12.margin-top10
         %h3
           Основные требования
         = @vacancy.description
-      .col-md-12.margin-top10
+      .col-xs-12.margin-top10
         %h3
           О Компании
         = @vacancy.company.description
-    .col-md-4
+    .col-xs-4
       .row.margin-bottom10
-        .col-md-4.gray18px.font18px
+        .col-xs-4.gray18px.font18px
           Категория
-        .col-md-8.font18px
+        .col-xs-8.font18px
           = @vacancy.categories.last.name
       .row.margin-bottom10
-        .col-md-4.gray18px.font18px
+        .col-xs-4.gray18px.font18px
           Образование
-        .col-md-8.font18px
+        .col-xs-8.font18px
           = from_grade(@vacancy.min_grade)
       .row.margin-bottom10
-        .col-md-4.gray18px.font18px
+        .col-xs-4.gray18px.font18px
           Срок
-        .col-md-8.font18px
+        .col-xs-8.font18px
           = duration_in_months(@vacancy.duration)
       .row.margin-bottom10
-        .col-md-4.gray18px.font18px
+        .col-xs-4.gray18px.font18px
           Дедлайн
-        .col-md-8.font18px
+        .col-xs-8.font18px
           = deadline_from_date(@vacancy.deadline)
       .row.margin-bottom10
-        .col-md-4.font18px.gray18px
+        .col-xs-4.font18px.gray18px
           Инструкции
-        .col-md-8.font18px
+        .col-xs-8.font18px
           = @vacancy.instruction
       %br
       - if current_user?(@vacancy.company.user)

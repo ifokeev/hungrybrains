@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   # профиль если компания
   constraints(RouteConstraints::CompanyRequiredConstraint.new) do
     scope module: "profile" do
-      get '/profile', to: 'company#index'
+      get '/profile', to: 'company#responses'
       get '/profile/edit', to: 'company#edit'
     end
   end
@@ -55,8 +55,7 @@ Rails.application.routes.draw do
   match '/vacancies/:id/responses/accepted',   to: 'vacancies#accepted',   via: 'get'
   match '/vacancies/:id/responses/rejected',   to: 'vacancies#rejected',   via: 'get'
 
-  get '/auth/vk/company', to: 'omniauth_callbacks#vkontakte_company'
-  get '/auth/vk/student', to: 'omniauth_callbacks#vkontakte_student'
-  get '/auth/tw/company', to: 'omniauth_callbacks#twitter_company'
-  get '/auth/tw/student', to: 'omniauth_callbacks#twitter_student'
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback"
+  get "oauth/:provider" => "oauths#oauth", :as => :auth_at_provider
 end

@@ -3,7 +3,7 @@
     %a{href: root_path}
       %img.logo{alt: "logo", width:157, src: image_path("logo-hb-3.png")}
   .pull-left{style: 'margin-left:75px'}
-    %nav.row
+    .navbar-collapse.collapse
       %ul.nav.navbar-nav
         %li
           %a{href: vacancies_path} Стажировки
@@ -24,15 +24,15 @@
             %i.fa.fa-caret-down
           %ul.dropdown-menu{:id => "menu1", :role => "menu", :aria => {:labelledby => "drop4"}}
             %li{:role => "presentation"}
-              = link_to "Профиль", company_path(current_user.company), role: "menuitem", tabindex: "-1"          
+              = link_to "Профиль", profile_path, role: "menuitem", tabindex: "-1"
             %li{:role => "presentation"}
-              = link_to "Редактировать профиль", edit_company_path(current_user.company), role: "menuitem", tabindex: "-1"
+              = link_to "Редактировать профиль", profile_edit_path, role: "menuitem", tabindex: "-1"
             %li{:role => "presentation"}
-              = link_to "Управление откликами", responses_company_path(current_user.company), role: "menuitem", tabindex: "-1"
+              = link_to "Управление откликами", profile_responses_path, role: "menuitem", tabindex: "-1"
             %li.divider{:role => "presentation"}
             %li{:role => "presentation"}
               = link_to "Выход", signout_path, method: "delete", role: "menuitem", tabindex: "-1"              
-        - else
+        - elsif current_user.has_role? :student
           = link_to "#", class: "btn btn-signin btn-signedin", :data => {:toggle => "dropdown"}, role: "button" do
             %i.fa.fa-user
             &nbsp
@@ -40,13 +40,13 @@
             %i.fa.fa-caret-down
           %ul.dropdown-menu{:id => "menu1", :role => "menu", :aria => {:labelledby => "drop4"}}
             %li{:role => "presentation"}
-              = link_to "Профиль", student_path(current_user.student), role: "menuitem", tabindex: "-1"          
+              = link_to "Профиль", profile_path, role: "menuitem", tabindex: "-1"
             %li{:role => "presentation"}
-              = link_to "Редактировать профиль", edit_student_path(current_user.student), role: "menuitem", tabindex: "-1"
+              = link_to "Редактировать профиль", profile_edit_path, role: "menuitem", tabindex: "-1"
             %li{:role => "presentation"}
-              = link_to "Мои отклики", responses_student_path(current_user.student), role: "menuitem", tabindex: "-1"
+              = link_to "Мои отклики", profile_responses_path, role: "menuitem", tabindex: "-1"
             %li{:role => "presentation"}
-              = link_to "Мои подписки", following_student_path(current_user.student), role: "menuitem", tabindex: "-1"
+              = link_to "Мои подписки", profile_subs_path, role: "menuitem", tabindex: "-1"
             %li.divider{:role => "presentation"}
             %li{:role => "presentation"}
               = link_to "Выход", signout_path, method: "delete", role: "menuitem", tabindex: "-1"              

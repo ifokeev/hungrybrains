@@ -1,6 +1,13 @@
 .row.margin-top20
-  .col-md-3
+  .col-xs-3
     = render 'menu'
-  .col-md-9
-    %h4.text-center.margin-bottom20
-      Ваши подписки
+  .col-xs-9
+    .white-inner
+      %h4.text-center
+        - if @companies.any?
+          = student_following_count(@companies)
+        - else
+          Вы не подписаны ни на одну компанию
+
+      .white-inner-content
+        = render partial: 'companies/company', collection: @companies

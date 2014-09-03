@@ -1,9 +1,9 @@
 .row.vacancies.margin-top20  
-  .col-md-9
+  .col-xs-9
     .row.search
-      .col-md-6
+      .col-xs-6
         = company_count_russian(@companies.count)
-      .col-md-6
+      .col-xs-6
         - form_tag(companies_path, method: "get")
         %form{action: companies_path, method: 'get'}
           .input-group
@@ -13,5 +13,5 @@
                 %span.glyphicon.glyphicon-search
     #companies
       = render 'companies'
-  .col-md-3
+  .col-xs-3
     .blank

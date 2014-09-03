@@ -3,11 +3,15 @@ require 'role_model'
 require 'securerandom'
 
 class User < ActiveRecord::Base
-  authenticates_with_sorcery!
+  authenticates_with_sorcery! do |config|
+    config.authentications_class = Authentication
+  end
   include RoleModel
-  has_one  :company,   dependent: :destroy
-  has_one  :student,   dependent: :destroy
-
+  has_many :authentications, dependent: :destroy
+  has_one  :company,         dependent: :destroy
+  has_one  :student,         dependent: :destroy
+  accepts_nested_attributes_for :authentications
+  
   validates :password, presence: true, length: { minimum: 5 }, confirmation: false
   validates :email,    presence: true, email: true, uniqueness: true
 

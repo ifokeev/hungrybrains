@@ -1,9 +1,9 @@
 .row.vacancies.margin-top20  
-  .col-md-9
+  .col-xs-9
     .row.search
-      .col-md-6
+      .col-xs-6
         = vacancies_search_count(@vacancies)
-      .col-md-6
+      .col-xs-6
         %form{action: vacancies_path, method: 'get'}
           .input-group
             = text_field_tag(:search, params[:search], {class: "form-control", placeholder: "Введите ключевое слово"})
@@ -12,7 +12,7 @@
                 %span.glyphicon.glyphicon-search
     #vacancies
       = render 'vacancies'
-  .col-md-3
+  .col-xs-3
     - if logged_in? and current_user.has_role? :company
       %a.btn.btn-defauls.btn-lg.btn-company{ href: new_vacancy_path } Добавить стажировку
     .blank
