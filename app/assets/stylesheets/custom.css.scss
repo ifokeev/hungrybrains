@@ -8,6 +8,9 @@
 html, body {
   height: 100%;
   overflow-x: hidden;
+  background-image: image_url('ricepaper2.png');
+  background-position: initial initial;
+  background-repeat: initial initial;
 }
 
 /* header */
@@ -161,8 +164,8 @@ footer .social {
 .promo {
 	background-color: #f2f3f1;
 	border-radius: 1em;
-	padding: 10px;
-	min-height: 300px;
+	padding: 30px 20px;
+	min-height: 320px;
 	font-size: 1.1em;
     height:100%;
 }
@@ -176,8 +179,8 @@ footer .social {
 }
 
 .promo-block {
-  width: 48%;
-  background-color: #f2f3f1;
+  width: 49%;
+  background-color: #fff;
   position: relative;
 }
 
@@ -208,12 +211,21 @@ footer .social {
 /* vacancies */ 
 
 .vacancies {
-	margin-top: 20px;
+  padding: 20px 0;
+  background: #fff;
+  @include border-radius(0.5em);
+  margin-bottom:20px;
 }
 
 .vacancy-row, .company-row {
   margin-top: 10px;
   margin-bottom: 5px;
+
+  .inner{
+    padding: 20px 0;
+    position: relative;
+    min-height: 50px;
+  }
 
   .logo{
     margin-top:10px;
@@ -265,6 +277,37 @@ footer .social {
   margin: 0 6px 0 0;
 }
 
+.event {
+  margin: 20px 0px 50px 0px;
+}
+
+.event-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  height: 40px;
+  font-size: 17px;
+}
+
+.event-pic {
+  max-width: 260px;
+  display: block;
+  margin: 0 auto;
+}
+
+.event-name {
+  text-align: center;
+  font-size: 14px;
+  margin: 0 0 5px;
+}
+
+.event-place {
+  color: #8d8e8d;
+  font-size: 14px;
+}
+
+.event-place__date {
+  float: right;
+}
 .traineebeforep:before {
   background: image_url('trainee.png') no-repeat;
 }

@@ -1,22 +1,21 @@
 .row.row-promo
-  .col-md-12
-    .promo-block.promo.pull-left
-      %img.center-block.img-responsive.img-circle.promo-img{src: image_path("student-promo.png")}
-      %p.text-center.promo-text
-        Вы студент? Hungry Brains поможет Вам найти стажировку прямо сейчас!
-        Просто кликните бла бла бла бла бла. Опыт работа любимая жена связи.
-      .text-center.promo-button
-        %a.btn.btn-default.btn-lg.btn-student{href: signup_path}
-          Найти стажировку
+  .promo-block.promo.pull-left{:style => "background:#d8e2dd"}
+    %img.center-block.img-responsive.img-circle.promo-img{src: image_path("student-promo.png")}
+    %p.text-center.promo-text
+      Вы студент? Hungry Brains поможет Вам найти стажировку прямо сейчас!
+      Просто кликните бла бла бла бла бла. Опыт работа любимая жена связи.
+    .text-center.promo-button
+      %a.btn.btn-default.btn-lg.btn-student{href: signup_path}
+        Найти стажировку
 
-    .promo-block.promo.pull-left{:style => "margin-left:4%"}
-      %img.center-block.img-responsive.img-circle.promo-img{src: image_path("company-promo.png")}/
-      %p.text-center.promo-text
-        Вы компания? Hungry Brains поможет Вам найти стажировку прямо сейчас!
-        Бла бла бла бла бла.
-      .text-center.promo-button
-        %a.btn.btn-default.btn-lg.btn-company{href: signup_path}
-          Добавить стажировку
+  .promo-block.promo.pull-left{:style => "margin-left:2%;background:#d9dde7"}
+    %img.center-block.img-responsive.img-circle.promo-img{src: image_path("company-promo.png")}/
+    %p.text-center.promo-text
+      Вы компания? Hungry Brains поможет Вам найти стажировку прямо сейчас!
+      Бла бла бла бла бла.
+    .text-center.promo-button
+      %a.btn.btn-default.btn-lg.btn-company{href: signup_path}
+        Добавить стажировку
 
 
   .clearfix
