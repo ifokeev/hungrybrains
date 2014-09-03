@@ -1,11 +1,13 @@
 = render 'promo'
 .row.vacancies.margin-top20
   .col-md-9
+    %h4.no-margin-top
+      Горячие ваканси
     = render partial: 'vacancies/vacancy', collection: @vacancies
-    - if @vacancies.count > 5
-      .text-center.margin-top10
-        = link_to vacancies_path, class: "show-more" do
-          %ins Показать больше
-  .col-md-3.blank
+    .text-center.margin-top10
+      = link_to vacancies_path, class: "btn btn-default btn-student" do
+        Показать больше
+  .col-md-3
+    .blank
 
 .margin-bottom20
