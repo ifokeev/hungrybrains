@@ -316,6 +316,37 @@ footer .social {
   margin: 0 6px 0 0;
 }
 
+.event {
+  margin: 20px 0px 50px 0px;
+}
+
+.event-header {
+  margin-bottom: 20px;
+  border-bottom: 1px solid #ddd;
+  height: 40px;
+  font-size: 17px;
+}
+
+.event-pic {
+  max-width: 260px;
+  display: block;
+  margin: 0 auto;
+}
+
+.event-name {
+  text-align: center;
+  font-size: 14px;
+  margin: 0 0 5px;
+}
+
+.event-place {
+  color: #8d8e8d;
+  font-size: 14px;
+}
+
+.event-place__date {
+  float: right;
+}
 .traineebeforep:before {
   background: image_url('trainee.png') no-repeat;
 }

@@ -1,13 +1,32 @@
 = render 'promo'
 .row.vacancies.margin-top20
   .col-md-9
-    %h4.no-margin-top
-      Горячие ваканси
+    %p.event-header
+      ГОРЯЧИЕ ВАКАНСИИ
     = render partial: 'vacancies/vacancy', collection: @vacancies
-    .text-center.margin-top10
-      = link_to vacancies_path, class: "btn btn-default btn-student" do
-        Показать больше
+    - if @vacancies.count > 5
+      .text-center.margin-top10
+        = link_to vacancies_path, class: "show-more" do
+          %ins Показать больше
   .col-md-3
-    .blank
-
+    %p.event-header{:style => "text-align: center;"}
+      ПРЕДСТОЯЩИЕ СОБЫТИЯ
+    .event
+      %p.event-name
+        ОТБОР НА ПРОЕКТ ТЕХНОПАРК
+      .eventheader.margin-bottom10
+        %span.event-place
+          Начало
+        %span.event-place.event-place__date
+          12.09.2014
+        = image_tag "events/techpark.png", class: "event-pic"
+    .event
+      %p.event-name
+        МАСТЕР-КЛАСС: ТАЙМ-МЕНЕДЖМЕНТ
+      .eventheader.margin-bottom10
+        %span.event-place
+          Начало
+        %span.event-place.event-place__date
+          23.09.2014
+      = image_tag "events/event1.png", class: "event-pic"
 .margin-bottom20
