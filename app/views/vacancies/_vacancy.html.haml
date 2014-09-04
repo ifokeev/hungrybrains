@@ -11,7 +11,8 @@
   .col-xs-2.text-right.worktype
     .row
       - if logged_in? and current_user.has_role? :company and current_user?(vacancy.company.user)
-        = vacancy_responses(vacancy)
+        .col-xs-12
+          = vacancy_responses(vacancy)
       - else
         .col-xs-12
           %i.paid.icon

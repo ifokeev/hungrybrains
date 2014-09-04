@@ -14,5 +14,5 @@
       = render 'vacancies'
   .col-xs-3
     - if logged_in? and current_user.has_role? :company
-      %a.btn.btn-defauls.btn-lg.btn-company{ href: new_vacancy_path } Добавить стажировку
+      %a.btn.btn-defauls.btn-lg.btn-company.margin-bottom20{ href: new_vacancy_path } Добавить стажировку
     .blank

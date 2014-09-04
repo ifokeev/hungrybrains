@@ -1,6 +1,8 @@
-= render 'responses_nav'
-- if @responses.any?
-  = render partial: 'response', collection: @responses
-- else
-  %strong
-    Откликов на эту вакансию нет
+.white-inner.margin-top20
+  .white-inner-content
+    = render 'responses_nav'
+    - if @responses.any?
+      = render partial: 'response', collection: @responses
+    - else
+      %strong
+        Откликов на эту вакансию нет

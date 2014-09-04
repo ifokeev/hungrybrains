@@ -5,13 +5,14 @@ module VacanciesHelper
     raw [
             link_to(
                 (collection.company.name if collection.company),
-                collection.company
+                collection.company,
+                class: 'green-link'
             ),
             link_to(
                 collection.title,
                 collection
             )
-        ].join(": ")
+        ].join(" ")
   end
 
   def vacancy_description(collection)

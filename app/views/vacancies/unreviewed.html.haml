@@ -1,6 +1,8 @@
-= render 'responses_nav'
-- if @unreviewed.any?
-  = render partial: 'response', collection: @unreviewed
-- else
-  %strong
-    Необработанных откликов нет
+.white-inner.margin-top20
+  .white-inner-content
+    = render 'responses_nav'
+    - if @unreviewed.any?
+      = render partial: 'response', collection: @unreviewed
+    - else
+      %strong
+        Необработанных откликов нет
