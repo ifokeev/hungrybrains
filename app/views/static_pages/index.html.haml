@@ -1,6 +1,6 @@
 = render 'promo'
 .row.margin-top20{:style => "position: relative"}
-  .col-md-9.vacancies{:style => "width: 73%"}
+  .col-xs-9.vacancies{:style => "width: 73%"}
     %p.event-header
       ГОРЯЧИЕ ВАКАНСИИ
     = render partial: 'vacancies/vacancy', collection: @vacancies
@@ -8,7 +8,7 @@
       .text-center.margin-top10
         = link_to vacancies_path, class: "show-more" do
           %ins Показать больше
-  .col-md-3.events
+  .col-xs-3.events
     %p.event-header{:style => "text-align: center;"}
       ПРЕДСТОЯЩИЕ СОБЫТИЯ
     .event
@@ -20,13 +20,13 @@
         %span.event-place.event-place__date
           08.10.2014
       = image_tag "moreynis.png", class: "event-pic"
-    .event
-      %p.event-name
-        ОТБОР НА ПРОЕКТ ТЕХНОПАРК
-      .eventheader.margin-bottom10
-        %span.event-place
-          Технопарк
-        %span.event-place.event-place__date
-          12.09.2014
-        = image_tag "events/techpark.png", class: "event-pic"
+    -#.event
+    -#  %p.event-name
+    -#    ОТБОР НА ПРОЕКТ ТЕХНОПАРК
+    -#  .eventheader.margin-bottom10
+    -#    %span.event-place
+    -#      Технопарк
+    -#    %span.event-place.event-place__date
+    -#      12.09.2014
+    -#    = image_tag "events/techpark.png", class: "event-pic"
 .margin-bottom20

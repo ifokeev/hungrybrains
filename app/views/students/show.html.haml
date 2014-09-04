@@ -1,46 +1,50 @@
-.row.margin-top20  
-  .col-xs-3
-    %center
-      = image_tag @student.avatar.url(:medium)
-  .col-xs-9
+.white-inner.margin-top20
+  .white-inner-content
     .row
-      .col-xs-8
-        %h3
-          = [@student.name, @student.surname].join(" ")
-      .col-xs-4.text-right
-        - if current_user?(@student.user)
-          .row
-            %a.btn.btn-defauls.btn-sm.btn-student{ href: edit_student_path(@student) } Редактировать профиль
-          .row
-            %a.btn.btn-defauls.btn-sm.btn-company{ href: responses_student_path(@student) } Мои отклики
-          .row
-            %a.btn.btn-defauls.btn-sm.btn-default{ href: following_student_path(@student) } Мои подписки
-    %ol.breadcrumb.profile
-      %li
-        = @student.location
-      %li
-        = [@student.grade, "курс"].join(" ")
-      %li
-        = @student.university_with_graduation
-.row.margin-top20  
-  .col-xs-3
-    %strong.subtitle
-      Обо мне
-    .description
-      = @student.description
-    %strong.subtitle
-      Опыт работы
-    .experience
-      = [@student.work, @student.experience, "years"].join(" ")
-    %strong.subtitle
-      Иностранные языки
-    .language
-      = ["Английский", @student.language].join(": ")
-    %strong.subtitle
-      Контактная информация
-    .contact
-      = link_to "VK", "http://vk.com/durov"
-  .col-xs-9
-    - if current_user.has_role? :student
-      %h4.text-center Лента вакансий
-      = render 'feed'
+      .col-xs-3
+        = image_tag @student.avatar.url(:medium), class: 'img-rounded'
+      .col-xs-9
+        .row
+          .col-xs-8
+            %h3
+              = [@student.name, @student.surname].join(" ")
+          .col-xs-4.text-right
+            - if current_user?(@student.user)
+              .row
+                .col-md-12
+                  %a.btn.btn-defauls.btn-sm.btn-student{ href: profile_path } Редактировать профиль
+              .row
+                .col-md-12
+                  %a.btn.btn-defauls.btn-sm.btn-company.margin-top10{ href: profile_responses_path } Мои отклики
+              .row
+                .col-md-12
+                  %a.btn.btn-defauls.btn-sm.btn-default.margin-top10{ href: profile_subs_path } Мои подписки
+        %ol.breadcrumb.profile.no-padding-left
+          %li
+            = @student.location
+          %li
+            = [@student.grade, "курс"].join(" ")
+          %li
+            = @student.university_with_graduation
+    .row.margin-top20
+      .col-xs-3
+        %div.subtitle.bold
+          Обо мне
+        .description
+          = @student.description
+        %div.subtitle.bold.margin-top10
+          Опыт работы
+        .experience
+          = [@student.work, @student.experience, "years"].join(" ")
+        %div.subtitle.bold.margin-top10
+          Иностранные языки
+        .language
+          = ["Английский", @student.language].join(": ")
+        %div.subtitle.bold.margin-top10
+          Контактная информация
+        .contact
+          = link_to "VK", "http://vk.com/durov"
+      .col-xs-9
+        - if current_user.has_role? :student
+          %h4.text-center Лента вакансий
+          = render 'feed'

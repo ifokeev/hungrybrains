@@ -5,7 +5,7 @@ class StaticPagesController < ApplicationController
     if logged_in?
       redirect_to profile_path()
     else 
-       @vacancies = Vacancy.limit(5).latest
+       @vacancies = Vacancy.limit(6).latest
     end
   end
 

@@ -1,27 +1,26 @@
-.row.vacancy-row
-  .inner
-    .col-xs-2.logo
-      = image_tag company.avatar.url(:thumb), :class => 'img-rounded'
-    .col-xs-6
-      .row.title
-        .col-xs-12
-          = link_to(company.name, company)
-      .row
-        .col-xs-12
-          Подписчиков:
-          %strong{id: "followers_company#{company.id}"}
-            = company.students.count
-    .col-xs-4.text-right
-      .row
-        - if logged_in?
-          .col-xs-6.text-center
-            %span.label.label-default
-              = company.vacancies.count
-              = vacancies_count_russian(company.vacancies.count)
-          .col-xs-6
-            = render 'shared/follow_form', :company => company if logged_in?
-        - else
-          .col-xs-12.text-right
-            %span.label.label-default
-              = company.vacancies.count
-              = vacancies_count_russian(company.vacancies.count)
+.row.company-row
+  .col-xs-2.logo
+    = image_tag company.avatar.url(:thumb), :class => 'img-rounded'
+  .col-xs-6
+    .row.title
+      .col-xs-12
+        = link_to(company.name, company, class: 'green-link')
+    .row
+      .col-xs-12
+        Подписчиков:
+        %strong{id: "followers_company#{company.id}"}
+          = company.students.count
+  .col-xs-4.text-right
+    .row
+      - if logged_in? and current_user.has_role? :student
+        .col-xs-6.text-center
+          %span.label.label-default
+            = company.vacancies.count
+            = vacancies_count_russian(company.vacancies.count)
+        .col-xs-6
+          = render 'shared/follow_form', :company => company
+      - else
+        .col-xs-12.text-right
+          %span.label.label-default
+            = company.vacancies.count
+            = vacancies_count_russian(company.vacancies.count)

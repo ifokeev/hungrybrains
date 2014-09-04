@@ -4,7 +4,7 @@ class Profile::CompanyController < ApplicationController
   before_action :set_user
 
   def responses
-
+    @vacancies = @company.vacancies
   end
 
   def edit

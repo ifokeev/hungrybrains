@@ -1,51 +1,52 @@
-.row.margin-top20  
-  .col-xs-3
-    %center
-      = image_tag @company.avatar.url(:medium)  
-  .col-xs-9
-    = render 'shared/follow_form', :company => @company if logged_in?
+.white-inner.margin-top20
+  .white-inner-content
     .row
-      .col-xs-8
-        %h3
-          = @company.name
-      .col-xs-4.text-right
-        - if current_user?(@company.user)
-          .row
-            %a.btn.btn-defauls.btn-sm.btn-student{ href: edit_company_path(@company) } Редактировать профиль
-          .row
-            %a.btn.btn-defauls.btn-sm.btn-company{ href: responses_company_path(@company) } Управление откликами
-    %ol.breadcrumb.profile
-      %li
-        = @company.location
-      %li
-        = @company.employees
-        Сотрудников
-      %li
-        Подписчиков: 
-        %strong#followers
-          = @company.students.count
-.row.margin-top20  
-  .col-xs-3
-    %strong.subtitle
-      Тип компании
-    .agency
-      - if @company.agency
-        Кадровое агентство
-      - else
-        Прямой работодатель
-    %strong.subtitle
-      О компании    
-    .description
-      = @company.description
-    %strong.subtitle
-      Контактная информация
-    .contact
-      %div
-        = @company.phone
-      %div  
-        = link_to @company.site, @company.site      
-  .col-xs-9
-    - if @company.vacancies.any?
-      = render partial: 'vacancies/vacancy', collection: @company.vacancies
-    - else
-      На данный момент активных вакансий нет
+      .col-xs-3
+        = image_tag @company.avatar.url(:medium), class: 'img-rounded'
+      .col-xs-9
+        = render 'shared/follow_form', :company => @company if logged_in?
+        .row
+          .col-xs-8
+            %h3
+              = @company.name
+          .col-xs-4.text-right
+            - if current_user?(@company.user)
+              .row
+                %a.btn.btn-defauls.btn-sm.btn-student{ href: profile_edit_path } Редактировать профиль
+              .row.margin-top10
+                %a.btn.btn-defauls.btn-sm.btn-company{ href: profile_path } Управление откликами
+        %ol.breadcrumb.profile.no-padding-left
+          %li
+            = @company.location
+          %li
+            = @company.employees
+            Сотрудников
+          %li
+            Подписчиков:
+            %strong#followers
+              = @company.students.count
+    .row.margin-top20
+      .col-xs-3
+        %div.subtitle.bold
+          Тип компании
+        .agency
+          - if @company.agency
+            Кадровое агентство
+          - else
+            Прямой работодатель
+        %div.subtitle.bold.margin-top10
+          О компании
+        .description
+          = @company.description
+        %div.subtitle.bold.margin-top10
+          Контактная информация
+        .contact
+          %div
+            = @company.phone
+          %div
+            = link_to @company.site, @company.site
+      .col-xs-9
+        - if @company.vacancies.any?
+          = render partial: 'vacancies/vacancy', collection: @company.vacancies
+        - else
+          На данный момент активных вакансий нет

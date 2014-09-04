@@ -1,6 +1,8 @@
-= render 'responses_nav'
-- if @accepted.any?
-  = render partial: 'response', collection: @accepted
-- else
-  %strong
-    Принятых откликов нет
+.white-inner.margin-top20
+  .white-inner-content
+    = render 'responses_nav'
+    - if @accepted.any?
+      = render partial: 'response', collection: @accepted
+    - else
+      %strong
+        Принятых откликов нет

@@ -1,10 +1,23 @@
-.form-wrapper
+.margin-top20
   = form_for @student, html: { multipart: true } do |f|
-    = image_tag @student.avatar.url(:medium)  
-    .form-group
-      = f.label      :avatar, "Аватар"
-      = f.file_field :avatar
-    .form-group
+    .row
+      .col-xs-6
+        = image_tag @student.avatar.url(:medium), class: 'img-rounded pointer', id: 'avatar-img'
+      .col-xs-6.text-right
+        %div
+          %button.btn.btn-default.btn-red
+            Удалить профиль
+        %div.margin-top10
+          %a.btn.btn-default.btn-green#btn-avatar-upload
+            Загрузить аватар
+          = f.file_field :avatar, class: 'hide', id: 'avatar-upload'
+    -#.row.margin-top20
+    -#  .col-xs-12
+    -#    %a.btn.btn-default.btn-green#btn-avatar-upload
+    -#      Загрузить аватар
+    -#    = f.file_field :avatar, class: 'hide', id: 'avatar-upload'
+
+    .form-group.margin-top20
       = f.label      :name, "Имя"
       = f.text_field :name, class: "form-control", placeholder: "Имя"
     .form-group
@@ -12,10 +25,10 @@
       = f.text_field :surname, class: "form-control", placeholder: "Фамилия"
     .form-group
       = f.label     :description, "Обо мне"
-      = f.text_area :description, class: "form-control", placeholder: "Обо мне"
+      = f.text_area :description, class: "form-control", placeholder: "Обо мне", rows: 3
     .form-group
       = f.label     :brief_description, "Краткое описание"
-      = f.text_area :brief_description, class: "form-control", placeholder: "Краткое описание"
+      = f.text_area :brief_description, class: "form-control", placeholder: "Краткое описание", rows: 3
     .form-group
       = f.label      :location, "Город"
       = f.text_field :location, class: "form-control", placeholder: "Город"

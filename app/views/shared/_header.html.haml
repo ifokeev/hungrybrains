@@ -1,57 +1,59 @@
-%header.row
-  .pull-left
-    %a{href: root_path}
-      %img.logo{alt: "logo", width:157, src: image_path("logo-hb-3.png")}
-  .pull-left{style: 'margin-left:75px'}
-    .navbar-collapse.collapse
-      %ul.nav.navbar-nav
-        %li
-          %a{href: vacancies_path} Стажировки
-        %li
-          %a{href: companies_path} Компании
-        %li
-          %a{href: info_index_path} События
-        %li
-          %a{href: info_index_path} Посты
-  .pull-right.text-right
-    - if current_user 
-      .header__rightblock.dropdown
-        - if current_user.has_role? :company
-          = link_to "#", class: "btn btn-signin btn-signedin", :data => {:toggle => "dropdown"}, role: "button" do
-            %i.fa.fa-user
-            &nbsp
-            = current_user.company.name
-            %i.fa.fa-caret-down
-          %ul.dropdown-menu{:id => "menu1", :role => "menu", :aria => {:labelledby => "drop4"}}
-            %li{:role => "presentation"}
-              = link_to "Профиль", profile_path, role: "menuitem", tabindex: "-1"
-            %li{:role => "presentation"}
-              = link_to "Редактировать профиль", profile_edit_path, role: "menuitem", tabindex: "-1"
-            %li{:role => "presentation"}
-              = link_to "Управление откликами", profile_responses_path, role: "menuitem", tabindex: "-1"
-            %li.divider{:role => "presentation"}
-            %li{:role => "presentation"}
-              = link_to "Выход", signout_path, method: "delete", role: "menuitem", tabindex: "-1"              
-        - elsif current_user.has_role? :student
-          = link_to "#", class: "btn btn-signin btn-signedin", :data => {:toggle => "dropdown"}, role: "button" do
-            %i.fa.fa-user
-            &nbsp
-            = current_user.student.name
-            %i.fa.fa-caret-down
-          %ul.dropdown-menu{:id => "menu1", :role => "menu", :aria => {:labelledby => "drop4"}}
-            %li{:role => "presentation"}
-              = link_to "Профиль", profile_path, role: "menuitem", tabindex: "-1"
-            %li{:role => "presentation"}
-              = link_to "Редактировать профиль", profile_edit_path, role: "menuitem", tabindex: "-1"
-            %li{:role => "presentation"}
-              = link_to "Мои отклики", profile_responses_path, role: "menuitem", tabindex: "-1"
-            %li{:role => "presentation"}
-              = link_to "Мои подписки", profile_subs_path, role: "menuitem", tabindex: "-1"
-            %li.divider{:role => "presentation"}
-            %li{:role => "presentation"}
-              = link_to "Выход", signout_path, method: "delete", role: "menuitem", tabindex: "-1"              
-    - else
-      .header__rightblock
-        %a.btn.btn-default.btn-signin{href: signin_path } Вход
-        %a.btn.btn-default.btn-signin.btn-registration{href: signup_path } Регистрация
-  .clearfix
+%header.header
+  .container
+    .row
+      .pull-left
+        %a{href: root_path}
+          %img.logo{alt: "logo", width:157, src: image_path("logo-hb-3.png")}
+      .pull-left{style: 'margin-left:75px'}
+        .navbar-collapse.collapse
+          %ul.nav.navbar-nav
+            %li
+              %a{href: vacancies_path} Стажировки
+            %li
+              %a{href: companies_path} Компании
+            %li
+              %a{href: info_index_path} События
+            %li
+              %a{href: info_index_path} Посты
+      .pull-right.text-right
+        - if current_user
+          .header__rightblock.dropdown
+            - if current_user.has_role? :company
+              = link_to "#", class: "btn btn-signin btn-signedin", :data => {:toggle => "dropdown"}, role: "button" do
+                %i.fa.fa-user
+                &nbsp
+                = current_user.company.name
+                %i.fa.fa-caret-down
+              %ul.dropdown-menu{:id => "menu1", :role => "menu", :aria => {:labelledby => "drop4"}}
+                %li{:role => "presentation"}
+                  = link_to "Профиль", profile_path, role: "menuitem", tabindex: "-1"
+                %li{:role => "presentation"}
+                  = link_to "Редактировать профиль", profile_edit_path, role: "menuitem", tabindex: "-1"
+                %li{:role => "presentation"}
+                  = link_to "Управление откликами", profile_path, role: "menuitem", tabindex: "-1"
+                %li.divider{:role => "presentation"}
+                %li{:role => "presentation"}
+                  = link_to "Выход", signout_path, method: "delete", role: "menuitem", tabindex: "-1"
+            - elsif current_user.has_role? :student
+              = link_to "#", class: "btn btn-signin btn-signedin", :data => {:toggle => "dropdown"}, role: "button" do
+                %i.fa.fa-user
+                &nbsp
+                = current_user.student.name
+                %i.fa.fa-caret-down
+              %ul.dropdown-menu{:id => "menu1", :role => "menu", :aria => {:labelledby => "drop4"}}
+                %li{:role => "presentation"}
+                  = link_to "Профиль", profile_path, role: "menuitem", tabindex: "-1"
+                %li{:role => "presentation"}
+                  = link_to "Редактировать профиль", profile_edit_path, role: "menuitem", tabindex: "-1"
+                %li{:role => "presentation"}
+                  = link_to "Мои отклики", profile_responses_path, role: "menuitem", tabindex: "-1"
+                %li{:role => "presentation"}
+                  = link_to "Мои подписки", profile_subs_path, role: "menuitem", tabindex: "-1"
+                %li.divider{:role => "presentation"}
+                %li{:role => "presentation"}
+                  = link_to "Выход", signout_path, method: "delete", role: "menuitem", tabindex: "-1"
+        - else
+          .header__rightblock
+            %a.btn.btn-default.btn-signin{href: signin_path } Вход
+            %a.btn.btn-default.btn-signin.btn-registration{href: signup_path } Регистрация
+      .clearfix

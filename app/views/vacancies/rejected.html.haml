@@ -1,6 +1,8 @@
-= render 'responses_nav'
-- if @rejected.any?
-  = render partial: 'response', collection: @rejected
-- else
-  %strong
-    Отклоненных откликов нет
+.white-inner.margin-top20
+  .white-inner-content
+    = render 'responses_nav'
+    - if @rejected.any?
+      = render partial: 'response', collection: @rejected
+    - else
+      %strong
+        Отклоненных откликов нет
