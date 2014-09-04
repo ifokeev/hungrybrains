@@ -11,7 +11,7 @@ module VacanciesHelper
                 collection.title,
                 collection
             )
-        ].join(" : ")
+        ].join(": ")
   end
 
   def vacancy_description(collection)

@@ -1,18 +1,10 @@
 .form-wrapper
   = form_for @user do |f|
     = hidden_field_tag :type, "company"
-    %div
-      %span.text-center.auth-text Войти с помощью:
-      %a{:href => "#"}
-        = image_tag 'vk-auth.png'
-      %a{:href => "#"}
-        = image_tag 'fb-auth.png'
-      %a{:href => "#"}
-        = image_tag 'tw-auth.png'
     .form__content
       .form__row
         %label.form__content-left
-          Название компании
+          Название
         .form__content-right
           = text_field_tag :name, params[:name], class: "nameField form-control form__content-right__input", placeholder: "Название компании", id: "company_name"
         %p.companyname-error{:style => "position: absolute; margin-left: 5px; color: red"}
