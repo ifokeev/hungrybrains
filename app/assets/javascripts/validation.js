@@ -76,5 +76,7 @@ inputs.forEach(function(element, index) {
   }) 
 })
 
-}
-$(main);
+};
+
+$(document).ready(main);
+$(document).on('page:load', main);
