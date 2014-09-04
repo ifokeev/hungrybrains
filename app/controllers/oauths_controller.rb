@@ -29,18 +29,17 @@ class OauthsController < ApplicationController
       redirect_to root_path, :notice => "Logged in from #{provider.titleize}!"
     else
       begin
-        @user = create_from(provider)
+        # @user = create_from(provider)
         sorcery_fetch_user_hash(provider)
-
-        #@user.email = @user_hash[:user_info]["email"]
-        #@user.password = @user.email
-        @student = User.find(@user.id)
-        @student.build_student(name: @user_hash[:user_info]["first_name"],
+        @user = User.new
+        @user.email = @user_hash[:user_info]["email"]
+        @user.password = @user.email
+        @user.build_student(name: @user_hash[:user_info]["first_name"],
                             surname: @user_hash[:user_info]["last_name"])
-        @student.roles = [:student]
+        @user.roles = [:student]
         img_url = get_img_url
-        @student.student.avatar_from_url(img_url)
-        @student.save
+        @user.student.avatar_from_url(img_url)
+        @user.save
         
         reset_session # protect from session fixation attack
         auto_login(@user)
