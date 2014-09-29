@@ -552,3 +552,36 @@ outline: 0 none !important;
   border:1px solid #ccc;
 }
 
+.avatar-photo {
+  border-radius: 50%;
+  display: table-caption;
+  margin: 0 auto;
+}
+
+p.profile {
+  text-align: center;
+  font-size: 1.7rem;
+  font-style: normal;
+  font-weight: 400;
+  color: #000;
+  font-family: effra, sans-serif;
+}
+
+p.profile.evg {
+  margin-left: 28px;
+}
+
+p.role {
+  color: #777;
+}
+
+.address {
+  border-top: 1px solid #ddd;
+}
+
+.text-about {
+  text-align: justify;
+  font-size: 1.2em;
+  text-indent: 20px;
+}
+
