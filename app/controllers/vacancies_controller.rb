@@ -2,8 +2,8 @@
 class VacanciesController < ApplicationController
   before_action :require_login, except: [:index, :show]
   before_action :set_vacancy, only: [:show]
-  before_action :correct_user, except: [:index, :new, :show]
-  before_action :set_resopnses, only: [:responses, :unreviewed, 
+  before_action :correct_user, except: [:index, :new, :show, :create]
+  before_action :set_resopnses, only: [:responses, :unreviewed,
                                        :accepted, :rejected]
 
 	def index
@@ -21,7 +21,7 @@ class VacanciesController < ApplicationController
     @vacancy = Vacancy.new
   end
 
-  def create    
+  def create
     @vacancy = current_user.company.vacancies.build(vacancy_params)
     if @vacancy.save
       redirect_to @vacancy, notice: "Success!"
@@ -30,13 +30,13 @@ class VacanciesController < ApplicationController
     end
   end
 
-  def edit    
+  def edit
   end
 
   def update
     if @vacancy.update(vacancy_params)
       redirect_to @vacancy, notice: "Success!"
-    else 
+    else
       render :edit
     end
   end
@@ -72,7 +72,7 @@ class VacanciesController < ApplicationController
 
     def vacancy_params
       params.require(:vacancy).permit(:title, :description, :brief_description,
-                                      :duration, :location, :worktype, 
+                                      :duration, :location, :worktype,
                                       :salaryfrom, :salaryto, :paid, :status,
                                       :deadline, :min_grade, :instruction)
     end
@@ -87,7 +87,7 @@ class VacanciesController < ApplicationController
 
     def correct_user_company
       @vacancy = current_user.company.vacancies.find_by_id(params[:id])
-      redirect_to root_url if @vacancy.nil?      
+      redirect_to root_url if @vacancy.nil?
     end
 
 
