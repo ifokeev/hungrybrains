@@ -86,21 +86,23 @@ module VacanciesHelper
   end
 
   def deadline_from_date(date)
-    date0 = Date.today
-    result = (date - date0).to_i
-    if result < 7
-      [ result,
-        Russian::pluralize(result, "день", 
-                                   "дня", 
-                                   "дней")
-      ].join(" ")
-    else
-      result /= 7
-      [ result,
-        Russian::pluralize(result, "неделя", 
-                                   "недели", 
-                                   "недель")
-      ].join(" ")    
+    if date
+      date0 = Date.today
+      result = (date - date0).to_i
+      if result < 7
+        [ result,
+          Russian::pluralize(result, "день",
+                                     "дня",
+                                     "дней")
+        ].join(" ")
+      else
+        result /= 7
+        [ result,
+          Russian::pluralize(result, "неделя",
+                                     "недели",
+                                     "недель")
+        ].join(" ")
+      end
     end
   end
 
