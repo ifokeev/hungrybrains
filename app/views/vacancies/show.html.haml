@@ -2,12 +2,12 @@
   .row
     .col-xs-8
       .col-xs-4
-        = image_tag @vacancy.company.avatar.url(:medium), :class => 'img-rounded'
+        = image_tag @vacancy.company.avatar.url(:medium), :class => 'img-rounded' if @vacancy.company
       .col-xs-8
         %h2
           = @vacancy.title
         .title
-          = link_to @vacancy.company.name, @vacancy.company
+          = link_to @vacancy.company.name, @vacancy.company if @vacancy.company
         .col-xs-4{:style => "padding-left: 0px"}
           %p.iconbeforep.traineebeforep
             Гибкий график
@@ -24,11 +24,11 @@
       .col-xs-12.margin-top10
         %h3
           Основные требования
-        = @vacancy.description
+        = simple_format(@vacancy.description)
       .col-xs-12.margin-top10
         %h3
           О Компании
-        = @vacancy.company.description
+        = simple_format(@vacancy.company.description) if @vacancy.company
     .col-xs-4
       .row.margin-bottom10
         .col-xs-4.gray18px.font18px
@@ -39,7 +39,7 @@
         .col-xs-4.gray18px.font18px
           Срок
         .col-xs-8.font18px
-          = duration_in_months(@vacancy.duration)
+          = duration_in_months(@vacancy.duration.to_f.prettify)
       .row.margin-bottom10
         .col-xs-4.gray18px.font18px
           Дедлайн
@@ -51,7 +51,7 @@
         .col-xs-8.font18px
           = @vacancy.instruction
       %br
-      - if current_user?(@vacancy.company.user)
+      - if @vacancy.company && current_user?(@vacancy.company.user)
         %a.btn.btn-defauls.btn-lg.btn-company{ href: edit_vacancy_path(@vacancy) } Редактировать вакансию
       = render 'respond_form' if logged_in?
 

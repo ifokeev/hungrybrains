@@ -1,0 +1,4 @@
+%ul.nav.nav-pills.nav-stacked.nav-stacked-custom
+  - @date_groups.each do |date, v|
+    %li{class: (date.strftime('%Y%m%d').to_s == @date) && 'active'}
+      = link_to Russian::strftime(date, "%b %Y"), news_index_path(:date => date.strftime('%Y%m%d'))

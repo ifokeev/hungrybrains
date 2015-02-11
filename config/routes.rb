@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   resources :responses,     only: [:create, :destroy, :update]
   resources :relationships, only: [:create, :destroy]  
   resources :feedbacks,     only: [:new, :create]
-  resources :info
+
   resources :students do
     member do
       get :responses, :companies
@@ -50,6 +50,11 @@ Rails.application.routes.draw do
   match '/about',    to: 'static_pages#about',    via: 'get'
   match '/contact',  to: 'static_pages#contact',  via: 'get'
   match '/feedback', to: 'feedbacks#new',         via: 'get'
+
+  get '/events/tag/:id', to: 'events#tag'
+  get '/events/date(/:date)', to: 'events#date'
+  resources :events, only: [:index, :show]
+  resources :news, only: [:index, :show]
 
   match '/vacancies/:id/responses/unreviewed', to: 'vacancies#unreviewed', via: 'get'
   match '/vacancies/:id/responses/accepted',   to: 'vacancies#accepted',   via: 'get'

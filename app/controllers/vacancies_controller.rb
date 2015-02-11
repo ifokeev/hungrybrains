@@ -1,10 +1,14 @@
 #encoding: utf-8
 class VacanciesController < ApplicationController
+  include Banners
+
   before_action :require_login, except: [:index, :show]
   before_action :set_vacancy, only: [:show]
   before_action :correct_user, except: [:index, :new, :show, :create]
   before_action :set_resopnses, only: [:responses, :unreviewed,
                                        :accepted, :rejected]
+
+  before_action :load_grouped_banners, only: [:index]
 
 	def index
 		@vacancies = Vacancy.search(params[:search]).paginate(page: params[:page], per_page: 10).latest

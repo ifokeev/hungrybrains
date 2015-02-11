@@ -1,0 +1,14 @@
+.margin-top10
+  - @news.each_with_index do |n, i|
+    .row{class: (i != 0 && 'margin-top20')}
+      .col-md-4
+        = link_to image_tag(n.image.url(:thumb), :class => 'img-rounded'), news_path(n)
+      .col-md-4
+        .row
+          .col-md-12
+            = link_to n.title, news_path(n)
+        .row
+          .col-md-12
+            = simple_format(n.preview)
+      .col-md-4.text-right
+        = Russian::strftime(n.created_at, "%d %B")

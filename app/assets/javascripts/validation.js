@@ -35,7 +35,7 @@ function validate(element) {
     } else setError(element, company);
   }
   if (company == 'company' && element.type == 'text') {
-    if (element.value.length == 0) setError(element, company,'Введите название')
+    if (element.value.length == 0) setError(element, company,'Введите название');
       else setError(element, company)
   }
 
@@ -61,20 +61,22 @@ function validate(element) {
 }
 
 main = function() {
-$('#student_button').prop('disabled', true);
-$('#company_button').prop('disabled', true);
-inputs = [];
-inputs.push($('#user_password')[0]);
-inputs.push($('#user_email')[0]);
-inputs.push($('#company_email')[0]);
-inputs.push($('#company_password')[0]);
-inputs.push($('#company_name')[0]);
+    $('#student_button').prop('disabled', true);
+    $('#company_button').prop('disabled', true);
+    inputs = [];
+    inputs.push($('#user_password')[0]);
+    inputs.push($('#user_email')[0]);
+    inputs.push($('#company_email')[0]);
+    inputs.push($('#company_password')[0]);
+    inputs.push($('#company_name')[0]);
 
-inputs.forEach(function(element, index) {
-  element.addEventListener('input', function(event) {
-    validate(event.target);
-  }) 
-})
+    inputs.forEach(function(element, index) {
+        if (element) {
+            element.addEventListener('input', function (event) {
+                validate(event.target);
+            })
+        }
+    })
 
 };
 

@@ -3,9 +3,11 @@
   %head
     %title
       = page_title
+    %link{:href => "http://fonts.googleapis.com/css?family=Roboto:400,300,500&subset=latin,cyrillic-ext,cyrillic", :rel => "stylesheet", :type => "text/css"}/
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
+    = favicon_link_tag 'favicon.ico'
     %meta{:content => "width=device-width, initial-scale=1", :name => "viewport"}
   %body.site
 

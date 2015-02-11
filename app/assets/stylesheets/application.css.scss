@@ -1,7 +1,9 @@
 //= require font-awesome
+//= require datepicker3
 //= require_self
 //= require_tree .
 
 $brand-primary: #616a6a;
+$font-family-sans-serif: "Roboto";
 @import "bootstrap-sprockets";
 @import "bootstrap";

@@ -1,0 +1,14 @@
+.white-inner.margin-top20
+  %div.htitle
+    .pull-left
+      %h4.no-margin-bottom.no-margin-top
+        = @event.title
+    .pull-right
+      - if @event.release_at
+        = Russian::strftime(@event.release_at, "%d %B")
+    .clearfix
+  .white-inner-content.no-padding-right.no-padding-left.margin-top10
+    - if @event.txt.empty?
+      = simple_format(@event.preview)
+    - else
+      = simple_format(@event.txt)

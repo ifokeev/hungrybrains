@@ -1,4 +1,9 @@
-FactoryGirl.define do
+FactoryGirl.define do  factory :banner do
+    code "MyText"
+position 1
+active false
+  end
+
   factory :company_user, class: User do
     sequence(:email) { |n| "qweqwe#{n}@gmail.com"}
     password "qweqwe"

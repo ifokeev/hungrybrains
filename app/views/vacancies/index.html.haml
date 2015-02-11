@@ -15,4 +15,6 @@
   .col-xs-3
     - if logged_in? and current_user.has_role? :company
       %a.btn.btn-defauls.btn-lg.btn-company.margin-bottom20{ href: new_vacancy_path } Добавить стажировку
-    .blank
+    - if @banners['vacancies_page'] && @banners['vacancies_page'].size > 0
+      - @banners['vacancies_page'].each do |b|
+        = simple_format(b.code)

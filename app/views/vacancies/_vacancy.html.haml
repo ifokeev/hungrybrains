@@ -1,6 +1,6 @@
 .row.vacancy-row
   .col-xs-2.logo
-    = image_tag vacancy.company.avatar.url(:thumb), :class => 'img-rounded'
+    = image_tag vacancy.company.avatar.url(:thumb), :class => 'img-rounded' if vacancy.company
   .col-xs-8
     .row.title
       .col-xs-12

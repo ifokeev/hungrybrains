@@ -1,0 +1,20 @@
+.margin-top10
+  - if @events.size > 0
+
+    - @events.each_with_index do |e, i|
+      .row{class: (i != 0 && 'margin-top20')}
+        .col-md-4
+          = link_to image_tag(e.image.url(:medium), :class => 'img-rounded'), event_path(e)
+        .col-md-4
+          .row
+            .col-md-12
+              = link_to e.title, event_path(e)
+          .row
+            .col-md-12
+              = simple_format(e.preview)
+        .col-md-4.text-right
+          - if e.release_at
+            = Russian::strftime(e.release_at, "%d %B")
+  - else
+    .text-center
+      Нет событий за теекущий период

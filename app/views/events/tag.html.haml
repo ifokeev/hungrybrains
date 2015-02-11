@@ -1,0 +1,12 @@
+.row.margin-top20
+  .col-xs-12
+    .white-inner
+      .row
+        .col-xs-3{style: 'border-right:1px solid #ccc;height:100%'}
+          = render 'menu'
+        .col-xs-9
+          %h4.text-center.no-margin-top.no-margin-bottom
+            События по тегу
+            = "\"#{strip_tags(params[:id])}\""
+          .white-inner-content
+            = render 'feed'
